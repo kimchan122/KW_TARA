@@ -157,5 +157,10 @@ namespace Project {
 		private void btnMinimize_Click(object sender, EventArgs e) {
 			this.WindowState = FormWindowState.Minimized;
 		}
-	}
+
+        private void pnlDesktopPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }
