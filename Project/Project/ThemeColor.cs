@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace Project {
 	public static class ThemeColor {
 		
-		public static Color PrimaryColor { get; set; }
-		public static Color SecondaryColor { get; set; }
+		public static Color PrimaryColor { get; set; }		//1차 색상
+		public static Color SecondaryColor { get; set; }	//2차 색상(1차 색상에서 밝기 보정됨) - ChangeColorBrightness() 사용
 		//
 		//색상 리스트(HTML color)
 		//	pnlMenu에 있는 버튼 클릭 시 여기 있는 색들 중 랜덤으로 색이 설정된다.
