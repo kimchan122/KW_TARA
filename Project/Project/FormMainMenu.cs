@@ -16,7 +16,7 @@ namespace Project {
 		private Random random;
 		private int tempIndex;
 		private Form activeForm;
-
+		//asdfasdf
 		public FormMainMenu() {
 			InitializeComponent();
 			btnGoHome.Visible = false;  //홈메뉴에서는 btnGoHome버튼 안보이게 
