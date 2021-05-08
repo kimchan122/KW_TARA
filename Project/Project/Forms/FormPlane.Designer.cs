@@ -57,7 +57,7 @@
 			this.btnPlaneMenu_SeatClass.FlatAppearance.BorderSize = 0;
 			this.btnPlaneMenu_SeatClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnPlaneMenu_SeatClass.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnPlaneMenu_SeatClass.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnPlaneMenu_SeatClass.ForeColor = System.Drawing.Color.White;
 			this.btnPlaneMenu_SeatClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnPlaneMenu_SeatClass.Location = new System.Drawing.Point(0, 280);
 			this.btnPlaneMenu_SeatClass.Name = "btnPlaneMenu_SeatClass";
@@ -74,7 +74,7 @@
 			this.btnPlaneMenu_HeadCount.FlatAppearance.BorderSize = 0;
 			this.btnPlaneMenu_HeadCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnPlaneMenu_HeadCount.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnPlaneMenu_HeadCount.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnPlaneMenu_HeadCount.ForeColor = System.Drawing.Color.White;
 			this.btnPlaneMenu_HeadCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnPlaneMenu_HeadCount.Location = new System.Drawing.Point(0, 210);
 			this.btnPlaneMenu_HeadCount.Name = "btnPlaneMenu_HeadCount";
@@ -91,7 +91,7 @@
 			this.btnPlaneMenu_Destination.FlatAppearance.BorderSize = 0;
 			this.btnPlaneMenu_Destination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnPlaneMenu_Destination.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnPlaneMenu_Destination.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnPlaneMenu_Destination.ForeColor = System.Drawing.Color.White;
 			this.btnPlaneMenu_Destination.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnPlaneMenu_Destination.Location = new System.Drawing.Point(0, 140);
 			this.btnPlaneMenu_Destination.Name = "btnPlaneMenu_Destination";
@@ -108,7 +108,7 @@
 			this.btnPlaneMenu_Departure.FlatAppearance.BorderSize = 0;
 			this.btnPlaneMenu_Departure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnPlaneMenu_Departure.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnPlaneMenu_Departure.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnPlaneMenu_Departure.ForeColor = System.Drawing.Color.White;
 			this.btnPlaneMenu_Departure.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnPlaneMenu_Departure.Location = new System.Drawing.Point(0, 70);
 			this.btnPlaneMenu_Departure.Name = "btnPlaneMenu_Departure";
@@ -135,7 +135,7 @@
 			this.btnWayToggle_Single.FlatAppearance.BorderSize = 0;
 			this.btnWayToggle_Single.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnWayToggle_Single.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnWayToggle_Single.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnWayToggle_Single.ForeColor = System.Drawing.Color.White;
 			this.btnWayToggle_Single.Location = new System.Drawing.Point(102, 0);
 			this.btnWayToggle_Single.Margin = new System.Windows.Forms.Padding(1);
 			this.btnWayToggle_Single.Name = "btnWayToggle_Single";
@@ -151,7 +151,7 @@
 			this.btnWayToggle_RoundTrip.FlatAppearance.BorderSize = 0;
 			this.btnWayToggle_RoundTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnWayToggle_RoundTrip.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnWayToggle_RoundTrip.ForeColor = System.Drawing.Color.White;
 			this.btnWayToggle_RoundTrip.Location = new System.Drawing.Point(0, 0);
 			this.btnWayToggle_RoundTrip.Name = "btnWayToggle_RoundTrip";
 			this.btnWayToggle_RoundTrip.Size = new System.Drawing.Size(99, 70);
