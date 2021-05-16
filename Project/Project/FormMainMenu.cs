@@ -68,7 +68,7 @@ namespace Project {
 			foreach (Control previousBtn in pnlMenu.Controls) {	//pnlMenu(좌측 메뉴)내의 콘트롤객체 탐색
 				if (previousBtn.GetType() == typeof(Button)) {		//버튼이면 스타일 초기화
 					previousBtn.BackColor = Color.FromArgb(51, 51, 76);
-					previousBtn.ForeColor = Color.Gainsboro;
+					previousBtn.ForeColor = Color.White;
 					previousBtn.Font = new System.Drawing.Font("서울남산체 B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 				}
 			}
@@ -157,10 +157,5 @@ namespace Project {
 		private void btnMinimize_Click(object sender, EventArgs e) {
 			this.WindowState = FormWindowState.Minimized;
 		}
-
-        private void pnlDesktopPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 	}
 }

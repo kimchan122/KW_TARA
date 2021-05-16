@@ -65,8 +65,8 @@
 			this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnSettings.FlatAppearance.BorderSize = 0;
 			this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSettings.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
-			this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnSettings.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnSettings.ForeColor = System.Drawing.Color.White;
 			this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
 			this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnSettings.Location = new System.Drawing.Point(0, 460);
@@ -85,8 +85,8 @@
 			this.btnRouteSearch.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnRouteSearch.FlatAppearance.BorderSize = 0;
 			this.btnRouteSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnRouteSearch.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
-			this.btnRouteSearch.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnRouteSearch.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnRouteSearch.ForeColor = System.Drawing.Color.White;
 			this.btnRouteSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnRouteSearch.Image")));
 			this.btnRouteSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnRouteSearch.Location = new System.Drawing.Point(0, 370);
@@ -105,8 +105,8 @@
 			this.btnPlane.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnPlane.FlatAppearance.BorderSize = 0;
 			this.btnPlane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnPlane.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
-			this.btnPlane.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnPlane.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnPlane.ForeColor = System.Drawing.Color.White;
 			this.btnPlane.Image = ((System.Drawing.Image)(resources.GetObject("btnPlane.Image")));
 			this.btnPlane.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnPlane.Location = new System.Drawing.Point(0, 280);
@@ -125,8 +125,8 @@
 			this.btnBus.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnBus.FlatAppearance.BorderSize = 0;
 			this.btnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnBus.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
-			this.btnBus.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnBus.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnBus.ForeColor = System.Drawing.Color.White;
 			this.btnBus.Image = ((System.Drawing.Image)(resources.GetObject("btnBus.Image")));
 			this.btnBus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnBus.Location = new System.Drawing.Point(0, 190);
@@ -145,8 +145,8 @@
 			this.btnTrain.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnTrain.FlatAppearance.BorderSize = 0;
 			this.btnTrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnTrain.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
-			this.btnTrain.ForeColor = System.Drawing.Color.Gainsboro;
+			this.btnTrain.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnTrain.ForeColor = System.Drawing.Color.White;
 			this.btnTrain.Image = ((System.Drawing.Image)(resources.GetObject("btnTrain.Image")));
 			this.btnTrain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnTrain.Location = new System.Drawing.Point(0, 100);
@@ -178,7 +178,7 @@
 			this.lblLogo.ForeColor = System.Drawing.Color.White;
 			this.lblLogo.Location = new System.Drawing.Point(25, 35);
 			this.lblLogo.Name = "lblLogo";
-			this.lblLogo.Size = new System.Drawing.Size(230, 39);
+			this.lblLogo.Size = new System.Drawing.Size(218, 33);
 			this.lblLogo.TabIndex = 0;
 			this.lblLogo.Text = "TARA Project";
 			// 
@@ -271,7 +271,7 @@
 			this.lblTitle.ForeColor = System.Drawing.Color.White;
 			this.lblTitle.Location = new System.Drawing.Point(105, 35);
 			this.lblTitle.Name = "lblTitle";
-			this.lblTitle.Size = new System.Drawing.Size(439, 39);
+			this.lblTitle.Size = new System.Drawing.Size(432, 33);
 			this.lblTitle.TabIndex = 0;
 			this.lblTitle.Text = "한눈에 보는 교통수단, TARA!";
 			this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -284,7 +284,6 @@
 			this.pnlDesktopPanel.Name = "pnlDesktopPanel";
 			this.pnlDesktopPanel.Size = new System.Drawing.Size(805, 482);
 			this.pnlDesktopPanel.TabIndex = 2;
-			this.pnlDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDesktopPanel_Paint);
 			// 
 			// FormMainMenu
 			// 
