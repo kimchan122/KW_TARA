@@ -35,10 +35,10 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.grbStorTr.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.grbStorTr.Controls.Add(this.rdoStraight);
             this.grbStorTr.Location = new System.Drawing.Point(302, 12);
             this.grbStorTr.Name = "grbStorTr";
-            this.grbStorTr.Size = new System.Drawing.Size(68, 69);
+            this.grbStorTr.Size = new System.Drawing.Size(68, 59);
             this.grbStorTr.TabIndex = 12;
             this.grbStorTr.TabStop = false;
             this.grbStorTr.Text = "이동구분";
@@ -76,7 +76,7 @@
             // rdoTransfer
             // 
             this.rdoTransfer.AutoSize = true;
-            this.rdoTransfer.Location = new System.Drawing.Point(7, 44);
+            this.rdoTransfer.Location = new System.Drawing.Point(6, 38);
             this.rdoTransfer.Name = "rdoTransfer";
             this.rdoTransfer.Size = new System.Drawing.Size(47, 16);
             this.rdoTransfer.TabIndex = 1;
@@ -87,7 +87,7 @@
             // rdoStraight
             // 
             this.rdoStraight.AutoSize = true;
-            this.rdoStraight.Location = new System.Drawing.Point(7, 21);
+            this.rdoStraight.Location = new System.Drawing.Point(6, 20);
             this.rdoStraight.Name = "rdoStraight";
             this.rdoStraight.Size = new System.Drawing.Size(47, 16);
             this.rdoStraight.TabIndex = 0;
@@ -115,7 +115,7 @@
             // 
             // btnEndloc
             // 
-            this.btnEndloc.Location = new System.Drawing.Point(169, 50);
+            this.btnEndloc.Location = new System.Drawing.Point(169, 39);
             this.btnEndloc.Name = "btnEndloc";
             this.btnEndloc.Size = new System.Drawing.Size(75, 23);
             this.btnEndloc.TabIndex = 9;
@@ -124,7 +124,7 @@
             // 
             // btnStartloc
             // 
-            this.btnStartloc.Location = new System.Drawing.Point(26, 50);
+            this.btnStartloc.Location = new System.Drawing.Point(26, 39);
             this.btnStartloc.Name = "btnStartloc";
             this.btnStartloc.Size = new System.Drawing.Size(75, 23);
             this.btnStartloc.TabIndex = 8;
@@ -143,7 +143,7 @@
             // 
             this.dateTimePicker2.CustomFormat = "tt HH:m";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(420, 50);
+            this.dateTimePicker2.Location = new System.Drawing.Point(420, 41);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
@@ -151,25 +151,31 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(456, 77);
+            this.groupBox1.Location = new System.Drawing.Point(456, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(164, 75);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "인원구성";
             // 
-            // label1
+            // textBox3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "성인";
+            this.textBox3.Location = new System.Drawing.Point(51, 45);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 21);
+            this.textBox3.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(51, 18);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -180,26 +186,24 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "청소년";
             // 
-            // textBox2
+            // label1
             // 
-            this.textBox2.Location = new System.Drawing.Point(51, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(51, 45);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "성인";
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(13, 85);
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(13, 77);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(437, 250);
+            this.webBrowser1.Size = new System.Drawing.Size(437, 258);
             this.webBrowser1.TabIndex = 16;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
