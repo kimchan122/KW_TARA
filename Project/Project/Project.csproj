@@ -70,12 +70,6 @@
     <Compile Include="Forms\FormRouteSearch.Designer.cs">
       <DependentUpon>FormRouteSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormRouteSearch_SelectLocation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormRouteSearch_SelectLocation.Designer.cs">
-      <DependentUpon>FormRouteSearch_SelectLocation.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,9 +97,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRouteSearch.resx">
       <DependentUpon>FormRouteSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormRouteSearch_SelectLocation.resx">
-      <DependentUpon>FormRouteSearch_SelectLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>

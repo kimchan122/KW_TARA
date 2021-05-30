@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace HowToGetAPI
 {
     //국토교통부_열차정보 관련 클래스
-    class Train_Citycode
+    class Train_Citycode // 기차의 도시코드를 얻는 클래스
     {
         public string Code { get; set; }
         public string Name { get; set; }
@@ -22,7 +22,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.Name, this.Code);
         }
     }
-    class Train_Stationcode
+    class Train_Stationcode // 기차의 역 코드를 얻는 클래스
     {
         public string Code { get; set; }
         public string Name { get; set; }
@@ -37,7 +37,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.Name, this.Code);
         }
     }
-    class Train_Trainkinds
+    class Train_Trainkinds // 기차의 종류를 얻는 클래스
     {
         public string Vehiclekndid { get; set; }
         public string Vehiclekndnm { get; set; }
@@ -52,7 +52,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.Vehiclekndid, this.Vehiclekndnm);
         }
     }
-    class TrainList
+    class TrainList // 기차의 운행정보를 담는 클래스
     {
         public string Charge { get; set; }
         public string ArrName { get; set; }
@@ -86,7 +86,7 @@ namespace HowToGetAPI
     }
     
     //국토교통부_국내항공운항정보 관련 클래스
-    class Airport_AirportCode
+    class Airport_AirportCode // 공항 코드를 얻는 클래스
     {
         public string AirportId { get; set; }
         public string AirportNm { get; set; }
@@ -100,7 +100,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.AirportId, this.AirportNm);
         }
     }
-    class Airport_AirlineID
+    class Airport_AirlineID // 항공사 코드를 얻는 클래스
     {
         public string AirlineId { get; set; }
         public string AirlineNm { get; set; }
@@ -114,7 +114,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.AirlineId, this.AirlineNm);
         }
     }
-    class AirplaneList
+    class AirplaneList // 비행 운항 정보를 얻는 클래스
     {
         public string VihicleId { get; set; }
         public string AirlineNm { get; set; }
@@ -150,7 +150,7 @@ namespace HowToGetAPI
     }
 
     //국토교통부_고속버스정보 서비스
-    class ExpressBus_Terminalcode
+    class ExpressBus_Terminalcode // 고속버스의 터미널 코드를 얻는 클래스
     {
         public string terminalId { get; set; }
         public string terminalNm { get; set; }
@@ -165,7 +165,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.terminalId, this.terminalNm);
         }
     }
-    class ExPressBus_BusGrade
+    class ExPressBus_BusGrade // 고속버스 등급을 얻는 클래스
     {
         public string GradeId { get; set; }
         public string GradeNm { get; set; }
@@ -180,7 +180,7 @@ namespace HowToGetAPI
             Console.WriteLine("{0}: {1}", this.GradeId, this.GradeNm);
         }
     }
-    class ExpressBusList
+    class ExpressBusList // 고속버스 운행정보를 얻는 클래스
     {
         public string RouteId { get; set; }
         public string GradeNm { get; set; }
@@ -231,6 +231,7 @@ namespace HowToGetAPI
                 Console.WriteLine("2: 비행기");
                 Console.WriteLine("3: 고속버스");
                 Console.WriteLine("4: 시외버스");
+                Console.WriteLine("5: 통합경로테스트");
                 num = Console.ReadLine();
                 if (num == "1")
                 {
@@ -247,6 +248,10 @@ namespace HowToGetAPI
                 else if (num == "4")
                 {
                     GB_IntercityBus();
+                }
+                else if (num == "5")
+                {
+                    GB_GlobalPath();
                 }
             }
         }
@@ -1282,8 +1287,6 @@ namespace HowToGetAPI
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 results = reader.ReadToEnd();
             }
-            //Console.WriteLine(results);
-
             string Real_results = string.Empty;
 
             int sw = 0;
@@ -1364,7 +1367,6 @@ namespace HowToGetAPI
                 }
                 Console.WriteLine();
                 string input_code = string.Empty; // 입력받은 코드를 저장할 문자열 변수
-                //Console.Write("Give me a Region Code: "); // 코드를 입력하세요!
                 input_code = Console.ReadLine(); // 입력
                 sww = 0;
                 foreach (var c in expressbus)
@@ -1384,7 +1386,7 @@ namespace HowToGetAPI
             }
             return null;
         }
-        public static string ExpressBus_GetExpressBusGrade()
+        public static string ExpressBus_GetExpressBusGrade() // 버스의 등급을 얻는 함수
         {
             List<ExPressBus_BusGrade> exbuskinds = new List<ExPressBus_BusGrade>();
 
@@ -1502,7 +1504,7 @@ namespace HowToGetAPI
             }
             return null;
         }
-        public static void ExpressBus_GetStartToEnd(string start, string end, string deptime, string exbus)
+        public static void ExpressBus_GetStartToEnd(string start, string end, string deptime, string exbus) // 인자를 통해 버스의 노선을 검색하는 함수
         {
             Console.WriteLine("출발지  :{0}", start);
             Console.WriteLine("도착지  :{0}", end);
@@ -1535,8 +1537,6 @@ namespace HowToGetAPI
             }
             Console.WriteLine(results);
 
-            //string Real_results = string.Empty;
-            //Console.WriteLine(results);
             int sw = 0;
             string str = string.Empty;
             string text = string.Empty;
@@ -1627,9 +1627,6 @@ namespace HowToGetAPI
                         case 9:
                             if (str.Length > 0 && charge.Length > 0)
                             {
-                                //Citycode css = new Citycode(c_code, c_name);
-                                //css.print();
-                                //cities.Add(new Citycode(c_code, c_name));
                                 exbuslist.Add(new ExpressBusList(routeid, gradeNm, depPlandTime, arrPlandTime, depPlaceNm, arrplaceNm, charge));
                                 routeid = string.Empty;
                                 gradeNm = string.Empty;
@@ -1653,8 +1650,21 @@ namespace HowToGetAPI
             foreach (var c in exbuslist)
             {
                 c.print();
-                //Console.WriteLine("{0}: {1}", c.Name, c.Code);
             }
+        }
+        public static void GB_GlobalPath()
+        {
+            Console.WriteLine("경로추천 테스트");
+            // 출발지를 입력받는다.
+            // 도착지를 입력받는다.
+            // 출발날짜를 입력받는다.
+
+            // result
+            // 기차, 비행기, 고속버스의 직통 경로를 얻는다.
+
+            // additional
+            // 직통, 환승여부
+
         }
     }
 
