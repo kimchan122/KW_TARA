@@ -206,7 +206,7 @@ namespace Project.Forms {
 		}
 		private void btnRSMenu_RSSearch_Click(object sender, EventArgs e)
 		{
-
+			Train_GetTrainCode();
 		}
 
 		string btnstart;
@@ -221,11 +221,13 @@ namespace Project.Forms {
 			endstation=new List<Train_Stationcode>();
 			traingrade = new List<Train_Trainkinds>();
 			sel = (sender as Button).Text;
+
+			//MessageBox.Show("cur: " + currentButton.Text);
+
 			if (currentButton.Name == "btnRSMenu_Departure") { // 출발지 탭에서
 				btnstart = sel; // 버튼의 텍스트를 저장.
 								// 기차
 				if (btnstart == "서울"){
-					MessageBox.Show("00");
 					Train_GetStationCode(1,"11");
                 }
 				else if (btnstart == "부산"){
@@ -249,8 +251,6 @@ namespace Project.Forms {
 				}
 			
 			}
-			MessageBox.Show("cur: " + currentButton.Text);
-
 			MessageBox.Show("start: " + btnstart);
 			MessageBox.Show("end: " + btnend);
 			//Update();
@@ -265,7 +265,6 @@ namespace Project.Forms {
 			url += "&pageNo=1";
 			url += "&cityCode=";
 			url += code;
-			MessageBox.Show("0");
 			var request = (HttpWebRequest)WebRequest.Create(url);
 			request.Method = "GET";
 
@@ -282,7 +281,6 @@ namespace Project.Forms {
 			string text = string.Empty;
 			string c_code = string.Empty;
 			string c_name = string.Empty;
-			MessageBox.Show("1");
 			for (int i = 0; i < results.Length; i++)
 			{
 				if (sw == 1 && results[i] != '<' && results[i] != '>'){
@@ -342,7 +340,6 @@ namespace Project.Forms {
 								else if (sore == 2){
 									endstation.Add(new Train_Stationcode(c_code, c_name));
 								}
-								//Station.Add(new Train_Stationcode(c_code, c_name));
 								c_code = string.Empty;
 								c_name = string.Empty;
 							}
@@ -359,31 +356,124 @@ namespace Project.Forms {
 			
 			foreach(var c in startstation)
             {
-				MessageBox.Show(c.Name+": "+c.Code);
+				//MessageBox.Show(c.Name+": "+c.Code);
             }
 
 			foreach (var c in endstation)
 			{
-				MessageBox.Show(c.Name + ": " + c.Code);
+				//MessageBox.Show(c.Name + ": " + c.Code);
+			}
+		}
+		public static void Train_GetTrainCode()
+		{
+			List<Train_Trainkinds> traingrade = new List<Train_Trainkinds>();
+
+			string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getVhcleKndList"; // URL
+			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+
+			var request = (HttpWebRequest)WebRequest.Create(url);
+			request.Method = "GET";
+
+			string results = string.Empty;
+			HttpWebResponse response;
+			using (response = request.GetResponse() as HttpWebResponse)
+			{
+				StreamReader reader = new StreamReader(response.GetResponseStream());
+				results = reader.ReadToEnd();
 			}
 
-			/*
-			int sww = 0;
+			string Real_results = string.Empty;
+			int sw = 0;
+			string str = string.Empty;
+			string text = string.Empty;
+			string vehiclekndid = string.Empty;
+			string vehiclekndnm = string.Empty;
+
+			for (int i = 0; i < results.Length; i++)
+			{
+				if (sw == 1 && results[i] != '<' && results[i] != '>')
+				{
+					str += results[i];
+				}
+				else if (results[i] == '>')
+				{
+					switch (str)
+					{
+						case "resultMsg":
+							sw = 2;
+							break;
+						case "vehiclekndid":
+							sw = 3;
+							break;
+						case "vehiclekndnm":
+							sw = 4;
+							break;
+						default:
+							sw = 0;
+							break;
+					}
+				}
+
+				if (results[i] != '<' && results[i] != '>')
+				{
+					switch (sw)
+					{
+						case 2:
+							text += results[i];
+							break;
+						case 3:
+							vehiclekndid += results[i];
+							break;
+						case 4:
+							vehiclekndnm += results[i];
+							break;
+					}
+					text += results[i];
+				}
+				else if (results[i] == '<')
+				{
+					switch (sw)
+					{
+						case 4:
+							if (str.Length > 0 && vehiclekndnm.Length > 0)
+							{
+								traingrade.Add(new Train_Trainkinds(vehiclekndid, vehiclekndnm));
+								vehiclekndid = string.Empty;
+								vehiclekndnm = string.Empty;
+							}
+							break;
+					}
+					sw = 0;
+					str = string.Empty;
+					text = string.Empty;
+				}
+				if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+				{
+					sw = 1;
+				}
+			}
+
+			foreach (var c in traingrade)
+			{
+				MessageBox.Show(c.Vehiclekndid + ": " + c.Vehiclekndnm);
+				//Console.WriteLine("{0}: {1}", c.Vehiclekndid, c.Vehiclekndnm);
+			}
+
+			/*int sww = 0;
 			while (true) // 코드 받아서 역 리스트 받는 부분으로 넘김
 			{
-				foreach (var c in Station)
+				foreach (var c in traingrade)
 				{
-					Console.WriteLine("{0}: {1}", c.Name, c.Code);
+					Console.WriteLine("{0}: {1}", c.Vehiclekndid, c.Vehiclekndnm);
 				}
 				Console.WriteLine();
 				string input_code = string.Empty; // 입력받은 코드를 저장할 문자열 변수
-				Console.Write("Give me a Station Code: EX) NAT000000   "); // 코드를 입력하세요!
+				Console.Write("Give me a Train Grade Code: "); // 코드를 입력하세요!
 				input_code = Console.ReadLine(); // 입력
-				if (input_code == "-1") return "-1";
 				sww = 0;
-				foreach (var c in Station)
+				foreach (var c in trainkinds)
 				{
-					if (c.Code == input_code) // 역코드 중에 맞는 코드가 있는지 확인
+					if (c.Vehiclekndid == input_code) // 지역코드 중에 맞는 코드가 있는지 확인
 					{
 						sww = 1;
 						return input_code;
@@ -392,15 +482,166 @@ namespace Project.Forms {
 				}
 				if (sww == 0)
 				{
-					Console.WriteLine("역 코드를 다시 입력해 주세요!\n"); // 일치하는 코드가 없을 시 메시지
+					Console.WriteLine("열차 코드를 다시 입력해 주세요!\n"); // 일치하는 코드가 없을 시 메시지
+					Console.WriteLine("{0}", trainkinds.Count);
 				}
-			}*/
-			//Console.WriteLine();
-			//return null;
+			}
+			return null;*/
 		}
+		public static void Train_GetStartToEnd(string start, string end, string deptime, string train)
+		{
+			Console.WriteLine("출발지  :{0}", start);
+			Console.WriteLine("도착지  :{0}", end);
+			Console.WriteLine("출발시각:{0}", deptime);
+			Console.WriteLine("등급    :{0}", train);
+			List<TrainList> trainlist = new List<TrainList>();
+			string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
+			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "&numOfRows=100";
+			url += "&pageNo=1";
+			url += "&depPlaceId=";
+			url += start;
+			url += "&arrPlaceId=";
+			url += end;
+			url += "&depPlandTime=";
+			url += deptime;
+			url += "&trainGradeCode=";
+			url += train;
 
+			var request = (HttpWebRequest)WebRequest.Create(url);
+			request.Method = "GET";
 
-    }
+			string results = string.Empty;
+			HttpWebResponse response;
+			using (response = request.GetResponse() as HttpWebResponse)
+			{
+				StreamReader reader = new StreamReader(response.GetResponseStream());
+				results = reader.ReadToEnd();
+			}
+			//Console.WriteLine(results);
+
+			//string Real_results = string.Empty;
+			//Console.WriteLine(results);
+			int sw = 0;
+			string str = string.Empty;
+			string text = string.Empty;
+
+			string c_charge = string.Empty;
+			string c_arrname = string.Empty;
+			string c_arrtime = string.Empty;
+			string c_depname = string.Empty;
+			string c_deptime = string.Empty;
+			string c_grade = string.Empty;
+			string c_number = string.Empty;
+
+			for (int i = 0; i < results.Length; i++)
+			{
+				if (sw == 1 && results[i] != '<' && results[i] != '>')
+				{
+					str += results[i];
+				}
+				else if (results[i] == '>')
+				{
+					switch (str)
+					{
+						case "resultMsg":
+							sw = 2;
+							break;
+						case "adultcharge": // 비용
+							sw = 3;
+							break;
+						case "arrplacename": // 출발역
+							sw = 4;
+							break;
+						case "arrplandtime":
+							sw = 5;
+							break;
+						case "depplacename":
+							sw = 6;
+							break;
+						case "depplandtime":
+							sw = 7;
+							break;
+						case "traingradename":
+							sw = 8;
+							break;
+						case "trainno":
+							sw = 9;
+							break;
+						default:
+							sw = 0;
+							break;
+					}
+				}
+
+				if (results[i] != '<' && results[i] != '>')
+				{
+					switch (sw)
+					{
+						case 2:
+							text += results[i];
+							break;
+						case 3:
+							c_charge += results[i];
+							break;
+						case 4:
+							c_arrname += results[i];
+							break;
+						case 5:
+							c_arrtime += results[i];
+							break;
+						case 6:
+							c_depname += results[i];
+							break;
+						case 7:
+							c_deptime += results[i];
+							break;
+						case 8:
+							c_grade += results[i];
+							break;
+						case 9:
+							c_number += results[i];
+							break;
+					}
+					text += results[i];
+				}
+				else if (results[i] == '<')
+				{
+					switch (sw)
+					{
+						case 9:
+							if (str.Length > 0 && c_number.Length > 0)
+							{
+								//Citycode css = new Citycode(c_code, c_name);
+								//css.print();
+								//cities.Add(new Citycode(c_code, c_name));
+								trainlist.Add(new TrainList(c_charge, c_arrname, c_arrtime, c_depname, c_deptime, c_grade, c_number));
+								c_charge = string.Empty;
+								c_arrname = string.Empty;
+								c_arrtime = string.Empty;
+								c_depname = string.Empty;
+								c_deptime = string.Empty;
+								c_grade = string.Empty;
+								c_number = string.Empty;
+							}
+							break;
+					}
+					sw = 0;
+					str = string.Empty;
+					text = string.Empty;
+				}
+				if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+				{
+					sw = 1;
+				}
+			}
+			foreach (var c in trainlist)
+			{
+				c.print();
+				//Console.WriteLine("{0}: {1}", c.Name, c.Code);
+			}
+		}
+	}
     //국토교통부_열차정보 관련 클래스
     class Train_Citycode // 기차의 도시코드를 얻는 클래스
 	{
