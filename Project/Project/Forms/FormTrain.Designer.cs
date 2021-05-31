@@ -33,11 +33,12 @@
             this.btnWayToggle_RoundTrip = new System.Windows.Forms.Button();
             this.tmrPanelMove = new System.Windows.Forms.Timer(this.components);
             this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnResult = new System.Windows.Forms.Button();
             this.pnlPlaneMenu.SuspendLayout();
             this.pnlWayToggle.SuspendLayout();
+            this.flpnlDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPlaneMenu
@@ -161,16 +162,33 @@
             // 
             this.flpnlDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpnlDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
+            this.flpnlDetail.Controls.Add(this.button1);
+            this.flpnlDetail.Dock = System.Windows.Forms.DockStyle.Left;
             this.flpnlDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpnlDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
             this.flpnlDetail.ForeColor = System.Drawing.Color.White;
-            this.flpnlDetail.Location = new System.Drawing.Point(316, -2016);
+            this.flpnlDetail.Location = new System.Drawing.Point(325, 0);
             this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
             this.flpnlDetail.MaximumSize = new System.Drawing.Size(650, 4800);
             this.flpnlDetail.MinimumSize = new System.Drawing.Size(0, 4800);
             this.flpnlDetail.Name = "flpnlDetail";
-            this.flpnlDetail.Size = new System.Drawing.Size(303, 4800);
+            this.flpnlDetail.Size = new System.Drawing.Size(504, 4800);
             this.flpnlDetail.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 112);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "편도";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -180,17 +198,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(168, 360);
             this.textBox1.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1007, 112);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 46);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnResult
             // 
@@ -208,7 +215,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 770);
             this.Controls.Add(this.btnResult);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.flpnlDetail);
             this.Controls.Add(this.pnlPlaneMenu);
@@ -218,6 +224,7 @@
             this.Load += new System.EventHandler(this.FormTrain_Load);
             this.pnlPlaneMenu.ResumeLayout(false);
             this.pnlWayToggle.ResumeLayout(false);
+            this.flpnlDetail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,7 +242,7 @@
         private System.Windows.Forms.Timer tmrPanelMove;
         private System.Windows.Forms.FlowLayoutPanel flpnlDetail;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnResult;
+        private System.Windows.Forms.Button button1;
     }
 }
