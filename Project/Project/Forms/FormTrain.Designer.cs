@@ -23,50 +23,219 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.button1 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.Color.Transparent;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("서울남산체 B", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.button1.Location = new System.Drawing.Point(239, 187);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(136, 45);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = false;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("서울남산체 B", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.label1.Location = new System.Drawing.Point(102, 198);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(78, 24);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "label1";
-			// 
-			// FormTrain
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(942, 554);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.button1);
-			this.Name = "FormTrain";
-			this.Text = "열차/지하철";
-			this.Load += new System.EventHandler(this.FormTrain_Load);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            this.pnlPlaneMenu = new System.Windows.Forms.Panel();
+            this.btnTrainMenu_TrainSort = new System.Windows.Forms.Button();
+            this.btnTrainMenu_Destination = new System.Windows.Forms.Button();
+            this.btnTrainMenu_Departure = new System.Windows.Forms.Button();
+            this.pnlWayToggle = new System.Windows.Forms.Panel();
+            this.btnWayToggle_Single = new System.Windows.Forms.Button();
+            this.btnWayToggle_RoundTrip = new System.Windows.Forms.Button();
+            this.tmrPanelMove = new System.Windows.Forms.Timer(this.components);
+            this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnResult = new System.Windows.Forms.Button();
+            this.pnlPlaneMenu.SuspendLayout();
+            this.pnlWayToggle.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // pnlPlaneMenu
+            // 
+            this.pnlPlaneMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
+            this.pnlPlaneMenu.Controls.Add(this.btnTrainMenu_TrainSort);
+            this.pnlPlaneMenu.Controls.Add(this.btnTrainMenu_Destination);
+            this.pnlPlaneMenu.Controls.Add(this.btnTrainMenu_Departure);
+            this.pnlPlaneMenu.Controls.Add(this.pnlWayToggle);
+            this.pnlPlaneMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlPlaneMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlPlaneMenu.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.pnlPlaneMenu.Name = "pnlPlaneMenu";
+            this.pnlPlaneMenu.Size = new System.Drawing.Size(325, 770);
+            this.pnlPlaneMenu.TabIndex = 4;
+            // 
+            // btnTrainMenu_TrainSort
+            // 
+            this.btnTrainMenu_TrainSort.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrainMenu_TrainSort.FlatAppearance.BorderSize = 0;
+            this.btnTrainMenu_TrainSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrainMenu_TrainSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnTrainMenu_TrainSort.ForeColor = System.Drawing.Color.White;
+            this.btnTrainMenu_TrainSort.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTrainMenu_TrainSort.Location = new System.Drawing.Point(0, 336);
+            this.btnTrainMenu_TrainSort.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnTrainMenu_TrainSort.Name = "btnTrainMenu_TrainSort";
+            this.btnTrainMenu_TrainSort.Size = new System.Drawing.Size(325, 112);
+            this.btnTrainMenu_TrainSort.TabIndex = 4;
+            this.btnTrainMenu_TrainSort.Text = "열차 종류";
+            this.btnTrainMenu_TrainSort.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrainMenu_TrainSort.UseVisualStyleBackColor = true;
+            this.btnTrainMenu_TrainSort.Click += new System.EventHandler(this.btnTrainMenu_TrainSort_Click);
+            // 
+            // btnTrainMenu_Destination
+            // 
+            this.btnTrainMenu_Destination.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrainMenu_Destination.FlatAppearance.BorderSize = 0;
+            this.btnTrainMenu_Destination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrainMenu_Destination.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnTrainMenu_Destination.ForeColor = System.Drawing.Color.White;
+            this.btnTrainMenu_Destination.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTrainMenu_Destination.Location = new System.Drawing.Point(0, 224);
+            this.btnTrainMenu_Destination.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnTrainMenu_Destination.Name = "btnTrainMenu_Destination";
+            this.btnTrainMenu_Destination.Size = new System.Drawing.Size(325, 112);
+            this.btnTrainMenu_Destination.TabIndex = 2;
+            this.btnTrainMenu_Destination.Text = "  도착지";
+            this.btnTrainMenu_Destination.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrainMenu_Destination.UseVisualStyleBackColor = true;
+            this.btnTrainMenu_Destination.Click += new System.EventHandler(this.btnTrainMenu_Destination_Click);
+            // 
+            // btnTrainMenu_Departure
+            // 
+            this.btnTrainMenu_Departure.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrainMenu_Departure.FlatAppearance.BorderSize = 0;
+            this.btnTrainMenu_Departure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrainMenu_Departure.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnTrainMenu_Departure.ForeColor = System.Drawing.Color.White;
+            this.btnTrainMenu_Departure.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTrainMenu_Departure.Location = new System.Drawing.Point(0, 112);
+            this.btnTrainMenu_Departure.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnTrainMenu_Departure.Name = "btnTrainMenu_Departure";
+            this.btnTrainMenu_Departure.Size = new System.Drawing.Size(325, 112);
+            this.btnTrainMenu_Departure.TabIndex = 1;
+            this.btnTrainMenu_Departure.Text = "  출발지";
+            this.btnTrainMenu_Departure.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrainMenu_Departure.UseVisualStyleBackColor = true;
+            this.btnTrainMenu_Departure.Click += new System.EventHandler(this.btnPlaneMenu_Departure_Click);
+            // 
+            // pnlWayToggle
+            // 
+            this.pnlWayToggle.Controls.Add(this.btnWayToggle_Single);
+            this.pnlWayToggle.Controls.Add(this.btnWayToggle_RoundTrip);
+            this.pnlWayToggle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlWayToggle.Location = new System.Drawing.Point(0, 0);
+            this.pnlWayToggle.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.pnlWayToggle.Name = "pnlWayToggle";
+            this.pnlWayToggle.Size = new System.Drawing.Size(325, 112);
+            this.pnlWayToggle.TabIndex = 0;
+            // 
+            // btnWayToggle_Single
+            // 
+            this.btnWayToggle_Single.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnWayToggle_Single.FlatAppearance.BorderSize = 0;
+            this.btnWayToggle_Single.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWayToggle_Single.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnWayToggle_Single.ForeColor = System.Drawing.Color.White;
+            this.btnWayToggle_Single.Location = new System.Drawing.Point(165, 0);
+            this.btnWayToggle_Single.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWayToggle_Single.Name = "btnWayToggle_Single";
+            this.btnWayToggle_Single.Size = new System.Drawing.Size(160, 112);
+            this.btnWayToggle_Single.TabIndex = 1;
+            this.btnWayToggle_Single.Text = "편도";
+            this.btnWayToggle_Single.UseVisualStyleBackColor = true;
+            this.btnWayToggle_Single.Click += new System.EventHandler(this.btnWayToggle_Single_Click);
+            // 
+            // btnWayToggle_RoundTrip
+            // 
+            this.btnWayToggle_RoundTrip.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnWayToggle_RoundTrip.FlatAppearance.BorderSize = 0;
+            this.btnWayToggle_RoundTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnWayToggle_RoundTrip.ForeColor = System.Drawing.Color.White;
+            this.btnWayToggle_RoundTrip.Location = new System.Drawing.Point(0, 0);
+            this.btnWayToggle_RoundTrip.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnWayToggle_RoundTrip.Name = "btnWayToggle_RoundTrip";
+            this.btnWayToggle_RoundTrip.Size = new System.Drawing.Size(162, 112);
+            this.btnWayToggle_RoundTrip.TabIndex = 0;
+            this.btnWayToggle_RoundTrip.Text = "왕복";
+            this.btnWayToggle_RoundTrip.UseVisualStyleBackColor = true;
+            this.btnWayToggle_RoundTrip.Click += new System.EventHandler(this.btnWayToggle_RoundTrip_Click);
+            // 
+            // tmrPanelMove
+            // 
+            this.tmrPanelMove.Enabled = true;
+            this.tmrPanelMove.Interval = 15;
+            this.tmrPanelMove.Tick += new System.EventHandler(this.tmrPanelMove_Tick);
+            // 
+            // flpnlDetail
+            // 
+            this.flpnlDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpnlDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
+            this.flpnlDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpnlDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.flpnlDetail.ForeColor = System.Drawing.Color.White;
+            this.flpnlDetail.Location = new System.Drawing.Point(316, -2016);
+            this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
+            this.flpnlDetail.MaximumSize = new System.Drawing.Size(650, 4800);
+            this.flpnlDetail.MinimumSize = new System.Drawing.Size(0, 4800);
+            this.flpnlDetail.Name = "flpnlDetail";
+            this.flpnlDetail.Size = new System.Drawing.Size(303, 4800);
+            this.flpnlDetail.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1021, 196);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(168, 360);
+            this.textBox1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1007, 112);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 46);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnResult
+            // 
+            this.btnResult.Location = new System.Drawing.Point(1021, 590);
+            this.btnResult.Name = "btnResult";
+            this.btnResult.Size = new System.Drawing.Size(179, 70);
+            this.btnResult.TabIndex = 8;
+            this.btnResult.Text = "조회";
+            this.btnResult.UseVisualStyleBackColor = true;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
+            // 
+            // FormTrain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1283, 770);
+            this.Controls.Add(this.btnResult);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.flpnlDetail);
+            this.Controls.Add(this.pnlPlaneMenu);
+            this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.Name = "FormTrain";
+            this.Text = "열차/지하철";
+            this.Load += new System.EventHandler(this.FormTrain_Load);
+            this.pnlPlaneMenu.ResumeLayout(false);
+            this.pnlWayToggle.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Label label1;
-	}
+        private System.Windows.Forms.Panel pnlPlaneMenu;
+        private System.Windows.Forms.Button btnTrainMenu_TrainSort;
+        private System.Windows.Forms.Button btnTrainMenu_Destination;
+        private System.Windows.Forms.Button btnTrainMenu_Departure;
+        private System.Windows.Forms.Panel pnlWayToggle;
+        private System.Windows.Forms.Button btnWayToggle_Single;
+        private System.Windows.Forms.Button btnWayToggle_RoundTrip;
+        private System.Windows.Forms.Timer tmrPanelMove;
+        private System.Windows.Forms.FlowLayoutPanel flpnlDetail;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnResult;
+    }
 }
