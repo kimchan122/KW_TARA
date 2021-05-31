@@ -15,12 +15,11 @@ namespace Project {
 		private Button currentButton;
 		private Random random;
 		private int tempIndex;
-		private Form activeForm;
+		private Form activeForm; 
 
 		public FormMainMenu() {
 			InitializeComponent();
 			btnGoHome.Visible = false;  //홈메뉴에서는 btnGoHome버튼 안보이게 
-
 			//타이틀바 지우기
 			//타이틀바를 지우면 드래그로 창을 이동시킬 수 없고, 닫기랑 최대화, 최소화도 안된다. 
 			//이에 대한 해결은 line:128에서 
@@ -45,7 +44,7 @@ namespace Project {
 		private void ActivateButton(object btnSender) {
 			if (btnSender != null) {
 				if (currentButton != (Button)btnSender) {	//선택한 버튼과 다른 버튼이 인자로 들어왔으면
-					DisableButton();	//버튼 비활성화
+					DisableButton();  //버튼 비활성화
 
 					//색상 저장
 					Color color = SelectThemeColor();
@@ -101,7 +100,7 @@ namespace Project {
 		}
 
 		private void btnPlane_Click(object sender, EventArgs e) {
-			OpenChildForm(new Forms.FormPlane(), sender);
+			OpenChildForm(new Forms.Plane.FormPlane(), sender);
 		}
 
 		private void btnRouteSearch_Click(object sender, EventArgs e) {
@@ -157,5 +156,6 @@ namespace Project {
 		private void btnMinimize_Click(object sender, EventArgs e) {
 			this.WindowState = FormWindowState.Minimized;
 		}
+
 	}
 }
