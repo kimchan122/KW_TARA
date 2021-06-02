@@ -34,20 +34,21 @@ namespace Project.Forms
 
         int numOfRow = 10;          // 한 페이지 결과 수.
         int pageNo = 1;             // 페이지 번호.
-        String depPlaceId = "NAT010000";     //출발지ID
-        String arrPlaceId = "NAT011668";     //도착지ID
-        String depPlandTime = "20201201";   //출발일
-        String trainGradeCode = "00"; //차량종류코드
+        String depPlaceId = "";     //출발지ID
+        String arrPlaceId = "";     //도착지ID
+        String depPlandTime = "";   //출발일
+        String trainGradeCode = ""; //차량종류코드
 
         public FormTrain()
         {
             InitializeComponent();
-            flpnlDetail.Size = flpnlDetail.MinimumSize;
         }
 
         private void FormTrain_Load(object sender, EventArgs e)
         {
             LoadTheme();//테마 적용함수 로드
+            flpnlDetail.Hide();
+            calendar.Hide();
         }
 
         //부모 Form의 색상테마를 적용하는 함수	
@@ -88,21 +89,23 @@ namespace Project.Forms
 
         private void btnTrainMenu_Destination_Click(object sender, EventArgs e)
         {
-            panelMove(sender);
+            clicedkMenu(sender);
+            ClearPanelControls(tPnlCity);
+            ClearPanelControls(tPnlStation);
+            ClearPanelControls(tPnlSort);
             getStationInfo();
+            flpnlDetail.Show();
+            calendar.Hide();
         }
-        
-        private void panelMove(object sender)
+
+        private void clicedkMenu(object sender)
         {
             if (currentButton != sender)
             {
                 Button thisButton = (Button)sender;
-                flpnlDetail.Size = flpnlDetail.MinimumSize;
-                isCollapsed = true;
             }
             ActivateButton(pnlPlaneMenu, sender);
 
-            tmrPanelMove.Start();//타이머 작동 시작
         }
 
 
@@ -165,12 +168,14 @@ namespace Project.Forms
         //기차역을 클릭시 해당 기차역의 코드를 전역변수에 할당해주고 출,도착지에 해당 기차역을 표시.
         private void btn_StationClick(object sender, EventArgs e)
         {
+
             Button btnClicked = sender as Button;
             ActivateButton(pnlWayToggle, sender);
 
+
             foreach (var station in stationList)
             {
-                foreach(var key in station.Keys)
+                foreach (var key in station.Keys)
                 {
                     if (btnClicked.Text.Equals(station[key]))
                     {
@@ -196,11 +201,15 @@ namespace Project.Forms
         //해당 도시의 기차역개수만큼 버튼을 생성.
         private void createStationBtn(Hashtable station)
         {
-            foreach(var list in station.Keys)
+            tPnlStation.AutoSize = true;
+            tPnlStation.RowCount = station.Count / 5;
+
+            foreach (var list in station.Keys)
             {
                 Button btnStation = new Button();
                 btnStation.Click += btn_StationClick;
-                this.flpnlDetail.Controls.Add(btnStation);
+                this.tPnlStation.Controls.Add(btnStation);
+                btnStation.AutoSize = true;
                 btnStation.Dock = DockStyle.Right;
                 btnStation.Text = station[list].ToString();
 
@@ -210,8 +219,11 @@ namespace Project.Forms
         //도시를 클릭했을때, 해당하는 도시의 기차역을 보여주기위한 이벤트.
         private void btn_CityClick(object sender, EventArgs e)
         {
+
             Button btnClicked = sender as Button;
             ActivateButton(pnlWayToggle, sender);
+
+            ClearPanelControls(tPnlStation);
 
             Hashtable station = new Hashtable();
 
@@ -222,17 +234,21 @@ namespace Project.Forms
             }
 
             createStationBtn(station);
-            
+
         }
 
         private void createCityBtn()
         {
+            tPnlCity.AutoSize = true;
+            tPnlCity.RowCount = cityCode.Count / 5;
+
             foreach (var list in cityCode.Keys)
             {
                 Button btnCities = new Button();
                 btnCities.Click += btn_CityClick;
-                this.flpnlDetail.Controls.Add(btnCities);
+                this.tPnlCity.Controls.Add(btnCities);
                 btnCities.Dock = DockStyle.Top;
+                btnCities.AutoSize = true;
                 btnCities.Text = cityCode[list].ToString();
 
             }
@@ -246,9 +262,8 @@ namespace Project.Forms
 
                 //도시코드를 가져옴.
                 cityCode = getCityCode();
-
+                //도시버튼 생성.
                 createCityBtn();
-
 
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getCtyAcctoTrainSttnList"; // URL
                 url += "?ServiceKey=" + KEY; // Service Key
@@ -266,12 +281,9 @@ namespace Project.Forms
                     Hashtable station = new Hashtable();
                     string response = getXmlString(list);
 
-
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(response);
-
                     string dicKey = list.Substring(list.Length - 2);
-
 
                     XmlNode node = doc["response"]["body"]["items"];
 
@@ -292,33 +304,38 @@ namespace Project.Forms
             {
                 createCityBtn();
             }
-
             depBtnCount++;
+        }
 
+        private void ClearPanelControls(Panel panel)
+        {
+            foreach (var control in panel.Controls.OfType<Button>().ToList())
+                panel.Controls.Remove(control);
         }
 
         //출발지를 얻어오는 함수.
         private void btnPlaneMenu_Departure_Click(object sender, EventArgs e)
         {
+            clicedkMenu(sender);
+            ClearPanelControls(tPnlCity);
+            ClearPanelControls(tPnlStation);
+            ClearPanelControls(tPnlSort);
             getStationInfo();
-            panelMove(sender);
+            flpnlDetail.Show();
+            calendar.Hide();
         }
 
         //도시코드 정보를 받아오는 함수.
         private Dictionary<String, String> getCityCode()
         {
-
             var cityCode = new Dictionary<String, String>();
-
             string url = " http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getCtyCodeList"; // URL
             url += "?ServiceKey=" + KEY; // Service Key
-
             string response = getXmlString(url);
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(response);
             XmlNode node = doc["response"]["body"]["items"];
-
 
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
@@ -337,41 +354,38 @@ namespace Project.Forms
 
                 //존재하지 않은 기차역만 key값으로 설정 value는 기차역코드를 저장.
                 if (!cityCode.ContainsKey(node.ChildNodes[i]["cityCode"].InnerText))
-                    cityCode.Add(node.ChildNodes[i]["cityCode"].InnerText,cityName);
+                    cityCode.Add(node.ChildNodes[i]["cityCode"].InnerText, cityName);
 
             }
-
-
             return cityCode;
         }
-
 
         private void btn_SortClick(object sender, EventArgs e)
         {
             Button btnClicked = sender as Button;
             ActivateButton(pnlWayToggle, sender);
 
-            foreach(var list in trainSort.Keys)
+            foreach (var list in trainSort.Keys)
             {
                 if (btnClicked.Text.Equals(trainSort[list]))
                 {
                     btnTrainMenu_TrainSort.Text = trainSort[list].ToString();
                     trainGradeCode = list.ToString();
-                    textBox1.Text += trainGradeCode + trainSort[list].ToString();
                 }
 
             }
-            
-
         }
 
         private void createSortBtn()
         {
+            tPnlSort.AutoSize = true;
+            tPnlSort.RowCount = trainSort.Count / 5;
             foreach (var list in trainSort.Keys)
             {
                 Button btnSort = new Button();
                 btnSort.Click += btn_SortClick;
-                this.flpnlDetail.Controls.Add(btnSort);
+                this.tPnlSort.Controls.Add(btnSort);
+                btnSort.AutoSize = true;
                 btnSort.Dock = DockStyle.Top;
                 btnSort.Text = trainSort[list].ToString();
 
@@ -381,11 +395,14 @@ namespace Project.Forms
         //기차 종류 정보를 얻는 버튼.
         private void btnTrainMenu_TrainSort_Click(object sender, EventArgs e)
         {
-            panelMove(sender);
+            clicedkMenu(sender);
+            ClearPanelControls(tPnlCity);
+            ClearPanelControls(tPnlStation);
+            flpnlDetail.Show();
+            calendar.Hide();
 
             if (sortBtnCount == 0)
             {
-
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getVhcleKndList";
                 url += "?ServiceKey=" + KEY; // Service Key
 
@@ -416,7 +433,6 @@ namespace Project.Forms
             }
 
             sortBtnCount++;
-
         }
 
         private String getXmlString(String url)
@@ -429,10 +445,30 @@ namespace Project.Forms
             StreamReader reader = new StreamReader(s);
 
             return reader.ReadToEnd();
-
         }
 
         private void btnResult_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            clicedkMenu(sender);
+            flpnlDetail.Hide();
+            calendar.Show();
+        }
+
+        private void calendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            string date = calendar.SelectionStart.ToShortDateString();
+
+            date = date.Replace("-", string.Empty);
+            btnDate.Text = date;
+            depPlandTime = date;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
             url += "?ServiceKey=" + KEY;
@@ -454,13 +490,13 @@ namespace Project.Forms
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
 
-                textBox1.Text += node.ChildNodes[i]["traingradename"].InnerText + "\r\n";
-                textBox1.Text += node.ChildNodes[i]["depplandtime"].InnerText + "\r\n";
-                textBox1.Text += node.ChildNodes[i]["arrplandtime"].InnerText + "\r\n";
-                textBox1.Text += node.ChildNodes[i]["depplacename"].InnerText + "\r\n";
-                textBox1.Text += node.ChildNodes[i]["arrplacename"].InnerText + "\r\n";
-                textBox1.Text += node.ChildNodes[i]["adultcharge"].InnerText + "\r\n";
-                textBox1.Text += node.ChildNodes[i]["trainno"].InnerText + "\r\n";
+                textBox1.Text += node.ChildNodes[i]["traingradename"].InnerText + "  ";
+                textBox1.Text += node.ChildNodes[i]["depplandtime"].InnerText + "  ";
+                textBox1.Text += node.ChildNodes[i]["arrplandtime"].InnerText + "  ";
+                textBox1.Text += node.ChildNodes[i]["depplacename"].InnerText + "  ";
+                textBox1.Text += node.ChildNodes[i]["arrplacename"].InnerText + "  ";
+                textBox1.Text += node.ChildNodes[i]["adultcharge"].InnerText + "  ";
+                textBox1.Text += node.ChildNodes[i]["trainno"].InnerText + "  ";
                 textBox1.Text += "\r\n";
             }
         }

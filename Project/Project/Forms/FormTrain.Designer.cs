@@ -25,6 +25,8 @@
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.pnlPlaneMenu = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnDate = new System.Windows.Forms.Button();
             this.btnTrainMenu_TrainSort = new System.Windows.Forms.Button();
             this.btnTrainMenu_Destination = new System.Windows.Forms.Button();
             this.btnTrainMenu_Departure = new System.Windows.Forms.Button();
@@ -33,9 +35,11 @@
             this.btnWayToggle_RoundTrip = new System.Windows.Forms.Button();
             this.tmrPanelMove = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnResult = new System.Windows.Forms.Button();
             this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tPnlCity = new System.Windows.Forms.TableLayoutPanel();
+            this.tPnlStation = new System.Windows.Forms.TableLayoutPanel();
+            this.tPnlSort = new System.Windows.Forms.TableLayoutPanel();
+            this.calendar = new System.Windows.Forms.MonthCalendar();
             this.pnlPlaneMenu.SuspendLayout();
             this.pnlWayToggle.SuspendLayout();
             this.flpnlDetail.SuspendLayout();
@@ -44,6 +48,8 @@
             // pnlPlaneMenu
             // 
             this.pnlPlaneMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
+            this.pnlPlaneMenu.Controls.Add(this.btnSearch);
+            this.pnlPlaneMenu.Controls.Add(this.btnDate);
             this.pnlPlaneMenu.Controls.Add(this.btnTrainMenu_TrainSort);
             this.pnlPlaneMenu.Controls.Add(this.btnTrainMenu_Destination);
             this.pnlPlaneMenu.Controls.Add(this.btnTrainMenu_Departure);
@@ -54,6 +60,42 @@
             this.pnlPlaneMenu.Name = "pnlPlaneMenu";
             this.pnlPlaneMenu.Size = new System.Drawing.Size(325, 852);
             this.pnlPlaneMenu.TabIndex = 4;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.Location = new System.Drawing.Point(0, 740);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(325, 112);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "열차 조회";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnDate
+            // 
+            this.btnDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDate.FlatAppearance.BorderSize = 0;
+            this.btnDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnDate.ForeColor = System.Drawing.Color.White;
+            this.btnDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDate.Location = new System.Drawing.Point(0, 448);
+            this.btnDate.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnDate.Name = "btnDate";
+            this.btnDate.Size = new System.Drawing.Size(325, 112);
+            this.btnDate.TabIndex = 5;
+            this.btnDate.Text = "날짜 선택";
+            this.btnDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDate.UseVisualStyleBackColor = true;
+            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
             // 
             // btnTrainMenu_TrainSort
             // 
@@ -159,28 +201,20 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1470, 112);
+            this.textBox1.Location = new System.Drawing.Point(1054, 503);
             this.textBox1.Margin = new System.Windows.Forms.Padding(6);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 360);
+            this.textBox1.Size = new System.Drawing.Size(491, 252);
             this.textBox1.TabIndex = 6;
-            // 
-            // btnResult
-            // 
-            this.btnResult.Location = new System.Drawing.Point(1444, 570);
-            this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(179, 70);
-            this.btnResult.TabIndex = 8;
-            this.btnResult.Text = "조회";
-            this.btnResult.UseVisualStyleBackColor = true;
-            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
             // flpnlDetail
             // 
             this.flpnlDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpnlDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
-            this.flpnlDetail.Controls.Add(this.button1);
+            this.flpnlDetail.Controls.Add(this.tPnlCity);
+            this.flpnlDetail.Controls.Add(this.tPnlStation);
+            this.flpnlDetail.Controls.Add(this.tPnlSort);
             this.flpnlDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpnlDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
             this.flpnlDetail.ForeColor = System.Drawing.Color.White;
@@ -192,20 +226,64 @@
             this.flpnlDetail.Size = new System.Drawing.Size(650, 4800);
             this.flpnlDetail.TabIndex = 9;
             // 
-            // button1
+            // tPnlCity
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 112);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "편도";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tPnlCity.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tPnlCity.ColumnCount = 5;
+            this.tPnlCity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlCity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlCity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlCity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlCity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlCity.Location = new System.Drawing.Point(3, 3);
+            this.tPnlCity.Name = "tPnlCity";
+            this.tPnlCity.RowCount = 2;
+            this.tPnlCity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tPnlCity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tPnlCity.Size = new System.Drawing.Size(650, 100);
+            this.tPnlCity.TabIndex = 0;
+            // 
+            // tPnlStation
+            // 
+            this.tPnlStation.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tPnlStation.ColumnCount = 5;
+            this.tPnlStation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlStation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlStation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlStation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlStation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlStation.Location = new System.Drawing.Point(3, 109);
+            this.tPnlStation.Name = "tPnlStation";
+            this.tPnlStation.RowCount = 2;
+            this.tPnlStation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tPnlStation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tPnlStation.Size = new System.Drawing.Size(650, 100);
+            this.tPnlStation.TabIndex = 10;
+            // 
+            // tPnlSort
+            // 
+            this.tPnlSort.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tPnlSort.ColumnCount = 5;
+            this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tPnlSort.Location = new System.Drawing.Point(3, 215);
+            this.tPnlSort.Name = "tPnlSort";
+            this.tPnlSort.RowCount = 2;
+            this.tPnlSort.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tPnlSort.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tPnlSort.Size = new System.Drawing.Size(650, 100);
+            this.tPnlSort.TabIndex = 11;
+            // 
+            // calendar
+            // 
+            this.calendar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.calendar.Location = new System.Drawing.Point(900, 100);
+            this.calendar.Name = "calendar";
+            this.calendar.TabIndex = 12;
+            this.calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendar_DateChanged);
             // 
             // FormTrain
             // 
@@ -213,8 +291,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1729, 852);
             this.Controls.Add(this.flpnlDetail);
-            this.Controls.Add(this.btnResult);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.calendar);
             this.Controls.Add(this.pnlPlaneMenu);
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "FormTrain";
@@ -239,8 +317,12 @@
         private System.Windows.Forms.Button btnWayToggle_RoundTrip;
         private System.Windows.Forms.Timer tmrPanelMove;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnResult;
         private System.Windows.Forms.FlowLayoutPanel flpnlDetail;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tPnlCity;
+        private System.Windows.Forms.TableLayoutPanel tPnlStation;
+        private System.Windows.Forms.TableLayoutPanel tPnlSort;
+        private System.Windows.Forms.Button btnDate;
+        private System.Windows.Forms.MonthCalendar calendar;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
