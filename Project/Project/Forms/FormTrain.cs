@@ -41,7 +41,8 @@ namespace Project.Forms
         public FormTrain()
         {
             InitializeComponent();
-            flpnlDetail.Size = flpnlDetail.MinimumSize; //flow layout panel 숨기기
+            flpnlDetail_sort.Hide();
+            flpnlDetail_station.Hide();
         }
 
         private void FormTrain_Load(object sender, EventArgs e)
@@ -88,6 +89,8 @@ namespace Project.Forms
         private void btnTrainMenu_Destination_Click(object sender, EventArgs e)
         {
             panelMove(sender);
+            flpnlDetail_station.Show();
+            flpnlDetail_sort.Hide();
             getStationInfo();
         }
         
@@ -96,18 +99,15 @@ namespace Project.Forms
             if (currentButton != sender)
             {
                 Button thisButton = (Button)sender;
-                flpnlDetail.Size = flpnlDetail.MinimumSize;
                 isCollapsed = true;
             }
             ActivateButton(pnlPlaneMenu, sender);
-            tmrPanelMove.Start();
         }
 
         private void btnTrainMenu_HeadCount_Click(object sender, EventArgs e)
         {
             if (currentButton != sender)
             {
-                flpnlDetail.Size = flpnlDetail.MinimumSize;
                 isCollapsed = true;
             }
             ActivateButton(pnlPlaneMenu, sender);
@@ -143,29 +143,7 @@ namespace Project.Forms
             }
         }
 
-        private void tmrPanelMove_Tick(object sender, EventArgs e)
-        {
-            //패널이 닫혀있으면
-            if (isCollapsed)
-            {
-                flpnlDetail.Width += 20;    //패널 가로 크기 20pixel 증가
-                if (flpnlDetail.Size == flpnlDetail.MaximumSize)    //MaximumSize는 속성에서 변경가능
-                {//최대 크기에 도달하면
-                    tmrPanelMove.Stop();    //타이머 정지
-                    isCollapsed = false;    //패널 열려있음으로 상태 변경
-                }
-            }
-            //패널이 열려있으면
-            else
-            {
-                flpnlDetail.Width -= 20;
-                if (flpnlDetail.Size == flpnlDetail.MinimumSize)
-                {
-                    tmrPanelMove.Stop();
-                    isCollapsed = true;
-                }
-            }
-        }
+        
 
 
 
@@ -206,7 +184,7 @@ namespace Project.Forms
             {
                 Button btnStation = new Button();
                 btnStation.Click += btn_StationClick;
-                this.flpnlDetail.Controls.Add(btnStation);
+                this.flpnlDetail_station.Controls.Add(btnStation);
                 btnStation.Dock = DockStyle.Right;
                 btnStation.Text = station[list].ToString();
 
@@ -231,6 +209,7 @@ namespace Project.Forms
             
         }
 
+        //출발지, 도착지의 기차역이 같으므로 함수처리 하여 코드의 재활용.
         private void getStationInfo()
         {
             if (depBtnCount == 0 && arrBtnCount == 0)
@@ -243,7 +222,7 @@ namespace Project.Forms
                 {
                     Button btnCities = new Button();
                     btnCities.Click += btn_CityClick;
-                    this.flpnlDetail.Controls.Add(btnCities);
+                    this.flpnlDetail_station.Controls.Add(btnCities);
                     btnCities.Dock = DockStyle.Top;
                     btnCities.Text = cityCode[list].ToString();
 
@@ -297,6 +276,8 @@ namespace Project.Forms
         private void btnPlaneMenu_Departure_Click(object sender, EventArgs e)
         {
             panelMove(sender);
+            flpnlDetail_station.Show();
+            flpnlDetail_sort.Hide();
             getStationInfo();
             
         }
@@ -345,7 +326,8 @@ namespace Project.Forms
         //기차 종류 정보를 얻는 버튼.
         private void btnTrainMenu_TrainSort_Click(object sender, EventArgs e)
         {
-            panelMove(sender);
+            flpnlDetail_station.Hide();
+            flpnlDetail_sort.Show();
 
             if (sortBtnCount == 0)
             {
