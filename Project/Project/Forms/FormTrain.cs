@@ -26,6 +26,7 @@ namespace Project.Forms
         Dictionary<String, Hashtable> stationOfCity = new Dictionary<string, Hashtable>();
         Dictionary<String, String> cityCode;
         List<Hashtable> stationList = new List<Hashtable>();
+        Hashtable trainSort = new Hashtable();
 
         int depBtnCount = 0;
         int arrBtnCount = 0;
@@ -41,8 +42,7 @@ namespace Project.Forms
         public FormTrain()
         {
             InitializeComponent();
-            flpnlDetail_sort.Hide();
-            flpnlDetail_station.Hide();
+            flpnlDetail.Size = flpnlDetail.MinimumSize;
         }
 
         private void FormTrain_Load(object sender, EventArgs e)
@@ -89,8 +89,6 @@ namespace Project.Forms
         private void btnTrainMenu_Destination_Click(object sender, EventArgs e)
         {
             panelMove(sender);
-            flpnlDetail_station.Show();
-            flpnlDetail_sort.Hide();
             getStationInfo();
         }
         
@@ -99,20 +97,14 @@ namespace Project.Forms
             if (currentButton != sender)
             {
                 Button thisButton = (Button)sender;
+                flpnlDetail.Size = flpnlDetail.MinimumSize;
                 isCollapsed = true;
             }
             ActivateButton(pnlPlaneMenu, sender);
+
+            tmrPanelMove.Start();//타이머 작동 시작
         }
 
-        private void btnTrainMenu_HeadCount_Click(object sender, EventArgs e)
-        {
-            if (currentButton != sender)
-            {
-                isCollapsed = true;
-            }
-            ActivateButton(pnlPlaneMenu, sender);
-            tmrPanelMove.Start();
-        }
 
         private void ActivateButton(Panel Area, object btnSender)
         {
@@ -143,10 +135,34 @@ namespace Project.Forms
             }
         }
 
-        
+        private void tmrPanelMove_Tick(object sender/*Timer객체*/, EventArgs e)
+        {
+            //패널이 닫혀있으면
+            if (isCollapsed)
+            {
+                flpnlDetail.Width += 20;    //패널 가로 크기 20pixel 증가
+                if (flpnlDetail.Size == flpnlDetail.MaximumSize)    //MaximumSize는 속성에서 변경가능
+                {//최대 크기에 도달하면
+                    tmrPanelMove.Stop();    //타이머 정지
+                    isCollapsed = false;    //패널 열려있음으로 상태 변경
+                }
+            }
+            //패널이 열려있으면
+            else
+            {
+                flpnlDetail.Width -= 20;
+                if (flpnlDetail.Size == flpnlDetail.MinimumSize)
+                {
+                    tmrPanelMove.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
 
 
 
+
+        //기차역을 클릭시 해당 기차역의 코드를 전역변수에 할당해주고 출,도착지에 해당 기차역을 표시.
         private void btn_StationClick(object sender, EventArgs e)
         {
             Button btnClicked = sender as Button;
@@ -178,13 +194,13 @@ namespace Project.Forms
         }
 
         //해당 도시의 기차역개수만큼 버튼을 생성.
-        private void creatStationBtn(Hashtable station)
+        private void createStationBtn(Hashtable station)
         {
             foreach(var list in station.Keys)
             {
                 Button btnStation = new Button();
                 btnStation.Click += btn_StationClick;
-                this.flpnlDetail_station.Controls.Add(btnStation);
+                this.flpnlDetail.Controls.Add(btnStation);
                 btnStation.Dock = DockStyle.Right;
                 btnStation.Text = station[list].ToString();
 
@@ -205,8 +221,21 @@ namespace Project.Forms
                     station = stationOfCity[list];
             }
 
-            creatStationBtn(station);
+            createStationBtn(station);
             
+        }
+
+        private void createCityBtn()
+        {
+            foreach (var list in cityCode.Keys)
+            {
+                Button btnCities = new Button();
+                btnCities.Click += btn_CityClick;
+                this.flpnlDetail.Controls.Add(btnCities);
+                btnCities.Dock = DockStyle.Top;
+                btnCities.Text = cityCode[list].ToString();
+
+            }
         }
 
         //출발지, 도착지의 기차역이 같으므로 함수처리 하여 코드의 재활용.
@@ -218,15 +247,7 @@ namespace Project.Forms
                 //도시코드를 가져옴.
                 cityCode = getCityCode();
 
-                foreach (var list in cityCode.Keys)
-                {
-                    Button btnCities = new Button();
-                    btnCities.Click += btn_CityClick;
-                    this.flpnlDetail_station.Controls.Add(btnCities);
-                    btnCities.Dock = DockStyle.Top;
-                    btnCities.Text = cityCode[list].ToString();
-
-                }
+                createCityBtn();
 
 
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getCtyAcctoTrainSttnList"; // URL
@@ -267,6 +288,10 @@ namespace Project.Forms
                         stationOfCity.Add(dicKey, station);
                 }
             }
+            else
+            {
+                createCityBtn();
+            }
 
             depBtnCount++;
 
@@ -275,11 +300,8 @@ namespace Project.Forms
         //출발지를 얻어오는 함수.
         private void btnPlaneMenu_Departure_Click(object sender, EventArgs e)
         {
-            panelMove(sender);
-            flpnlDetail_station.Show();
-            flpnlDetail_sort.Hide();
             getStationInfo();
-            
+            panelMove(sender);
         }
 
         //도시코드 정보를 받아오는 함수.
@@ -323,16 +345,46 @@ namespace Project.Forms
             return cityCode;
         }
 
+
+        private void btn_SortClick(object sender, EventArgs e)
+        {
+            Button btnClicked = sender as Button;
+            ActivateButton(pnlWayToggle, sender);
+
+            foreach(var list in trainSort.Keys)
+            {
+                if (btnClicked.Text.Equals(trainSort[list]))
+                {
+                    btnTrainMenu_TrainSort.Text = trainSort[list].ToString();
+                    trainGradeCode = list.ToString();
+                    textBox1.Text += trainGradeCode + trainSort[list].ToString();
+                }
+
+            }
+            
+
+        }
+
+        private void createSortBtn()
+        {
+            foreach (var list in trainSort.Keys)
+            {
+                Button btnSort = new Button();
+                btnSort.Click += btn_SortClick;
+                this.flpnlDetail.Controls.Add(btnSort);
+                btnSort.Dock = DockStyle.Top;
+                btnSort.Text = trainSort[list].ToString();
+
+            }
+        }
+
         //기차 종류 정보를 얻는 버튼.
         private void btnTrainMenu_TrainSort_Click(object sender, EventArgs e)
         {
-            flpnlDetail_station.Hide();
-            flpnlDetail_sort.Show();
+            panelMove(sender);
 
             if (sortBtnCount == 0)
             {
-
-                Hashtable trainSort = new Hashtable();
 
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getVhcleKndList";
                 url += "?ServiceKey=" + KEY; // Service Key
@@ -353,9 +405,14 @@ namespace Project.Forms
 
                     }
 
-
                 }
 
+                createSortBtn();
+
+            }
+            else
+            {
+                createSortBtn();
             }
 
             sortBtnCount++;

@@ -34,10 +34,11 @@
             this.tmrPanelMove = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnResult = new System.Windows.Forms.Button();
-            this.flpnlDetail_sort = new System.Windows.Forms.Panel();
-            this.flpnlDetail_station = new System.Windows.Forms.Panel();
+            this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlPlaneMenu.SuspendLayout();
             this.pnlWayToggle.SuspendLayout();
+            this.flpnlDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPlaneMenu
@@ -175,32 +176,43 @@
             this.btnResult.UseVisualStyleBackColor = true;
             this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
-            // flpnlDetail_sort
+            // flpnlDetail
             // 
-            this.flpnlDetail_sort.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpnlDetail_sort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
-            this.flpnlDetail_sort.Location = new System.Drawing.Point(1028, 47);
-            this.flpnlDetail_sort.Name = "flpnlDetail_sort";
-            this.flpnlDetail_sort.Size = new System.Drawing.Size(610, 564);
-            this.flpnlDetail_sort.TabIndex = 10;
+            this.flpnlDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpnlDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
+            this.flpnlDetail.Controls.Add(this.button1);
+            this.flpnlDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpnlDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.flpnlDetail.ForeColor = System.Drawing.Color.White;
+            this.flpnlDetail.Location = new System.Drawing.Point(325, 0);
+            this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
+            this.flpnlDetail.MaximumSize = new System.Drawing.Size(650, 4800);
+            this.flpnlDetail.MinimumSize = new System.Drawing.Size(0, 4800);
+            this.flpnlDetail.Name = "flpnlDetail";
+            this.flpnlDetail.Size = new System.Drawing.Size(650, 4800);
+            this.flpnlDetail.TabIndex = 9;
             // 
-            // flpnlDetail_station
+            // button1
             // 
-            this.flpnlDetail_station.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpnlDetail_station.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
-            this.flpnlDetail_station.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flpnlDetail_station.Location = new System.Drawing.Point(325, 0);
-            this.flpnlDetail_station.Name = "flpnlDetail_station";
-            this.flpnlDetail_station.Size = new System.Drawing.Size(610, 852);
-            this.flpnlDetail_station.TabIndex = 11;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 112);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "편도";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormTrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1729, 852);
-            this.Controls.Add(this.flpnlDetail_station);
-            this.Controls.Add(this.flpnlDetail_sort);
+            this.Controls.Add(this.flpnlDetail);
             this.Controls.Add(this.btnResult);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pnlPlaneMenu);
@@ -210,6 +222,7 @@
             this.Load += new System.EventHandler(this.FormTrain_Load);
             this.pnlPlaneMenu.ResumeLayout(false);
             this.pnlWayToggle.ResumeLayout(false);
+            this.flpnlDetail.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,7 +240,7 @@
         private System.Windows.Forms.Timer tmrPanelMove;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnResult;
-        private System.Windows.Forms.Panel flpnlDetail_sort;
-        private System.Windows.Forms.Panel flpnlDetail_station;
+        private System.Windows.Forms.FlowLayoutPanel flpnlDetail;
+        private System.Windows.Forms.Button button1;
     }
 }
