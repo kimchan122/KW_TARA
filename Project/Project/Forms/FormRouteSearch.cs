@@ -256,15 +256,15 @@ namespace Project.Forms {
 			}
 
 			Console.WriteLine("BUS go");
-			//ExpressBus_GetTerminalID(1, btnstart);
-			//ExpressBus_GetTerminalID(2, btnend);
+			//ExpressBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			//ExpressBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 			foreach (var i in startbusstation)
             {
 				foreach(var j in endbusstation)
                 {
-					//ExpressBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "1");
-                }
-            }
+					//ExpressBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "1"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+				}
+			}
 			Console.WriteLine("BUS END");
 
 			Console.WriteLine("AIR go");
@@ -275,16 +275,14 @@ namespace Project.Forms {
 					if(i!="null" && j != "null") { 
 						foreach (var c in airlines)
 						{
-							//Airport_GetStartToEnd(i, j, btndeptime, c.AirlineId);
+							//Airport_GetStartToEnd(i, j, btndeptime, c.AirlineId); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 						}
-                    }
+					}
                 }
             }
 			Console.WriteLine("AIR END");
 
 
-			//Airport_GetStartToEnd()
-			//항공노선 검색
 
 
 			int cnt = 0;
