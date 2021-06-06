@@ -24,6 +24,7 @@
 		/// </summary>
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTrain));
             this.pnlPlaneMenu = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDate = new System.Windows.Forms.Button();
@@ -34,15 +35,35 @@
             this.btnWayToggle_Single = new System.Windows.Forms.Button();
             this.btnWayToggle_RoundTrip = new System.Windows.Forms.Button();
             this.tmrPanelMove = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
             this.tPnlCity = new System.Windows.Forms.TableLayoutPanel();
             this.tPnlStation = new System.Windows.Forms.TableLayoutPanel();
             this.tPnlSort = new System.Windows.Forms.TableLayoutPanel();
-            this.calendar = new System.Windows.Forms.MonthCalendar();
+            this.lblDateToGo = new System.Windows.Forms.Label();
+            this.goCalendar = new System.Windows.Forms.MonthCalendar();
+            this.lblDateToCome = new System.Windows.Forms.Label();
+            this.comeCalendar = new System.Windows.Forms.MonthCalendar();
+            this.listResultToGo = new System.Windows.Forms.ListView();
+            this.colTrainSort = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDepTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colArrTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDep = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colArr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flpnlResult = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblResultToGo = new System.Windows.Forms.Label();
+            this.lblResultToCome = new System.Windows.Forms.Label();
+            this.listResultToCome = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlPlaneMenu.SuspendLayout();
             this.pnlWayToggle.SuspendLayout();
             this.flpnlDetail.SuspendLayout();
+            this.flpnlResult.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPlaneMenu
@@ -68,6 +89,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.Location = new System.Drawing.Point(0, 740);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
@@ -199,15 +221,6 @@
             this.tmrPanelMove.Enabled = true;
             this.tmrPanelMove.Interval = 15;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1054, 503);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(491, 252);
-            this.textBox1.TabIndex = 6;
-            // 
             // flpnlDetail
             // 
             this.flpnlDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -215,6 +228,10 @@
             this.flpnlDetail.Controls.Add(this.tPnlCity);
             this.flpnlDetail.Controls.Add(this.tPnlStation);
             this.flpnlDetail.Controls.Add(this.tPnlSort);
+            this.flpnlDetail.Controls.Add(this.lblDateToGo);
+            this.flpnlDetail.Controls.Add(this.goCalendar);
+            this.flpnlDetail.Controls.Add(this.lblDateToCome);
+            this.flpnlDetail.Controls.Add(this.comeCalendar);
             this.flpnlDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpnlDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
             this.flpnlDetail.ForeColor = System.Drawing.Color.White;
@@ -263,7 +280,7 @@
             // tPnlSort
             // 
             this.tPnlSort.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tPnlSort.ColumnCount = 5;
+            this.tPnlSort.ColumnCount = 3;
             this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tPnlSort.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -277,22 +294,183 @@
             this.tPnlSort.Size = new System.Drawing.Size(650, 100);
             this.tPnlSort.TabIndex = 11;
             // 
-            // calendar
+            // lblDateToGo
             // 
-            this.calendar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.calendar.Location = new System.Drawing.Point(900, 100);
-            this.calendar.Name = "calendar";
-            this.calendar.TabIndex = 12;
-            this.calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendar_DateChanged);
+            this.lblDateToGo.AutoSize = true;
+            this.lblDateToGo.Location = new System.Drawing.Point(3, 318);
+            this.lblDateToGo.Name = "lblDateToGo";
+            this.lblDateToGo.Size = new System.Drawing.Size(95, 39);
+            this.lblDateToGo.TabIndex = 13;
+            this.lblDateToGo.Text = "가는날";
+            // 
+            // goCalendar
+            // 
+            this.goCalendar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.goCalendar.Location = new System.Drawing.Point(137, 366);
+            this.goCalendar.Name = "goCalendar";
+            this.goCalendar.TabIndex = 12;
+            this.goCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.goCalendar_DateChanged);
+            // 
+            // lblDateToCome
+            // 
+            this.lblDateToCome.AutoSize = true;
+            this.lblDateToCome.Location = new System.Drawing.Point(3, 690);
+            this.lblDateToCome.Name = "lblDateToCome";
+            this.lblDateToCome.Size = new System.Drawing.Size(105, 39);
+            this.lblDateToCome.TabIndex = 14;
+            this.lblDateToCome.Text = "오는 날";
+            // 
+            // comeCalendar
+            // 
+            this.comeCalendar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comeCalendar.Location = new System.Drawing.Point(137, 738);
+            this.comeCalendar.Name = "comeCalendar";
+            this.comeCalendar.TabIndex = 15;
+            this.comeCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.comeCalendar_DateChanged);
+            // 
+            // listResultToGo
+            // 
+            this.listResultToGo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colTrainSort,
+            this.colDepTime,
+            this.colArrTime,
+            this.colDep,
+            this.colArr,
+            this.colPrice});
+            this.listResultToGo.FullRowSelect = true;
+            this.listResultToGo.GridLines = true;
+            this.listResultToGo.HideSelection = false;
+            this.listResultToGo.Location = new System.Drawing.Point(3, 42);
+            this.listResultToGo.Name = "listResultToGo";
+            this.listResultToGo.Size = new System.Drawing.Size(1241, 557);
+            this.listResultToGo.TabIndex = 10;
+            this.listResultToGo.UseCompatibleStateImageBehavior = false;
+            this.listResultToGo.View = System.Windows.Forms.View.Details;
+            // 
+            // colTrainSort
+            // 
+            this.colTrainSort.Text = "기차종류";
+            this.colTrainSort.Width = 100;
+            // 
+            // colDepTime
+            // 
+            this.colDepTime.Text = "출발시간";
+            this.colDepTime.Width = 134;
+            // 
+            // colArrTime
+            // 
+            this.colArrTime.Text = "도착시간";
+            this.colArrTime.Width = 155;
+            // 
+            // colDep
+            // 
+            this.colDep.Text = "출발지";
+            this.colDep.Width = 100;
+            // 
+            // colArr
+            // 
+            this.colArr.Text = "도착지";
+            this.colArr.Width = 101;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Text = "운임요금";
+            this.colPrice.Width = 126;
+            // 
+            // flpnlResult
+            // 
+            this.flpnlResult.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpnlResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
+            this.flpnlResult.Controls.Add(this.lblResultToGo);
+            this.flpnlResult.Controls.Add(this.listResultToGo);
+            this.flpnlResult.Controls.Add(this.lblResultToCome);
+            this.flpnlResult.Controls.Add(this.listResultToCome);
+            this.flpnlResult.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpnlResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpnlResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.flpnlResult.ForeColor = System.Drawing.Color.White;
+            this.flpnlResult.Location = new System.Drawing.Point(325, 0);
+            this.flpnlResult.Margin = new System.Windows.Forms.Padding(0);
+            this.flpnlResult.MaximumSize = new System.Drawing.Size(1500, 4800);
+            this.flpnlResult.MinimumSize = new System.Drawing.Size(0, 4800);
+            this.flpnlResult.Name = "flpnlResult";
+            this.flpnlResult.Size = new System.Drawing.Size(1367, 4800);
+            this.flpnlResult.TabIndex = 11;
+            // 
+            // lblResultToGo
+            // 
+            this.lblResultToGo.AutoSize = true;
+            this.lblResultToGo.Location = new System.Drawing.Point(3, 0);
+            this.lblResultToGo.Name = "lblResultToGo";
+            this.lblResultToGo.Size = new System.Drawing.Size(157, 39);
+            this.lblResultToGo.TabIndex = 0;
+            this.lblResultToGo.Text = "가는편 열차";
+            // 
+            // lblResultToCome
+            // 
+            this.lblResultToCome.AutoSize = true;
+            this.lblResultToCome.Location = new System.Drawing.Point(3, 602);
+            this.lblResultToCome.Name = "lblResultToCome";
+            this.lblResultToCome.Size = new System.Drawing.Size(157, 39);
+            this.lblResultToCome.TabIndex = 11;
+            this.lblResultToCome.Text = "오는편 열차";
+            // 
+            // listResultToCome
+            // 
+            this.listResultToCome.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listResultToCome.FullRowSelect = true;
+            this.listResultToCome.GridLines = true;
+            this.listResultToCome.HideSelection = false;
+            this.listResultToCome.Location = new System.Drawing.Point(3, 644);
+            this.listResultToCome.Name = "listResultToCome";
+            this.listResultToCome.Size = new System.Drawing.Size(1241, 557);
+            this.listResultToCome.TabIndex = 12;
+            this.listResultToCome.UseCompatibleStateImageBehavior = false;
+            this.listResultToCome.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "기차종류";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "출발시간";
+            this.columnHeader2.Width = 134;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "도착시간";
+            this.columnHeader3.Width = 155;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "출발지";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "도착지";
+            this.columnHeader5.Width = 101;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "운임요금";
+            this.columnHeader6.Width = 126;
             // 
             // FormTrain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1729, 852);
+            this.Controls.Add(this.flpnlResult);
             this.Controls.Add(this.flpnlDetail);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.calendar);
             this.Controls.Add(this.pnlPlaneMenu);
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "FormTrain";
@@ -301,8 +479,10 @@
             this.pnlPlaneMenu.ResumeLayout(false);
             this.pnlWayToggle.ResumeLayout(false);
             this.flpnlDetail.ResumeLayout(false);
+            this.flpnlDetail.PerformLayout();
+            this.flpnlResult.ResumeLayout(false);
+            this.flpnlResult.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
 		}
 
@@ -316,13 +496,32 @@
         private System.Windows.Forms.Button btnWayToggle_Single;
         private System.Windows.Forms.Button btnWayToggle_RoundTrip;
         private System.Windows.Forms.Timer tmrPanelMove;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.FlowLayoutPanel flpnlDetail;
         private System.Windows.Forms.TableLayoutPanel tPnlCity;
         private System.Windows.Forms.TableLayoutPanel tPnlStation;
         private System.Windows.Forms.TableLayoutPanel tPnlSort;
         private System.Windows.Forms.Button btnDate;
-        private System.Windows.Forms.MonthCalendar calendar;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblDateToGo;
+        private System.Windows.Forms.MonthCalendar goCalendar;
+        private System.Windows.Forms.Label lblDateToCome;
+        private System.Windows.Forms.MonthCalendar comeCalendar;
+        private System.Windows.Forms.ListView listResultToGo;
+        private System.Windows.Forms.ColumnHeader colTrainSort;
+        private System.Windows.Forms.ColumnHeader colDepTime;
+        private System.Windows.Forms.ColumnHeader colArrTime;
+        private System.Windows.Forms.ColumnHeader colDep;
+        private System.Windows.Forms.ColumnHeader colArr;
+        private System.Windows.Forms.ColumnHeader colPrice;
+        private System.Windows.Forms.FlowLayoutPanel flpnlResult;
+        private System.Windows.Forms.Label lblResultToGo;
+        private System.Windows.Forms.Label lblResultToCome;
+        private System.Windows.Forms.ListView listResultToCome;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

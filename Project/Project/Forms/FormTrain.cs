@@ -33,11 +33,12 @@ namespace Project.Forms
         int sortBtnCount = 0;
 
         int numOfRow = 10;          // 한 페이지 결과 수.
-        int pageNo = 1;             // 페이지 번호.
+        int pageNo = 6;             // 페이지 번호.
         String depPlaceId = "";     //출발지ID
         String arrPlaceId = "";     //도착지ID
         String depPlandTime = "";   //출발일
         String trainGradeCode = ""; //차량종류코드
+        String depPlandTime_Round = "";
 
         public FormTrain()
         {
@@ -48,7 +49,11 @@ namespace Project.Forms
         {
             LoadTheme();//테마 적용함수 로드
             flpnlDetail.Hide();
-            calendar.Hide();
+            lblDateToCome.Hide();
+            lblDateToGo.Hide();
+            goCalendar.Hide();
+            comeCalendar.Hide();
+            flpnlResult.Hide();
         }
 
         //부모 Form의 색상테마를 적용하는 함수	
@@ -89,16 +94,21 @@ namespace Project.Forms
 
         private void btnTrainMenu_Destination_Click(object sender, EventArgs e)
         {
-            clicedkMenu(sender);
+            clickedkMenu(sender);
             ClearPanelControls(tPnlCity);
             ClearPanelControls(tPnlStation);
             ClearPanelControls(tPnlSort);
             getStationInfo();
             flpnlDetail.Show();
-            calendar.Hide();
+            lblDateToCome.Hide();
+            lblDateToGo.Hide();
+            goCalendar.Hide();
+            comeCalendar.Hide();
+            flpnlResult.Hide();
+            flpnlResult.Hide();
         }
 
-        private void clicedkMenu(object sender)
+        private void clickedkMenu(object sender)
         {
             if (currentButton != sender)
             {
@@ -170,7 +180,7 @@ namespace Project.Forms
         {
 
             Button btnClicked = sender as Button;
-            ActivateButton(pnlWayToggle, sender);
+            ActivateButton(tPnlStation, sender);
 
 
             foreach (var station in stationList)
@@ -221,7 +231,7 @@ namespace Project.Forms
         {
 
             Button btnClicked = sender as Button;
-            ActivateButton(pnlWayToggle, sender);
+            ActivateButton(tPnlCity, sender);
 
             ClearPanelControls(tPnlStation);
 
@@ -316,13 +326,16 @@ namespace Project.Forms
         //출발지를 얻어오는 함수.
         private void btnPlaneMenu_Departure_Click(object sender, EventArgs e)
         {
-            clicedkMenu(sender);
+            clickedkMenu(sender);
             ClearPanelControls(tPnlCity);
             ClearPanelControls(tPnlStation);
             ClearPanelControls(tPnlSort);
             getStationInfo();
             flpnlDetail.Show();
-            calendar.Hide();
+            lblDateToCome.Hide();
+            lblDateToGo.Hide();
+            goCalendar.Hide();
+            comeCalendar.Hide();
         }
 
         //도시코드 정보를 받아오는 함수.
@@ -363,7 +376,7 @@ namespace Project.Forms
         private void btn_SortClick(object sender, EventArgs e)
         {
             Button btnClicked = sender as Button;
-            ActivateButton(pnlWayToggle, sender);
+            ActivateButton(tPnlSort, sender);
 
             foreach (var list in trainSort.Keys)
             {
@@ -379,7 +392,10 @@ namespace Project.Forms
         private void createSortBtn()
         {
             tPnlSort.AutoSize = true;
-            tPnlSort.RowCount = trainSort.Count / 5;
+            tPnlSort.RowCount = trainSort.Count / 3;
+
+            ClearPanelControls(tPnlSort);
+
             foreach (var list in trainSort.Keys)
             {
                 Button btnSort = new Button();
@@ -395,11 +411,15 @@ namespace Project.Forms
         //기차 종류 정보를 얻는 버튼.
         private void btnTrainMenu_TrainSort_Click(object sender, EventArgs e)
         {
-            clicedkMenu(sender);
+            clickedkMenu(sender);
             ClearPanelControls(tPnlCity);
             ClearPanelControls(tPnlStation);
             flpnlDetail.Show();
-            calendar.Hide();
+            goCalendar.Hide();
+            comeCalendar.Hide();
+            lblDateToCome.Hide();
+            lblDateToGo.Hide();
+            flpnlResult.Hide();
 
             if (sortBtnCount == 0)
             {
@@ -447,58 +467,166 @@ namespace Project.Forms
             return reader.ReadToEnd();
         }
 
-        private void btnResult_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnDate_Click(object sender, EventArgs e)
         {
-            clicedkMenu(sender);
-            flpnlDetail.Hide();
-            calendar.Show();
+            clickedkMenu(sender);
+            ClearPanelControls(tPnlCity);
+            ClearPanelControls(tPnlStation);
+            ClearPanelControls(tPnlSort);
+            flpnlResult.Hide();
+
+            //왕복일경우 달력 두개를 표시.
+            if (btnWayToggle_RoundTrip.BackColor == ThemeColor.PrimaryColor)
+            {
+                goCalendar.Show();
+                lblDateToGo.Show();
+                comeCalendar.Show();
+                lblDateToCome.Show();
+            }
+            else
+            {
+                goCalendar.Show();
+                lblDateToGo.Show();
+            }
         }
 
-        private void calendar_DateChanged(object sender, DateRangeEventArgs e)
+        private void goCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            string date = calendar.SelectionStart.ToShortDateString();
+            string date = goCalendar.SelectionStart.ToShortDateString();
 
-            date = date.Replace("-", string.Empty);
             btnDate.Text = date;
+            date = date.Replace("-", string.Empty);
             depPlandTime = date;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
-            url += "?ServiceKey=" + KEY;
-            url += "&numOfRows=" + numOfRow;
-            url += "&pageNo=" + pageNo;
-            url += "&depPlaceId=" + depPlaceId;
-            url += "&arrPlaceId=" + arrPlaceId;
-            url += "&depPlandTime=" + depPlandTime;
-            url += "&trainGradeCode=" + trainGradeCode;
+            flpnlResult.Show();
+            listResultToGo.Items.Clear();
+            listResultToCome.Items.Clear();
 
+            string depTime = "";
+            string arrTime = "";
 
-            string response = getXmlString(url);
-
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(response);
-
-            XmlNode node = doc["response"]["body"]["items"];
-
-            for (int i = 0; i < node.ChildNodes.Count; i++)
+            for (pageNo = 1; pageNo <= 6; pageNo++)
             {
+                string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
+                url += "?ServiceKey=" + KEY;
+                url += "&numOfRows=" + numOfRow;
+                url += "&pageNo=" + pageNo;
+                url += "&depPlaceId=" + depPlaceId;
+                url += "&arrPlaceId=" + arrPlaceId;
+                url += "&depPlandTime=" + depPlandTime;
+                url += "&trainGradeCode=" + trainGradeCode;
 
-                textBox1.Text += node.ChildNodes[i]["traingradename"].InnerText + "  ";
-                textBox1.Text += node.ChildNodes[i]["depplandtime"].InnerText + "  ";
-                textBox1.Text += node.ChildNodes[i]["arrplandtime"].InnerText + "  ";
-                textBox1.Text += node.ChildNodes[i]["depplacename"].InnerText + "  ";
-                textBox1.Text += node.ChildNodes[i]["arrplacename"].InnerText + "  ";
-                textBox1.Text += node.ChildNodes[i]["adultcharge"].InnerText + "  ";
-                textBox1.Text += node.ChildNodes[i]["trainno"].InnerText + "  ";
-                textBox1.Text += "\r\n";
+
+                string response_Go = getXmlString(url);
+                string response_Come = "";
+
+                if (btnWayToggle_RoundTrip.BackColor == ThemeColor.PrimaryColor)
+                {
+                    url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo";
+                    url += "?ServiceKey=" + KEY;
+                    url += "&numOfRows=" + numOfRow;
+                    url += "&pageNo=" + pageNo;
+                    url += "&depPlaceId=" + arrPlaceId;
+                    url += "&arrPlaceId=" + depPlaceId;
+                    url += "&depPlandTime=" + depPlandTime_Round;
+                    url += "&trainGradeCode=" + trainGradeCode;
+
+                    response_Come = getXmlString(url);
+                }
+
+
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(response_Go);
+
+                XmlNode node = doc["response"]["body"]["items"];
+
+                for (int i = 0; i < node.ChildNodes.Count; i++)
+                {
+                    ListViewItem item_temp = new ListViewItem();
+
+                    item_temp.Text = node.ChildNodes[i]["traingradename"].InnerText;
+
+                    depTime = node.ChildNodes[i]["depplandtime"].InnerText;
+                    arrTime = node.ChildNodes[i]["arrplandtime"].InnerText;
+
+                    depTime = timeSubstring(depTime);
+                    arrTime = timeSubstring(arrTime);
+
+                    item_temp.SubItems.Add(depTime);
+                    item_temp.SubItems.Add(arrTime);
+                    item_temp.SubItems.Add(node.ChildNodes[i]["depplacename"].InnerText);
+                    item_temp.SubItems.Add(node.ChildNodes[i]["arrplacename"].InnerText);
+                    item_temp.SubItems.Add(node.ChildNodes[i]["adultcharge"].InnerText);
+
+                    listResultToGo.Items.Add(item_temp);
+                }
+
+                for (int i = 0; i < listResultToGo.Columns.Count; i++)
+                    listResultToGo.Columns[i].Width = -2;
+
+
+                lblResultToGo.Show();
+                listResultToGo.Show();
+
+                if (response_Come != "")
+                {
+                    doc.LoadXml(response_Come);
+
+                    node = doc["response"]["body"]["items"];
+
+                    for (int i = 0; i < node.ChildNodes.Count; i++)
+                    {
+                        ListViewItem item_temp = new ListViewItem();
+
+                        item_temp.Text = node.ChildNodes[i]["traingradename"].InnerText;
+
+                        depTime = node.ChildNodes[i]["depplandtime"].InnerText;
+                        arrTime = node.ChildNodes[i]["arrplandtime"].InnerText;
+
+                        depTime = timeSubstring(depTime);
+                        arrTime = timeSubstring(arrTime);
+
+                        item_temp.SubItems.Add(depTime);
+                        item_temp.SubItems.Add(arrTime);
+                        item_temp.SubItems.Add(node.ChildNodes[i]["depplacename"].InnerText);
+                        item_temp.SubItems.Add(node.ChildNodes[i]["arrplacename"].InnerText);
+                        item_temp.SubItems.Add(node.ChildNodes[i]["adultcharge"].InnerText);
+
+                        listResultToCome.Items.Add(item_temp);
+                    }
+
+                    for (int i = 0; i < listResultToCome.Columns.Count; i++)
+                        listResultToCome.Columns[i].Width = -2;
+
+                    lblResultToCome.Show();
+                    listResultToCome.Show();
+                }
+                else
+                {
+                    listResultToCome.Hide();
+                    lblResultToCome.Hide();
+                }
             }
+        }
+
+        private String timeSubstring(String time)
+        {
+            time = time.Substring(8, 4).Insert(2, " : ");
+
+            return time;
+        }
+
+        private void comeCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            string date = comeCalendar.SelectionStart.ToShortDateString();
+
+            btnDate.Text += "\r\n"+date;
+            date = date.Replace("-", string.Empty);
+            depPlandTime_Round = date;
         }
     }
 }
