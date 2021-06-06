@@ -242,18 +242,28 @@ namespace Project.Forms {
 				}
 			}
 			//각종 정보를 불러온다.
+			Console.WriteLine("TRAIN go");
 			//Train_GetTrainCode();
+			//Train_GetStationCode(1, starttrain);
+			//Train_GetStationCode(2, endtrain);
 			foreach (var i in startstation)
 			{
 				foreach (var j in endstation)
 				{
-					foreach (var k in traingrade) {
-						//MessageBox.Show(i.Code + " " + j.Code + " " + "text " + k.Vehiclekndid);
-						//Console.WriteLine("{0} {1} {2} {3}", i.Code, j.Code, "txt", k.Vehiclekndnm);
-						//Train_GetStartToEnd(i.Code, j.Code, "20210602",k.Vehiclekndid);
-					}
+					Console.WriteLine("{0}, {1}", i.Code, j.Code);
+					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "00");
+					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "07");
+					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "10");
+					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "16");
+					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "17");
+					//foreach (var k in traingrade) {
+					//MessageBox.Show(i.Code + " " + j.Code + " " + "text " + k.Vehiclekndid);
+					//Console.WriteLine("{0} {1} {2} {3}", i.Code, j.Code, "txt", k.Vehiclekndnm);
+					//Train_GetStartToEnd(i.Code, j.Code, "20210602",k.Vehiclekndid);
+					//}
 				}
 			}
+			Console.WriteLine("TRAIN END");
 
 			Console.WriteLine("BUS go");
 			//ExpressBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
@@ -287,11 +297,21 @@ namespace Project.Forms {
 
 			int cnt = 0;
 			// 리스트뷰에 정보 기입
-			/*
-			int cnt = 0;
 			foreach (var i in trainlist) // 기차 목록을 리스트뷰에 추가
 			{
-			}*/
+				cnt++;
+				string[] str = new string[7];
+				str[0] = "KTX";
+				str[1] = i.DepName + "역";
+				str[2] = i.DepTime.Substring(8, 4).Insert(2, ":");
+				str[3] = i.ArrName + "역";
+				str[4] = i.ArrTime.Substring(8, 4).Insert(2, ":");
+				str[5] = i.Charge;
+				str[6] = Timecount(i.DepTime.Substring(8, 4), i.ArrTime.Substring(8, 4));
+				ListViewItem lvi = new ListViewItem(str);
+				lvResult.Items.Add(lvi);
+				if (cnt > 30) break;
+			}
 
 			
 			cnt = 0;
