@@ -6,29 +6,36 @@ using System.Net.Http;
 using System.IO;
 using System.Collections.Generic;
 
-namespace Project.Forms {
-	public partial class FormRouteSearch : Form {
+namespace Project.Forms
+{
+	public partial class FormRouteSearch : Form
+	{
 		private Button currentButton;
 		private bool isCollapsed;
 		private string btnstart;
 		private string btnend;
 		private string btndeptime;
+		private int swit10;
+		private int swit2;
 
 		private static List<Train_Stationcode> startstation = new List<Train_Stationcode>();
 		private static List<Train_Stationcode> endstation = new List<Train_Stationcode>();
 		private static List<Train_Trainkinds> traingrade = new List<Train_Trainkinds>();
 		private static List<TrainList> trainlist = new List<TrainList>();
+		private static List<string> sstation = new List<string>();
+		private static List<string> estation = new List<string>();
 
-		private static List<ExpressBus_Terminalcode> startbusstation=new List<ExpressBus_Terminalcode>();
-		private static List<ExpressBus_Terminalcode> endbusstation=new List<ExpressBus_Terminalcode>();
+		private static List<ExpressBus_Terminalcode> startbusstation = new List<ExpressBus_Terminalcode>();
+		private static List<ExpressBus_Terminalcode> endbusstation = new List<ExpressBus_Terminalcode>();
 		private static List<ExpressBusList> exbuslist = new List<ExpressBusList>();
 
-		private static List<string> startairport=new List<string>();
-		private static List<string> endairport= new List<string>();
+		private static List<string> startairport = new List<string>();
+		private static List<string> endairport = new List<string>();
 		private static List<Airport_AirlineID> airlines = new List<Airport_AirlineID>();
 		private static List<AirplaneList> airplanelist = new List<AirplaneList>();
 
-		public FormRouteSearch() {
+		public FormRouteSearch()
+		{
 			InitializeComponent();
 			string url = "https://kimchan122.github.io/nvmaptest1/test.html";
 			flpnlDetail.Size = flpnlDetail.MinimumSize; //flow layout panel 숨기기
@@ -230,7 +237,7 @@ namespace Project.Forms {
 			//startairport.Clear();
 			//endairport.Clear();
 			//airplanelist.Clear();
-			
+
 			tmrPanelMove.Start();
 			if (!isCollapsed)
 			{
@@ -243,53 +250,60 @@ namespace Project.Forms {
 			}
 			//각종 정보를 불러온다.
 			Console.WriteLine("TRAIN go");
-			//Train_GetTrainCode();
-			//Train_GetStationCode(1, starttrain);
-			//Train_GetStationCode(2, endtrain);
-			foreach (var i in startstation)
+			if (switt1 != 1)
 			{
-				foreach (var j in endstation)
+				//Train_GetStationCode(1, starttrain);
+			}
+			if (switt2 != 1)
+			{
+				//Train_GetStationCode(2, endtrain);
+			}
+			switt1 = 0;
+			switt2 = 0;
+			Console.WriteLine("SSTATioncount: {0}", sstation.Count);
+			Console.WriteLine("ESTATioncount: {0}", estation.Count);
+
+			for (int i = 0; i < sstation.Count; i++)
+			{
+				for (int j = 0; j < estation.Count; j++)
 				{
-					Console.WriteLine("{0}, {1}", i.Code, j.Code);
-					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "00");
-					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "07");
-					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "10");
-					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "16");
-					//Train_GetStartToEnd(i.Code, j.Code, btndeptime, "17");
-					//foreach (var k in traingrade) {
-					//MessageBox.Show(i.Code + " " + j.Code + " " + "text " + k.Vehiclekndid);
-					//Console.WriteLine("{0} {1} {2} {3}", i.Code, j.Code, "txt", k.Vehiclekndnm);
-					//Train_GetStartToEnd(i.Code, j.Code, "20210602",k.Vehiclekndid);
-					//}
+					if (sstation[i] != "null" && estation[j] != "null")
+					{
+						Console.WriteLine(">>>{0}, {1}", sstation[i], estation[j]);
+						//Train_GetStartToEnd(sstation[i], estation[j], btndeptime, "00");
+					}
 				}
 			}
 			Console.WriteLine("TRAIN END");
+
 
 			Console.WriteLine("BUS go");
 			//ExpressBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 			//ExpressBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 			foreach (var i in startbusstation)
-            {
-				foreach(var j in endbusstation)
-                {
+			{
+				foreach (var j in endbusstation)
+				{
 					//ExpressBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "1"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 				}
 			}
 			Console.WriteLine("BUS END");
 
+
 			Console.WriteLine("AIR go");
-			foreach(var i in startairport)
-            {
-				foreach(var j in endairport)
-                {
-					if(i!="null" && j != "null") { 
+			foreach (var i in startairport)
+			{
+				foreach (var j in endairport)
+				{
+					if (i != "null" && j != "null")
+					{
 						foreach (var c in airlines)
 						{
 							//Airport_GetStartToEnd(i, j, btndeptime, c.AirlineId); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 						}
 					}
-                }
-            }
+				}
+			}
 			Console.WriteLine("AIR END");
 
 
@@ -312,24 +326,29 @@ namespace Project.Forms {
 				lvResult.Items.Add(lvi);
 				if (cnt > 30) break;
 			}
+			startstation.Clear();
+			endstation.Clear();
+			trainlist.Clear();
+			sstation.Clear();
+			estation.Clear();
 
-			
+
 			cnt = 0;
-			foreach(var i in exbuslist) // 버스 목록을 리스트뷰에 추가
-            {
+			foreach (var i in exbuslist) // 버스 목록을 리스트뷰에 추가
+			{
 				cnt++;
 				string[] str = new string[7];
 				str[0] = "고속버스";
 				str[1] = i.DepPlaceNm + "터미널";
-				str[2] = i.DepPlandTime.Substring(8,4).Insert(2, ":");
+				str[2] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
 				str[3] = i.ArrPlaceNm + "터미널";
 				str[4] = i.ArrPlandTime.Substring(8, 4).Insert(2, ":");
 				str[5] = i.Charge;
-				str[6] = Timecount(i.DepPlandTime.Substring(8,4),i.ArrPlandTime.Substring(8,4));
+				str[6] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
 				ListViewItem lvi = new ListViewItem(str);
 				lvResult.Items.Add(lvi);
 				if (cnt > 30) break;
-            }
+			}
 			startbusstation.Clear();
 			endbusstation.Clear();
 			exbuslist.Clear();
@@ -337,13 +356,13 @@ namespace Project.Forms {
 			btnend = null;
 
 			cnt = 0;
-			foreach(var i in airplanelist) // 항공기 목록을 리스트뷰에 추가
-            {
+			foreach (var i in airplanelist) // 항공기 목록을 리스트뷰에 추가
+			{
 				cnt++;
 				string[] str = new string[7];
 				str[0] = "항공기";
 				str[1] = i.DepAirportNm + "공항";
-				str[2] = i.DepPlandTime.Substring(8,4).Insert(2,":");
+				str[2] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
 				str[3] = i.ArrAirportNm + "공항";
 				str[4] = i.ArrPlandTime.Substring(8, 4).Insert(2, ":");
 				str[5] = i.EconomyCharge;
@@ -358,8 +377,8 @@ namespace Project.Forms {
 
 		}
 		private string Timecount(string s, string e)
-        {
-			string result="";
+		{
+			string result = "";
 			string sh, eh;
 			int shh, ehh;
 			int rh;
@@ -379,45 +398,90 @@ namespace Project.Forms {
 			sm = s.Substring(2); em = e.Substring(2);
 			smm = Convert.ToInt32(sm); emm = Convert.ToInt32(em);
 			rm = emm - smm;
-			if (rm < 0){
+			if (rm < 0)
+			{
 				rh -= 1; rm = rm + 60;
-            }
-			if (rm < 10){
+			}
+			if (rm < 10)
+			{
 				sw = 1;
 			}
 			rhh = Convert.ToString(rh); rmm = Convert.ToString(rm);
 			result += rhh;
 			result += ":";
-            if (sw == 1){
+			if (sw == 1)
+			{
 				result += "0";
-            }
+			}
 			result += rmm;
 
 			return result;
-        }
+		}
+
+		private int switt1;
+		private int switt2 = 0;
+		private void SelectStation(int sw, string pan)
+		{
+			string res = null;
+			if (sw == 1)
+			{
+				Console.WriteLine("!!!");
+				foreach (var i in startstation)
+				{
+					Console.WriteLine("SSSSSTATION: {0}, {1}", i.Name, i.Code);
+					if (i.Name == pan)
+					{
+						res = i.Code;
+						break;
+					}
+				}
+				sstation = new List<string> { res, "null", "null" };
+				Console.WriteLine("!");
+				foreach (var i in sstation)
+				{
+					Console.WriteLine("STATION: {0}", i);
+				}
+				switt1 = 1;
+			}
+			else if (sw == 2)
+			{
+				Console.WriteLine("@@@");
+				foreach (var i in endstation)
+				{
+					if (i.Name == pan)
+					{
+						res = i.Code;
+						break;
+					}
+				}
+				estation = new List<string> { res, "null", "null" };
+				Console.WriteLine("@");
+				switt2 = 1;
+			}
+		}
 
 		private static List<string> none = new List<string> { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 		private static List<string> metropolice = new List<string> { "서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-		private static List<string> metro_gyeonggi = new List<string>{ "가평", "고양", "과천", "광명", "광주", "구리", "군포", "김포", "남양주", "동두천", "부천", "성남", "수원", "시흥", "안산", "안성", "안양", "양주", "양평", "여주", "연천", "오산", "용인", "의왕", "의정부", "이천", "파주", "평택", "포천", "하남", "화성", "", "", "", "←", "" };
-		private static List<string> metro_gangwon = new List<string> { "강릉", "고성", "동해", "삼척", "속초", "양구","양양","영월", "원주", "인제","정선","철원", "춘천", "태백", "평창", "홍천","화천","횡성","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", ""};
-		private static List<string> metro_chungbuk = new List<string> {"괴산","단양","보은","영동","옥천","음성","제천","증평","진천","청주","충주","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
-		private static List<string> metro_chungnam = new List<string> {"계룡","공주","금산","논산","당진","보령","부여","서산","서천","아산","예산","천안","청양","태안","홍성","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
-		private static List<string> metro_jeonbuk = new List<string> {"고창","군산","김제","남원","무주","부안","순창","완주","익산","임실","장수","전주","정읍","진안","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
-		private static List<string> metro_jeonnam = new List<string> {"강진","고흥","광양","곡성","구례","나주","담양","목포","무안","보성","순천","신안","여수","영광","영암","완도","장성","장흥","진도","함평","해남","화순","", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
-		private static List<string> metro_gyeongbuk = new List<string> {"경산","경주","고령","구미","군위","김천","문경","봉화","상주","성주","안동","영덕","영양","영주","영천","예천","울릉","울진","의성","청도","청송","칠곡","포항","", "", "", "", "", "", "", "", "", "", "", "←", "" };
-		private static List<string> metro_gyeongnam = new List<string> {"거제","거창","고성","김해","남해","밀양","사천","산청","양산","의령","진주","창녕","창원","통영","하동","함안","함양","합천","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
-		private static List<string> metro_jeju = new List<string> { "서귀포","제주","", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_gyeonggi = new List<string> { "가평", "고양", "과천", "광명", "광주", "구리", "군포", "김포", "남양주", "동두천", "부천", "성남", "수원", "시흥", "안산", "안성", "안양", "양주", "양평", "여주", "연천", "오산", "용인", "의왕", "의정부", "이천", "파주", "평택", "포천", "하남", "화성", "", "", "", "←", "" };
+		private static List<string> metro_gangwon = new List<string> { "강릉", "고성", "동해", "삼척", "속초", "양구", "양양", "영월", "원주", "인제", "정선", "철원", "춘천", "태백", "평창", "홍천", "화천", "횡성", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_chungbuk = new List<string> { "괴산", "단양", "보은", "영동", "옥천", "음성", "제천", "증평", "진천", "청주", "충주", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_chungnam = new List<string> { "계룡", "공주", "금산", "논산", "당진", "보령", "부여", "서산", "서천", "아산", "예산", "천안", "청양", "태안", "홍성", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_jeonbuk = new List<string> { "고창", "군산", "김제", "남원", "무주", "부안", "순창", "완주", "익산", "임실", "장수", "전주", "정읍", "진안", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_jeonnam = new List<string> { "강진", "고흥", "광양", "곡성", "구례", "나주", "담양", "목포", "무안", "보성", "순천", "신안", "여수", "영광", "영암", "완도", "장성", "장흥", "진도", "함평", "해남", "화순", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_gyeongbuk = new List<string> { "경산", "경주", "고령", "구미", "군위", "김천", "문경", "봉화", "상주", "성주", "안동", "영덕", "영양", "영주", "영천", "예천", "울릉", "울진", "의성", "청도", "청송", "칠곡", "포항", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_gyeongnam = new List<string> { "거제", "거창", "고성", "김해", "남해", "밀양", "사천", "산청", "양산", "의령", "진주", "창녕", "창원", "통영", "하동", "함안", "함양", "합천", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
+		private static List<string> metro_jeju = new List<string> { "서귀포", "제주", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "←", "" };
 		private string starttrain;
 		private string endtrain;
 
 		private void ButtonChange(List<string> s)
-        {
-			button1.Text = s[0];button2.Text = s[1];button3.Text = s[2];button4.Text = s[3];button5.Text = s[4];button6.Text = s[5];
-			button7.Text = s[6];button8.Text = s[7];button9.Text = s[8];button10.Text = s[9];button11.Text = s[10];button12.Text = s[11];
-			button13.Text = s[12];button14.Text = s[13];button15.Text = s[14];button16.Text = s[15];button17.Text = s[16];button18.Text = s[17];
-			button19.Text = s[18];button20.Text = s[19];button21.Text = s[20];button22.Text = s[21];button23.Text = s[22];button24.Text = s[23];
-			button25.Text = s[24];button26.Text = s[25];button27.Text = s[26];button28.Text = s[27];button29.Text = s[28];button30.Text = s[29];
-			button31.Text = s[30];button32.Text = s[31];button33.Text = s[32];button34.Text = s[33];button35.Text = s[34];button36.Text = s[35];
+		{
+			button1.Text = s[0]; button2.Text = s[1]; button3.Text = s[2]; button4.Text = s[3]; button5.Text = s[4]; button6.Text = s[5];
+			button7.Text = s[6]; button8.Text = s[7]; button9.Text = s[8]; button10.Text = s[9]; button11.Text = s[10]; button12.Text = s[11];
+			button13.Text = s[12]; button14.Text = s[13]; button15.Text = s[14]; button16.Text = s[15]; button17.Text = s[16]; button18.Text = s[17];
+			button19.Text = s[18]; button20.Text = s[19]; button21.Text = s[20]; button22.Text = s[21]; button23.Text = s[22]; button24.Text = s[23];
+			button25.Text = s[24]; button26.Text = s[25]; button27.Text = s[26]; button28.Text = s[27]; button29.Text = s[28]; button30.Text = s[29];
+			button31.Text = s[30]; button32.Text = s[31]; button33.Text = s[32]; button34.Text = s[33]; button35.Text = s[34]; button36.Text = s[35];
 		}
 		private void btnMetro_Click(object sender, MouseEventArgs e)
 		{
@@ -462,47 +526,50 @@ namespace Project.Forms {
 			}
 		}
 		private void AddDeporArr(object sender)
-        {
+		{
 			sel = (sender as Button).Text;
-			if (currentButton.Name == "btnRSMenu_Departure") { // 출발지 탭에서
+			if (currentButton.Name == "btnRSMenu_Departure")
+			{ // 출발지 탭에서
 				btnstart = sel; // 버튼의 텍스트를 저장. 이 시점에서 버스는 끝.
-                switch (btnstart)
-                {
-					case "서울": starttrain = "11"; startairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//서울용산수서 // 김포공항 // 동서울서울경부센트럴
-					case "부산": starttrain = "21"; startairport = new List<string> { "NAARKPK" , "null" }; break;//부산 // 김해공항 // 노포사상
-					case "대구": starttrain = "22"; startairport = new List<string> { "NAARKTN" , "null" }; break;//동대구 // 대구공항 // 동대구
-					case "인천": starttrain = "23"; startairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//x // 인천공항김포공항 // 인천
-					case "광주":if(starttrain != "31") starttrain = "24"; startairport = new List<string> { "NAARKJJ", "null" }; break;//광주송정 // 광주공항 // 광주유스퀘어
-					case "대전": starttrain = "25"; startairport = new List<string> { "NAARKTU" , "null" }; break;//서대전대전 // x // 대전
-					case "울산": starttrain = "26"; startairport = new List<string> { "NAARKPU" , "null" }; break;//울산 // 울산공항 // 울산
-					case "세종": starttrain = "12"; startairport = new List<string> {"null","null" }; break;//x // x // 세종
-					default:break;
+				switch (btnstart)
+				{
+					case "": break;
+					case "서울": starttrain = "11"; sstation = new List<string> { "NAT010000", "NAT010032", "NATH30000" }; startairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//서울용산수서 // 김포공항 // 동서울서울경부센트럴
+					case "부산": starttrain = "21"; sstation = new List<string> { "NAT014445", "NAT014281", "null" }; startairport = new List<string> { "NAARKPK", "null" }; break;//부산 // 김해공항 // 노포사상
+					case "대구": starttrain = "22"; sstation = new List<string> { "NAT013271", "NAT013239", "null" }; startairport = new List<string> { "NAARKTN", "null" }; break;//동대구 // 대구공항 // 동대구
+					case "인천": starttrain = "23"; sstation = new List<string> { "null", "null", "null" }; startairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//x // 인천공항김포공항 // 인천
+					case "광주": if (starttrain != "31") starttrain = "24"; sstation = new List<string> { "NAT031857", "NAT883012", "NAT882936" }; startairport = new List<string> { "NAARKJJ", "null" }; break;//광주송정 // 광주공항 // 광주유스퀘어
+					case "대전": starttrain = "25"; sstation = new List<string> { "NAT011668", "NAT030057", "null" }; startairport = new List<string> { "NAARKTU", "null" }; break;//서대전대전 // x // 대전
+					case "울산": starttrain = "26"; sstation = new List<string> { "NATH13717", "null", "null" }; startairport = new List<string> { "NAARKPU", "null" }; break;//울산 // 울산공항 // 울산
+					case "세종": starttrain = "12"; sstation = new List<string> { "null", "null", "null" }; startairport = new List<string> { "null", "null" }; break;//x // x // 세종
+					default: /*Train_GetStationCode(1, starttrain); SelectStation(1, btnstart);*/ break;
 				}
-				Console.WriteLine("starttrain: {0}, startairport: {1}, {2}", starttrain, startairport[0],startairport[1]);
+				Console.WriteLine("starttrain: {0}, startairport: {1}, {2}", starttrain, startairport[0], startairport[1]);
 
 			}
 			else if (currentButton.Name == "btnRSMenu_Destination") // 도착지 탭에서
-            {
+			{
 				btnend = sel; // 이 시점에서 버스는 끝
-                switch (btnend)
-                {
-					case "서울": endtrain = "11"; endairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//서울용산수서 // 김포공항 // 동서울서울경부센트럴
-					case "부산": endtrain = "21"; endairport = new List<string> { "NAARKPK" , "null" }; break;//부산 // 김해공항 // 노포사상
-					case "대구": endtrain = "22"; endairport = new List<string> { "NAARKTN" , "null" }; break;//동대구 // 대구공항 // 동대구
-					case "인천": endtrain = "23"; endairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//x // 인천공항김포공항 // 인천
-					case "광주": if (endtrain != "31") endtrain = "24"; endairport = new List<string> { "NAARKJJ" , "null" }; break;//광주송정 // 광주공항 // 광주유스퀘어
-					case "대전": endtrain = "25"; endairport = new List<string> { "NAARKTU" , "null" }; break;//서대전대전 // x // 대전
-					case "울산": endtrain = "26"; endairport = new List<string> { "NAARKPU" , "null" }; break;//울산 // 울산공항 // 울산
-					case "세종": endtrain = "12"; endairport = new List<string> { "null", "null" }; break;//x // x // 세종
-					default: break;
+				switch (btnend)
+				{
+					case "": break;
+					case "서울": endtrain = "11"; estation = new List<string> { "NAT010000", "NAT010032", "NATH30000" }; endairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//서울용산수서 // 김포공항 // 동서울서울경부센트럴
+					case "부산": endtrain = "21"; estation = new List<string> { "NAT014445", "NAT014281", "null" }; endairport = new List<string> { "NAARKPK", "null" }; break;//부산 // 김해공항 // 노포사상
+					case "대구": endtrain = "22"; estation = new List<string> { "NAT013271", "NAT013239", "null" }; endairport = new List<string> { "NAARKTN", "null" }; break;//동대구 // 대구공항 // 동대구
+					case "인천": endtrain = "23"; estation = new List<string> { "null", "null", "null" }; endairport = new List<string> { "NAARKSS", "NAARKSI" }; break;//x // 인천공항김포공항 // 인천
+					case "광주": if (endtrain != "31") endtrain = "24"; estation = new List<string> { "NAT031857", "NAT883012", "NAT882936" }; endairport = new List<string> { "NAARKJJ", "null" }; break;//광주송정 // 광주공항 // 광주유스퀘어
+					case "대전": endtrain = "25"; estation = new List<string> { "NAT011668", "NAT030057", "null" }; endairport = new List<string> { "NAARKTU", "null" }; break;//서대전대전 // x // 대전
+					case "울산": endtrain = "26"; estation = new List<string> { "NATH13717", "null", "null" }; endairport = new List<string> { "NAARKPU", "null" }; break;//울산 // 울산공항 // 울산
+					case "세종": endtrain = "12"; estation = new List<string> { "null", "null", "null" }; endairport = new List<string> { "null", "null" }; break;//x // x // 세종
+					default: /*Train_GetStationCode(2, endtrain); SelectStation(2, btnend);*/ break;
 				}
-				Console.WriteLine("endtrain: {0}, endairport: {1}, {2}", endtrain, endairport[0],endairport[1]);
+				Console.WriteLine("endtrain: {0}, endairport: {1}, {2}", endtrain, endairport[0], endairport[1]);
 			}
 			//Console.WriteLine("start: {0}     ", btnstart);
 			//Console.WriteLine("  end: {0}     ", btnend);
 		}
 
-		public void Train_GetStationCode(int sore,string code) // 지역코드를 통해 역을 저장하는 코드
+		public void Train_GetStationCode(int sore, string code) // 지역코드를 통해 역을 저장하는 코드
 		{
 			string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getCtyAcctoTrainSttnList"; // URL
 			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
@@ -528,10 +595,12 @@ namespace Project.Forms {
 			string c_name = string.Empty;
 			for (int i = 0; i < results.Length; i++)
 			{
-				if (sw == 1 && results[i] != '<' && results[i] != '>'){
+				if (sw == 1 && results[i] != '<' && results[i] != '>')
+				{
 					str += results[i];
 				}
-				else if (results[i] == '>'){
+				else if (results[i] == '>')
+				{
 					switch (str)
 					{
 						case "resultMsg":
@@ -548,7 +617,8 @@ namespace Project.Forms {
 							break;
 					}
 				}
-				if (results[i] != '<' && results[i] != '>'){
+				if (results[i] != '<' && results[i] != '>')
+				{
 					switch (sw)
 					{
 						case 2:
@@ -563,7 +633,8 @@ namespace Project.Forms {
 					}
 					text += results[i];
 				}
-				else if (results[i] == '<'){
+				else if (results[i] == '<')
+				{
 					switch (sw)
 					{
 						case 2:
@@ -579,10 +650,12 @@ namespace Project.Forms {
 						case 4:
 							if (str.Length > 0 && c_name.Length > 0)
 							{
-								if (sore == 1){
+								if (sore == 1)
+								{
 									startstation.Add(new Train_Stationcode(c_code, c_name));
 								}
-								else if (sore == 2){
+								else if (sore == 2)
+								{
 									endstation.Add(new Train_Stationcode(c_code, c_name));
 								}
 								c_code = string.Empty;
@@ -594,7 +667,8 @@ namespace Project.Forms {
 					str = string.Empty;
 					text = string.Empty;
 				}
-				if (sw == 0 && results[i] == '<' && results[i + 1] != '/'){
+				if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+				{
 					sw = 1;
 				}
 			}
@@ -912,16 +986,16 @@ namespace Project.Forms {
 						case 4:
 							if (str.Length > 0 && terminalNm.Length > 0)
 							{
-                                if (sore == 1)
-                                {
+								if (sore == 1)
+								{
 									startbusstation.Add(new ExpressBus_Terminalcode(terminalId, terminalNm));
 									Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								else if (sore == 2)
-                                {
+								{
 									endbusstation.Add(new ExpressBus_Terminalcode(terminalId, terminalNm));
 									Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
-                                }
+								}
 								terminalId = string.Empty;
 								terminalNm = string.Empty;
 							}
@@ -1320,8 +1394,8 @@ namespace Project.Forms {
 
 
 
-    //국토교통부_열차정보 관련 클래스
-    class Train_Citycode // 기차의 도시코드를 얻는 클래스
+	//국토교통부_열차정보 관련 클래스
+	class Train_Citycode // 기차의 도시코드를 얻는 클래스
 	{
 		public string Code { get; set; }
 		public string Name { get; set; }
