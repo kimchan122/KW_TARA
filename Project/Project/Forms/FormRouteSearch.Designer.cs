@@ -30,8 +30,6 @@
             this.btnRSMenu_Destination = new System.Windows.Forms.Button();
             this.btnRSMenu_Departure = new System.Windows.Forms.Button();
             this.pnlWayToggle = new System.Windows.Forms.Panel();
-            this.btnWayToggle_Single = new System.Windows.Forms.Button();
-            this.btnWayToggle_RoundTrip = new System.Windows.Forms.Button();
             this.tmrPanelMove = new System.Windows.Forms.Timer(this.components);
             this.lvTransport = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvStartLoc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -80,7 +78,6 @@
             this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
             this.cldDatePicker = new System.Windows.Forms.MonthCalendar();
             this.pnlRSMenu.SuspendLayout();
-            this.pnlWayToggle.SuspendLayout();
             this.flpnlDetail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,46 +169,12 @@
             // 
             // pnlWayToggle
             // 
-            this.pnlWayToggle.Controls.Add(this.btnWayToggle_Single);
-            this.pnlWayToggle.Controls.Add(this.btnWayToggle_RoundTrip);
             this.pnlWayToggle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlWayToggle.Location = new System.Drawing.Point(0, 0);
             this.pnlWayToggle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlWayToggle.Name = "pnlWayToggle";
             this.pnlWayToggle.Size = new System.Drawing.Size(175, 56);
             this.pnlWayToggle.TabIndex = 0;
-            // 
-            // btnWayToggle_Single
-            // 
-            this.btnWayToggle_Single.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnWayToggle_Single.FlatAppearance.BorderSize = 0;
-            this.btnWayToggle_Single.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWayToggle_Single.Font = new System.Drawing.Font("서울남산체 B", 13F);
-            this.btnWayToggle_Single.ForeColor = System.Drawing.Color.White;
-            this.btnWayToggle_Single.Location = new System.Drawing.Point(89, 0);
-            this.btnWayToggle_Single.Margin = new System.Windows.Forms.Padding(1);
-            this.btnWayToggle_Single.Name = "btnWayToggle_Single";
-            this.btnWayToggle_Single.Size = new System.Drawing.Size(86, 56);
-            this.btnWayToggle_Single.TabIndex = 1;
-            this.btnWayToggle_Single.Text = "편도";
-            this.btnWayToggle_Single.UseVisualStyleBackColor = true;
-            this.btnWayToggle_Single.Click += new System.EventHandler(this.btnWayToggle_Single_Click);
-            // 
-            // btnWayToggle_RoundTrip
-            // 
-            this.btnWayToggle_RoundTrip.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnWayToggle_RoundTrip.FlatAppearance.BorderSize = 0;
-            this.btnWayToggle_RoundTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font("서울남산체 B", 13F);
-            this.btnWayToggle_RoundTrip.ForeColor = System.Drawing.Color.White;
-            this.btnWayToggle_RoundTrip.Location = new System.Drawing.Point(0, 0);
-            this.btnWayToggle_RoundTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnWayToggle_RoundTrip.Name = "btnWayToggle_RoundTrip";
-            this.btnWayToggle_RoundTrip.Size = new System.Drawing.Size(87, 56);
-            this.btnWayToggle_RoundTrip.TabIndex = 0;
-            this.btnWayToggle_RoundTrip.Text = "왕복";
-            this.btnWayToggle_RoundTrip.UseVisualStyleBackColor = true;
-            this.btnWayToggle_RoundTrip.Click += new System.EventHandler(this.btnWayToggle_RoundTrip_Click);
             // 
             // tmrPanelMove
             // 
@@ -891,7 +854,6 @@
             this.Text = "통합경로검색";
             this.Load += new System.EventHandler(this.FormRouteSearch_Load);
             this.pnlRSMenu.ResumeLayout(false);
-            this.pnlWayToggle.ResumeLayout(false);
             this.flpnlDetail.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -903,8 +865,6 @@
         private System.Windows.Forms.Button btnRSMenu_HeadCount;
         private System.Windows.Forms.Button btnRSMenu_Departure;
         private System.Windows.Forms.Panel pnlWayToggle;
-        private System.Windows.Forms.Button btnWayToggle_Single;
-        private System.Windows.Forms.Button btnWayToggle_RoundTrip;
         private System.Windows.Forms.Timer tmrPanelMove;
         private System.Windows.Forms.Button btnRSMenu_RSSearch;
         private System.Windows.Forms.ListView lvResult;

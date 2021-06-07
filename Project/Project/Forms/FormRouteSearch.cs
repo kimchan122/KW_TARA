@@ -135,6 +135,7 @@ namespace Project.Forms
 			string date = cldDatePicker.SelectionStart.ToShortDateString();
 			date = date.Replace("-", string.Empty);
 			btndeptime = date;
+			currentButton.Text = currentButton.Text.Substring(0, 6) + ": " + date;
 			Console.WriteLine("BTNDEPTIME: {0}", btndeptime);
 		}
 
@@ -523,7 +524,7 @@ namespace Project.Forms
 					case "경남": starttrain = "38"; startairport = new List<string> { "NAARKPS", "NAARKPK" }; ButtonChange(metro_gyeongnam); break;
 					case "제주": starttrain = "39"; startairport = new List<string> { "NAARKPC", "null" }; ButtonChange(metro_jeju); break;
 					case "←": ButtonChange(metropolice); break;
-					default: currentButton.Text.Replace(" "+btn.Text, ""); AddDeporArr(sender); break;
+					default: currentButton.Text = currentButton.Text.Substring(0, 5) + ": " + btn.Text; AddDeporArr(sender); break;
 				}
 			}
 			else if (currentButton.Name == "btnRSMenu_Destination")
@@ -542,7 +543,7 @@ namespace Project.Forms
 					case "경남": endtrain = "38"; endairport = new List<string> { "NAARKPS", "NAARKPK" }; ButtonChange(metro_gyeongnam); break;
 					case "제주": endtrain = "39"; endairport = new List<string> { "NAARKPC", "null" }; ButtonChange(metro_jeju); break;
 					case "←": ButtonChange(metropolice); break;
-					default: currentButton.Text.Replace(" " +btn.Text, ""); AddDeporArr(sender); break;
+					default: currentButton.Text=currentButton.Text.Substring(0,5)+": "+btn.Text; AddDeporArr(sender); break;
 				}
 			}
 		}
