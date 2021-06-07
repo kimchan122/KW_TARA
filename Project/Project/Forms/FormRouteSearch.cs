@@ -18,7 +18,16 @@ namespace Project.Forms
 		private string btndeptime;
 		private int swit10;
 		private int swit2;
-
+		private static string privatekey;
+		public void getServiceKey()
+		{
+			FileStream fs = new FileStream(Environment.CurrentDirectory + "\\ServiceKey.bin", FileMode.Open, FileAccess.Read);
+			BinaryReader br = new BinaryReader(fs);
+			string key = br.ReadString();
+			br.Close();
+			fs.Close();
+			privatekey = key;
+		}
 		private static List<Train_Stationcode> startstation = new List<Train_Stationcode>();
 		private static List<Train_Stationcode> endstation = new List<Train_Stationcode>();
 		private static List<Train_Trainkinds> traingrade = new List<Train_Trainkinds>();
@@ -170,6 +179,7 @@ namespace Project.Forms
 				}
 			}
 		}
+
 
 		string sel;
 		private void DisableButton(Panel Area)
@@ -594,7 +604,7 @@ namespace Project.Forms
 		public void Train_GetStationCode(int sore, string code) // 지역코드를 통해 역을 저장하는 코드
 		{
 			string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getCtyAcctoTrainSttnList"; // URL
-			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + privatekey; // Service Key
 			url += "&numOfRows=100";
 			url += "&pageNo=1";
 			url += "&cityCode=";
@@ -698,7 +708,7 @@ namespace Project.Forms
 		public static void Train_GetTrainCode()
 		{
 			string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getVhcleKndList"; // URL
-			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + privatekey; // Service Key
 
 			var request = (HttpWebRequest)WebRequest.Create(url);
 			request.Method = "GET";
@@ -785,7 +795,7 @@ namespace Project.Forms
 		public static void Train_GetStartToEnd(string start, string end, string deptime, string train)
 		{
 			string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
-			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + privatekey; // Service Key
 			url += "&numOfRows=100";
 			url += "&pageNo=1";
 			url += "&depPlaceId=";
@@ -920,13 +930,6 @@ namespace Project.Forms
 					sw = 1;
 				}
 			}
-			foreach (var c in trainlist)
-			{
-				//MessageBox.Show(c.DepTime + " " + c.ArrTime);
-				//lvResult.Items.Add(lv);
-				//c.print();
-				//Console.WriteLine("{0}: {1}", c.Name, c.Code);
-			}
 		}
 
 
@@ -937,7 +940,7 @@ namespace Project.Forms
 		public static void ExpressBus_GetTerminalID(int sore, string city) // 고속버스 터미널 코드를 얻는 함수
 		{
 			string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getExpBusTrminlList"; // URL
-			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + privatekey; // Service Key
 			url += "&numOfRows=10";
 			url += "&pageNo=1";
 			url += "&terminalNm=";
@@ -1037,7 +1040,7 @@ namespace Project.Forms
 		public static void ExpressBus_GetStartToEnd(string start, string end, string deptime, string exbus) // 인자를 통해 버스의 노선을 검색하는 함수
 		{
 			string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getStrtpntAlocFndExpbusInfo"; // URL
-			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + privatekey; // Service Key
 			url += "&numOfRows=100";
 			url += "&pageNo=1";
 			url += "&depTerminalId=";
@@ -1179,7 +1182,7 @@ namespace Project.Forms
 		public static void Airport_GetAirlinesID()
 		{ // 항공사 코드를 얻는 함수
 			string url = "http://openapi.tago.go.kr/openapi/service/DmstcFlightNvgInfoService/getAirmanList"; // URL
-			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + privatekey; // Service Key
 
 			var request = (HttpWebRequest)WebRequest.Create(url);
 			request.Method = "GET";
