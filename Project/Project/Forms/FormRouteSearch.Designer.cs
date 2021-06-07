@@ -39,6 +39,8 @@
             this.lvCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvSpendTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvResult = new System.Windows.Forms.ListView();
+            this.lvStartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
@@ -77,8 +79,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.flpnlDetail = new System.Windows.Forms.FlowLayoutPanel();
             this.cldDatePicker = new System.Windows.Forms.MonthCalendar();
-            this.lvStartTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvEndTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlRSMenu.SuspendLayout();
             this.pnlWayToggle.SuspendLayout();
             this.flpnlDetail.SuspendLayout();
@@ -222,29 +222,27 @@
             // lvTransport
             // 
             this.lvTransport.Text = "교통수단";
-            this.lvTransport.Width = 80;
+            this.lvTransport.Width = 100;
             // 
             // lvStartLoc
             // 
             this.lvStartLoc.Text = "출발위치";
-            this.lvStartLoc.Width = 120;
+            this.lvStartLoc.Width = 160;
             // 
             // lvEndLoc
             // 
-            this.lvEndLoc.DisplayIndex = 2;
             this.lvEndLoc.Text = "도착위치";
-            this.lvEndLoc.Width = 120;
+            this.lvEndLoc.Width = 160;
             // 
             // lvCost
             // 
             this.lvCost.Text = "요금(원)";
-            this.lvCost.Width = 80;
+            this.lvCost.Width = 100;
             // 
             // lvSpendTime
             // 
-            this.lvSpendTime.DisplayIndex = 4;
             this.lvSpendTime.Text = "소요시간";
-            this.lvSpendTime.Width = 80;
+            this.lvSpendTime.Width = 100;
             // 
             // lvResult
             // 
@@ -269,6 +267,17 @@
             this.lvResult.TabIndex = 5;
             this.lvResult.UseCompatibleStateImageBehavior = false;
             this.lvResult.View = System.Windows.Forms.View.Details;
+            this.lvResult.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lv_ColumnClick);
+            // 
+            // lvStartTime
+            // 
+            this.lvStartTime.Text = "출발시각";
+            this.lvStartTime.Width = 100;
+            // 
+            // lvEndTime
+            // 
+            this.lvEndTime.Text = "도착시각";
+            this.lvEndTime.Width = 100;
             // 
             // button36
             // 
@@ -867,16 +876,6 @@
             this.cldDatePicker.Name = "cldDatePicker";
             this.cldDatePicker.TabIndex = 6;
             this.cldDatePicker.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.cldDatePicker_DateChanged);
-            // 
-            // lvStartTime
-            // 
-            this.lvStartTime.Text = "출발시각";
-            this.lvStartTime.Width = 80;
-            // 
-            // lvEndTime
-            // 
-            this.lvEndTime.Text = "도착시각";
-            this.lvEndTime.Width = 80;
             // 
             // FormRouteSearch
             // 

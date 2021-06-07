@@ -213,7 +213,67 @@ namespace HowToGetAPI
     }
 
     //국토교통부_시외버스
+    class IntercityBus_Terminalcode // 고속버스의 터미널 코드를 얻는 클래스
+    {
+        public string terminalId { get; set; }
+        public string terminalNm { get; set; }
 
+        public IntercityBus_Terminalcode(string terminalid, string terminalnm)
+        {
+            this.terminalId = terminalid;
+            this.terminalNm = terminalnm;
+        }
+        public void print()
+        {
+            Console.WriteLine("{0}: {1}", this.terminalId, this.terminalNm);
+        }
+    }
+    class IntercityBus_BusGrade // 고속버스 등급을 얻는 클래스
+    {
+        public string GradeId { get; set; }
+        public string GradeNm { get; set; }
+
+        public IntercityBus_BusGrade(string gradeid, string gradenm)
+        {
+            this.GradeId = gradeid;
+            this.GradeNm = gradenm;
+        }
+        public void print()
+        {
+            Console.WriteLine("{0}: {1}", this.GradeId, this.GradeNm);
+        }
+    }
+    class IntercityBusList // 고속버스 운행정보를 얻는 클래스
+    {
+        public string RouteId { get; set; }
+        public string GradeNm { get; set; }
+        public string DepPlandTime { get; set; }
+        public string ArrPlandTime { get; set; }
+        public string DepPlaceNm { get; set; }
+        public string ArrPlaceNm { get; set; }
+        public string Charge { get; set; }
+        public IntercityBusList(string routeid, string gradenm, string depplandtime, string arrplandtime, string depplacenm, string arrplacenm, string charge)
+        {
+            this.RouteId = routeid;
+            this.GradeNm = gradenm;
+            this.DepPlandTime = depplandtime;
+            this.ArrPlandTime = arrplandtime;
+            this.DepPlaceNm = depplacenm;
+            this.ArrPlaceNm = arrplacenm;
+            this.Charge = charge;
+        }
+        public void print()
+        {
+            Console.WriteLine("노선ID    : {0}", this.RouteId);
+            Console.WriteLine("버스등급명: {0}", this.GradeNm);
+            Console.WriteLine("출발시각  : {0}", this.DepPlandTime);
+            Console.WriteLine("도착시각  : {0}", this.ArrPlandTime);
+            Console.WriteLine("출발터미널: {0}", this.DepPlaceNm);
+            Console.WriteLine("도착터미널: {0}", this.ArrPlaceNm);
+            Console.WriteLine("운임      : {0}", this.Charge);
+            Console.WriteLine();
+        }
+    }
 
 
 
@@ -1505,6 +1565,396 @@ namespace HowToGetAPI
             return null;
         }
         public static void ExpressBus_GetStartToEnd(string start, string end, string deptime, string exbus) // 인자를 통해 버스의 노선을 검색하는 함수
+        {
+            Console.WriteLine("출발지  :{0}", start);
+            Console.WriteLine("도착지  :{0}", end);
+            Console.WriteLine("출발시각:{0}", deptime);
+            Console.WriteLine("등급    :{0}", exbus);
+
+            List<ExpressBusList> exbuslist = new List<ExpressBusList>();
+            string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getStrtpntAlocFndExpbusInfo"; // URL
+            url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+            url += "&numOfRows=100";
+            url += "&pageNo=1";
+            url += "&depTerminalId=";
+            url += start;
+            url += "&arrTerminalId=";
+            url += end;
+            url += "&depPlandTime=";
+            url += deptime;
+            url += "&busGradeId=";
+            url += exbus;
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+
+            string results = string.Empty;
+            HttpWebResponse response;
+            using (response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                results = reader.ReadToEnd();
+            }
+            Console.WriteLine(results);
+
+            int sw = 0;
+            string str = string.Empty;
+            string text = string.Empty;
+
+            string routeid = string.Empty;
+            string gradeNm = string.Empty;
+            string depPlandTime = string.Empty;
+            string arrPlandTime = string.Empty;
+            string depPlaceNm = string.Empty;
+            string arrplaceNm = string.Empty;
+            string charge = string.Empty;
+
+            for (int i = 0; i < results.Length; i++)
+            {
+                if (sw == 1 && results[i] != '<' && results[i] != '>')
+                {
+                    str += results[i];
+                }
+                else if (results[i] == '>')
+                {
+                    switch (str)
+                    {
+                        case "resultMsg":
+                            sw = 2;
+                            break;
+                        case "arrPlaceNm":
+                            sw = 3;
+                            break;
+                        case "arrPlandTime":
+                            sw = 4;
+                            break;
+                        case "charge":
+                            sw = 5;
+                            break;
+                        case "depPlaceNm":
+                            sw = 6;
+                            break;
+                        case "depPlandTime": // 출발역
+                            sw = 7;
+                            break;
+                        case "gradeNm": // 등급
+                            sw = 8;
+                            break;
+                        case "routeId": // 비용
+                            sw = 9;
+                            break;
+                        default:
+                            sw = 0;
+                            break;
+                    }
+                }
+
+                if (results[i] != '<' && results[i] != '>')
+                {
+                    switch (sw)
+                    {
+                        case 2:
+                            text += results[i];
+                            break;
+                        case 3:
+                            arrplaceNm += results[i];
+                            break;
+                        case 4:
+                            arrPlandTime += results[i];
+                            break;
+                        case 5:
+                            charge += results[i];
+                            break;
+                        case 6:
+                            depPlaceNm += results[i];
+                            break;
+                        case 7:
+                            depPlandTime += results[i];
+                            break;
+                        case 8:
+                            gradeNm += results[i];
+                            break;
+                        case 9:
+                            routeid += results[i];
+                            break;
+                    }
+                    text += results[i];
+                }
+                else if (results[i] == '<')
+                {
+                    switch (sw)
+                    {
+                        case 9:
+                            if (str.Length > 0 && charge.Length > 0)
+                            {
+                                exbuslist.Add(new ExpressBusList(routeid, gradeNm, depPlandTime, arrPlandTime, depPlaceNm, arrplaceNm, charge));
+                                routeid = string.Empty;
+                                gradeNm = string.Empty;
+                                depPlandTime = string.Empty;
+                                arrPlandTime = string.Empty;
+                                depPlaceNm = string.Empty;
+                                arrplaceNm = string.Empty;
+                                charge = string.Empty;
+                            }
+                            break;
+                    }
+                    sw = 0;
+                    str = string.Empty;
+                    text = string.Empty;
+                }
+                if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+                {
+                    sw = 1;
+                }
+            }
+            foreach (var c in exbuslist)
+            {
+                c.print();
+            }
+        }
+        public static string IntercityBus_GetTerminalID()
+        { // 고속버스 터미널 코드를 얻는 함수
+            List<IntercityBus_Terminalcode> expressbus = new List<IntercityBus_Terminalcode>(); // 지역코드 저장
+                                                                                            //Queue<Citycode> cities = new Queue<Citycode>();
+                                                                                            //Citycode city = new Citycode
+
+            string city = string.Empty;
+            city = Console.ReadLine();
+            string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getExpBusTrminlList"; // URL
+            url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+            url += "&numOfRows=10";
+            url += "&pageNo=1";
+            url += "&terminalNm=";
+            url += city;
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+
+            string results = string.Empty;
+            HttpWebResponse response;
+            using (response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                results = reader.ReadToEnd();
+            }
+            string Real_results = string.Empty;
+
+            int sw = 0;
+            string str = string.Empty;
+            string text = string.Empty;
+            string terminalId = string.Empty;
+            string terminalNm = string.Empty;
+            for (int i = 0; i < results.Length; i++)
+            {
+                if (sw == 1 && results[i] != '<' && results[i] != '>')
+                {
+                    str += results[i];
+                }
+                else if (results[i] == '>')
+                {
+                    switch (str)
+                    {
+                        case "resultMsg":
+                            sw = 2;
+                            break;
+                        case "terminalId":
+                            sw = 3;
+                            break;
+                        case "terminalNm":
+                            sw = 4;
+                            break;
+                        default:
+                            sw = 0;
+                            break;
+                    }
+                }
+
+                if (results[i] != '<' && results[i] != '>')
+                {
+                    switch (sw)
+                    {
+                        case 2:
+                            text += results[i];
+                            break;
+                        case 3:
+                            terminalId += results[i];
+                            break;
+                        case 4:
+                            terminalNm += results[i];
+                            break;
+                    }
+                    text += results[i];
+                }
+                else if (results[i] == '<')
+                {
+                    switch (sw)
+                    {
+                        case 4:
+                            if (str.Length > 0 && terminalNm.Length > 0)
+                            {
+                                expressbus.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
+                                terminalId = string.Empty;
+                                terminalNm = string.Empty;
+                            }
+                            break;
+                    }
+                    sw = 0;
+                    str = string.Empty;
+                    text = string.Empty;
+                }
+                if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+                {
+                    sw = 1;
+                }
+            }
+
+            int sww = 0;
+            while (true) // 코드 받아서 역 리스트 받는 부분으로 넘김
+            {
+                foreach (var c in expressbus)
+                {
+                    Console.WriteLine("{0}: {1}", c.terminalNm, c.terminalId);
+                }
+                Console.WriteLine();
+                string input_code = string.Empty; // 입력받은 코드를 저장할 문자열 변수
+                input_code = Console.ReadLine(); // 입력
+                sww = 0;
+                foreach (var c in expressbus)
+                {
+                    if (c.terminalId == input_code) // 지역코드 중에 맞는 코드가 있는지 확인
+                    {
+                        sww = 1;
+                        return input_code;
+                        break;
+                    }
+                }
+                if (sww == 0)
+                {
+                    Console.WriteLine("지역 이름을 다시 입력해 주세요!\n"); // 일치하는 코드가 없을 시 메시지
+                    Console.WriteLine("{0}", expressbus.Count);
+                }
+            }
+            return null;
+        }
+        public static string IntercityBus_GetExpressBusGrade() // 버스의 등급을 얻는 함수
+        {
+            List<IntercityBus_BusGrade> exbuskinds = new List<IntercityBus_BusGrade>();
+
+            string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getExpBusGradList"; // URL
+            url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+
+            string results = string.Empty;
+            HttpWebResponse response;
+            using (response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                results = reader.ReadToEnd();
+            }
+
+            string Real_results = string.Empty;
+            int sw = 0;
+            string str = string.Empty;
+            string text = string.Empty;
+            string gradeId = string.Empty;
+            string gradeNm = string.Empty;
+
+            for (int i = 0; i < results.Length; i++)
+            {
+                if (sw == 1 && results[i] != '<' && results[i] != '>')
+                {
+                    str += results[i];
+                }
+                else if (results[i] == '>')
+                {
+                    switch (str)
+                    {
+                        case "resultMsg":
+                            sw = 2;
+                            break;
+                        case "gradeId":
+                            sw = 3;
+                            break;
+                        case "gradeNm":
+                            sw = 4;
+                            break;
+                        default:
+                            sw = 0;
+                            break;
+                    }
+                }
+
+                if (results[i] != '<' && results[i] != '>')
+                {
+                    switch (sw)
+                    {
+                        case 2:
+                            text += results[i];
+                            break;
+                        case 3:
+                            gradeId += results[i];
+                            break;
+                        case 4:
+                            gradeNm += results[i];
+                            break;
+                    }
+                    text += results[i];
+                }
+                else if (results[i] == '<')
+                {
+                    switch (sw)
+                    {
+                        case 4:
+                            if (str.Length > 0 && gradeNm.Length > 0)
+                            {
+                                exbuskinds.Add(new IntercityBus_BusGrade(gradeId, gradeNm));
+                                gradeId = string.Empty;
+                                gradeNm = string.Empty;
+                            }
+                            break;
+                    }
+                    sw = 0;
+                    str = string.Empty;
+                    text = string.Empty;
+                }
+                if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+                {
+                    sw = 1;
+                }
+            }
+
+            int sww = 0;
+            while (true) // 코드 받아서 버스 등급 리스트 받는 부분으로 넘김
+            {
+                foreach (var c in exbuskinds)
+                {
+                    Console.WriteLine("{0}: {1}", c.GradeId, c.GradeNm);
+                }
+                Console.WriteLine();
+                string input_code = string.Empty; // 입력받은 코드를 저장할 문자열 변수
+                Console.Write("Give me a Bus Grade Code: "); // 코드를 입력하세요!
+                input_code = Console.ReadLine(); // 입력
+                sww = 0;
+                foreach (var c in exbuskinds)
+                {
+                    if (c.GradeId == input_code) // 고속버스 등급 코드 중에 맞는 코드가 있는지 확인
+                    {
+                        sww = 1;
+                        return input_code;
+                        break;
+                    }
+                }
+                if (sww == 0)
+                {
+                    Console.WriteLine("고속버스 등급 코드를 다시 입력해 주세요!\n"); // 일치하는 코드가 없을 시 메시지
+                    Console.WriteLine("{0}", exbuskinds.Count);
+                }
+            }
+            return null;
+        }
+        public static void IntercityBus_GetStartToEnd(string start, string end, string deptime, string exbus) // 인자를 통해 버스의 노선을 검색하는 함수
         {
             Console.WriteLine("출발지  :{0}", start);
             Console.WriteLine("도착지  :{0}", end);

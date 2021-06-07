@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Http;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Project.Forms
@@ -27,7 +28,10 @@ namespace Project.Forms
 
 		private static List<ExpressBus_Terminalcode> startbusstation = new List<ExpressBus_Terminalcode>();
 		private static List<ExpressBus_Terminalcode> endbusstation = new List<ExpressBus_Terminalcode>();
+		private static List<IntercityBus_Terminalcode> instartbusstation = new List<IntercityBus_Terminalcode>();
+		private static List<IntercityBus_Terminalcode> inendbusstation = new List<IntercityBus_Terminalcode>();
 		private static List<ExpressBusList> exbuslist = new List<ExpressBusList>();
+		private static List<IntercityBusList> inbuslist = new List<IntercityBusList>();
 
 		private static List<string> startairport = new List<string>();
 		private static List<string> endairport = new List<string>();
@@ -38,14 +42,12 @@ namespace Project.Forms
 		{
 			InitializeComponent();
 			string url = "https://kimchan122.github.io/nvmaptest1/test.html";
-			flpnlDetail.Size = flpnlDetail.MinimumSize; //flow layout panel 숨기기
-														//webBrowser1.Navigate(url);
+			flpnlDetail.Size = flpnlDetail.MinimumSize;
 		}
 
 		private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
 			string msg = e.Url + " 로딩 완료!";
-			//MessageBox.Show(msg);
 		}
 
 		private void FormRouteSearch_Load(object sender, EventArgs e)
@@ -58,28 +60,23 @@ namespace Project.Forms
 			btndeptime = date;
 			Console.WriteLine("BTNDEPTIME: {0}", btndeptime);
 		}
+
 		private void LoadTheme()
 		{
 			foreach (Control ctrls in this.Controls)
-			{   //콘트롤 객체 탐색
+			{
 				if (ctrls.GetType() == typeof(Button))
-				{   //버튼일 경우
+				{
 					Button btn = (Button)ctrls;
 					btn.BackColor = ThemeColor.PrimaryColor;
 					btn.ForeColor = Color.White;
 					btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
 				}
 				else if (ctrls.GetType() == typeof(Label))
-				{ //라벨일 경우
+				{
 					Label lbl = (Label)ctrls;
 					lbl.ForeColor = ThemeColor.SecondaryColor;
 				}
-				/*
-				 * 다른 컨트롤 객체들도 테마 적용하시려면 여기에 조건문을 추가하시면 됩니다.
-				 *	ctrls.GetType()이 typeof(아이템 이름(ex.Panel, Textbox,...))과 일치하면
-				 *	해당 아이템 객체 선언하시고
-				 *	PrimaryColor나 SecondaryColor로 컬러 속성 변경하는 식입니다.
-				 */
 			}
 		}
 
@@ -95,19 +92,16 @@ namespace Project.Forms
 
 		private void btnRSMenu_Departure_Click(object sender, EventArgs e)
 		{
-			//직전에 누른 버튼이 지금 버튼과 다른 버튼이면
 			if (currentButton != sender)
 			{
-				//보여진 패널(flpnDetail)을 바로 숨긴다(Size를 MinimumSize로 바꿔서).
 				Button thisButton = (Button)sender;
 				flpnlDetail.Size = flpnlDetail.MinimumSize;
-				isCollapsed = true; //패널 닫혀있음 상태로 변경
+				isCollapsed = true;
 			}
 			ButtonChange(metropolice);
-			//ButtonChange(metro_gyeonggi);
-			ActivateButton(pnlRSMenu, sender);//현재 누른 버튼 활성화
+			ActivateButton(pnlRSMenu, sender);
 			cldDatePicker.Hide();
-			tmrPanelMove.Start();//타이머 작동 시작
+			tmrPanelMove.Start();
 		}
 
 		private void btnRSMenu_Destination_Click(object sender, EventArgs e)
@@ -124,7 +118,7 @@ namespace Project.Forms
 			tmrPanelMove.Start();
 		}
 
-		private void btnRSMenu_HeadCount_Click(object sender, EventArgs e)//출발날짜
+		private void btnRSMenu_HeadCount_Click(object sender, EventArgs e)
 		{
 			if (currentButton != sender)
 			{
@@ -161,31 +155,28 @@ namespace Project.Forms
 			if (btnSender != null)
 			{
 				if (currentButton != (Button)btnSender)
-				{ //선택한 버튼과 다른 버튼이 인자로 들어왔으면
-					DisableButton(Area);  //버튼을 초기 상태로 되돌림
-
-					currentButton = (Button)btnSender;  //현재 버튼을 currentButton에 저장
+				{
+					DisableButton(Area);
+					currentButton = (Button)btnSender;
 					currentButton.BackColor = ThemeColor.PrimaryColor;
 					currentButton.ForeColor = Color.White;
 					currentButton.Font = new System.Drawing.Font("서울남산체 B", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-
 					if (sel != null && (currentButton.Text == "  출발지" || currentButton.Text == "  도착지"))
 					{
-						//currentButton.Text += ": " + sel;
 						sel = null;
 					}
 					Update();
 				}
 			}
 		}
+
 		string sel;
-		//패널 내 모든 버튼들의 스타일을 원래대로 되돌리는 함수
 		private void DisableButton(Panel Area)
 		{
 			foreach (Control previousBtn in Area.Controls)
-			{ //패널 내의 모든 콘트롤 객체 탐색
+			{
 				if (previousBtn.GetType() == typeof(Button))
-				{   //버튼이면 스타일 초기화
+				{
 					previousBtn.BackColor = Color.FromArgb(78, 78, 110);
 					previousBtn.ForeColor = Color.White;
 					previousBtn.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -202,18 +193,15 @@ namespace Project.Forms
 		private void tmrPanelMove_Tick(object sender/*Timer객체*/, EventArgs e)
 		{
 			Button btn = sender as Button;
-			//패널이 닫혀있으면
 			if (isCollapsed)
 			{
-				flpnlDetail.Width += 20;    //패널 가로 크기 20pixel 증가
-				if (flpnlDetail.Size == flpnlDetail.MaximumSize)    //MaximumSize는 속성에서 변경가능
-				{//최대 크기에 도달하면
-					tmrPanelMove.Stop();    //타이머 정지
-					isCollapsed = false;    //패널 열려있음으로 상태 변경
-
+				flpnlDetail.Width += 20;
+				if (flpnlDetail.Size == flpnlDetail.MaximumSize)
+				{
+					tmrPanelMove.Stop();
+					isCollapsed = false;
 				}
 			}
-			//패널이 열려있으면
 			else
 			{
 				flpnlDetail.Width -= 20;
@@ -234,9 +222,9 @@ namespace Project.Forms
 			endbusstation.Clear();
 			exbuslist.Clear();
 
-			//startairport.Clear();
-			//endairport.Clear();
-			//airplanelist.Clear();
+			instartbusstation.Clear();
+			inendbusstation.Clear();
+			inbuslist.Clear();
 
 			tmrPanelMove.Start();
 			if (!isCollapsed)
@@ -277,17 +265,30 @@ namespace Project.Forms
 			Console.WriteLine("TRAIN END");
 
 
-			Console.WriteLine("BUS go");
-			//ExpressBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
-			//ExpressBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			Console.WriteLine("EXBUS go");
+			ExpressBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			ExpressBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 			foreach (var i in startbusstation)
 			{
 				foreach (var j in endbusstation)
 				{
-					//ExpressBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "1"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+					ExpressBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "1"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 				}
 			}
-			Console.WriteLine("BUS END");
+			Console.WriteLine("EXBUS END");
+
+
+			Console.WriteLine("INBUS go");
+			//IntercityBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			//IntercityBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			foreach (var i in instartbusstation)
+			{
+				foreach (var j in inendbusstation)
+				{
+					//IntercityBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "IDG"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+				}
+			}
+			Console.WriteLine("INBUS END");
 
 
 			Console.WriteLine("AIR go");
@@ -352,6 +353,26 @@ namespace Project.Forms
 			startbusstation.Clear();
 			endbusstation.Clear();
 			exbuslist.Clear();
+
+			cnt = 0;
+			foreach (var i in inbuslist) // 시외버스 목록을 리스트뷰에 추가
+			{
+				cnt++;
+				string[] str = new string[7];
+				str[0] = "시외버스";
+				str[1] = i.DepPlaceNm + "터미널";
+				str[2] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
+				str[3] = i.ArrPlaceNm + "터미널";
+				str[4] = i.ArrPlandTime.Substring(8, 4).Insert(2, ":");
+				str[5] = i.Charge;
+				str[6] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				ListViewItem lvi = new ListViewItem(str);
+				lvResult.Items.Add(lvi);
+				if (cnt > 30) break;
+			}
+			instartbusstation.Clear();
+			inendbusstation.Clear();
+			inbuslist.Clear();
 			btnstart = null;
 			btnend = null;
 
@@ -500,9 +521,9 @@ namespace Project.Forms
 					case "전남": starttrain = "36"; startairport = new List<string> { "NAARKJB", "NAARKJJ" }; ButtonChange(metro_jeonnam); break;
 					case "경북": starttrain = "37"; startairport = new List<string> { "NAARKTH", "NAARKTN" }; ButtonChange(metro_gyeongbuk); break;
 					case "경남": starttrain = "38"; startairport = new List<string> { "NAARKPS", "NAARKPK" }; ButtonChange(metro_gyeongnam); break;
-					case "제주": starttrain = "00"; startairport = new List<string> { "NAARKPC", "null" }; ButtonChange(metro_jeju); break;
+					case "제주": starttrain = "39"; startairport = new List<string> { "NAARKPC", "null" }; ButtonChange(metro_jeju); break;
 					case "←": ButtonChange(metropolice); break;
-					default: AddDeporArr(sender); break;
+					default: currentButton.Text.Replace(" "+btn.Text, ""); AddDeporArr(sender); break;
 				}
 			}
 			else if (currentButton.Name == "btnRSMenu_Destination")
@@ -519,9 +540,9 @@ namespace Project.Forms
 					case "전남": endtrain = "36"; endairport = new List<string> { "NAARKJB", "NAARKJJ" }; ButtonChange(metro_jeonnam); break;
 					case "경북": endtrain = "37"; endairport = new List<string> { "NAARKTH", "NAARKTN" }; ButtonChange(metro_gyeongbuk); break;
 					case "경남": endtrain = "38"; endairport = new List<string> { "NAARKPS", "NAARKPK" }; ButtonChange(metro_gyeongnam); break;
-					case "제주": endtrain = "00"; endairport = new List<string> { "NAARKPC", "null" }; ButtonChange(metro_jeju); break;
+					case "제주": endtrain = "39"; endairport = new List<string> { "NAARKPC", "null" }; ButtonChange(metro_jeju); break;
 					case "←": ButtonChange(metropolice); break;
-					default: AddDeporArr(sender); break;
+					default: currentButton.Text.Replace(" " +btn.Text, ""); AddDeporArr(sender); break;
 				}
 			}
 		}
@@ -1386,16 +1407,305 @@ namespace Project.Forms
 				}
 			}
 		}
+		public static void IntercityBus_GetTerminalID(int sore, string city) // 시외버스 터미널 코드를 얻는 함수
+		{
+			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getSuberbsBusTrminlList"; // URL
+			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			//url += "&numOfRows=10";
+			//url += "&pageNo=1";
+			url += "&terminalNm=";
+			url += city;
+
+			var request = (HttpWebRequest)WebRequest.Create(url);
+			request.Method = "GET";
+
+			string results = string.Empty;
+			HttpWebResponse response;
+			using (response = request.GetResponse() as HttpWebResponse)
+			{
+				StreamReader reader = new StreamReader(response.GetResponseStream());
+				results = reader.ReadToEnd();
+			}
+			Console.WriteLine("");
+			Console.WriteLine("RESULT: ");
+			Console.WriteLine(results);
+			Console.WriteLine("");
+
+			int sw = 0;
+			string str = string.Empty;
+			string text = string.Empty;
+			string terminalId = string.Empty;
+			string terminalNm = string.Empty;
+			for (int i = 0; i < results.Length; i++)
+			{
+				if (sw == 1 && results[i] != '<' && results[i] != '>')
+				{
+					str += results[i];
+				}
+				else if (results[i] == '>')
+				{
+					switch (str)
+					{
+						case "resultMsg":
+							sw = 2;
+							break;
+						case "terminalId":
+							sw = 3;
+							break;
+						case "terminalNm":
+							sw = 4;
+							break;
+						default:
+							sw = 0;
+							break;
+					}
+				}
+
+				if (results[i] != '<' && results[i] != '>')
+				{
+					switch (sw)
+					{
+						case 2:
+							text += results[i];
+							break;
+						case 3:
+							terminalId += results[i];
+							break;
+						case 4:
+							terminalNm += results[i];
+							break;
+					}
+					text += results[i];
+				}
+				else if (results[i] == '<')
+				{
+					switch (sw)
+					{
+						case 4:
+							if (str.Length > 0 && terminalNm.Length > 0)
+							{
+								if (sore == 1)
+								{
+									instartbusstation.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
+									Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
+								}
+								else if (sore == 2)
+								{
+									inendbusstation.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
+									Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
+								}
+								terminalId = string.Empty;
+								terminalNm = string.Empty;
+							}
+							break;
+					}
+					sw = 0;
+					str = string.Empty;
+					text = string.Empty;
+				}
+				if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+				{
+					sw = 1;
+				}
+			}
+		}
+
+		public static void IntercityBus_GetStartToEnd(string start, string end, string deptime, string inbus) // 인자를 통해 버스의 노선을 검색하는 함수
+		{
+			Console.WriteLine("Start: {0}. End: {1}, DEPT: {2}, INBUS: {3}", start, end, deptime, inbus);
+			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getStrtpntAlocFndSuberbsBusInfo"; // URL
+			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
+			url += "&numOfRows=100";
+			url += "&pageNo=1";
+			url += "&depTerminalId=";
+			url += start;
+			url += "&arrTerminalId=";
+			url += end;
+			url += "&depPlandTime=";
+			url += deptime;
+			url += "&busGradeId=";
+			url += inbus;
+
+			var request = (HttpWebRequest)WebRequest.Create(url);
+			request.Method = "GET";
+
+			string results = string.Empty;
+			HttpWebResponse response;
+			using (response = request.GetResponse() as HttpWebResponse)
+			{
+				StreamReader reader = new StreamReader(response.GetResponseStream());
+				results = reader.ReadToEnd();
+			}
+			Console.WriteLine(results);
+
+			int sw = 0;
+			string str = string.Empty;
+			string text = string.Empty;
+
+			string routeid = string.Empty;
+			string gradeNm = string.Empty;
+			string depPlandTime = string.Empty;
+			string arrPlandTime = string.Empty;
+			string depPlaceNm = string.Empty;
+			string arrplaceNm = string.Empty;
+			string charge = string.Empty;
+
+			for (int i = 0; i < results.Length; i++)
+			{
+				if (sw == 1 && results[i] != '<' && results[i] != '>')
+				{
+					str += results[i];
+				}
+				else if (results[i] == '>')
+				{
+					switch (str)
+					{
+						case "resultMsg":
+							sw = 2;
+							break;
+						case "arrPlaceNm":
+							sw = 3;
+							break;
+						case "arrPlandTime":
+							sw = 4;
+							break;
+						case "charge":
+							sw = 5;
+							break;
+						case "depPlaceNm":
+							sw = 6;
+							break;
+						case "depPlandTime": // 출발역
+							sw = 7;
+							break;
+						case "gradeNm": // 등급
+							sw = 8;
+							break;
+						case "routeId":
+							sw = 9;
+							break;
+						default:
+							sw = 0;
+							break;
+					}
+				}
+
+				if (results[i] != '<' && results[i] != '>')
+				{
+					switch (sw)
+					{
+						case 2:
+							text += results[i];
+							break;
+						case 3:
+							arrplaceNm += results[i];
+							break;
+						case 4:
+							arrPlandTime += results[i];
+							break;
+						case 5:
+							charge += results[i];
+							break;
+						case 6:
+							depPlaceNm += results[i];
+							break;
+						case 7:
+							depPlandTime += results[i];
+							break;
+						case 8:
+							gradeNm += results[i];
+							break;
+						case 9:
+							routeid += results[i];
+							break;
+					}
+					text += results[i];
+				}
+				else if (results[i] == '<')
+				{
+					switch (sw)
+					{
+						case 9:
+							if (str.Length > 0 && charge.Length > 0)
+							{
+								Console.WriteLine("ADDED");
+								inbuslist.Add(new IntercityBusList(routeid, gradeNm, depPlandTime, arrPlandTime, depPlaceNm, arrplaceNm, charge));
+								routeid = string.Empty;
+								gradeNm = string.Empty;
+								depPlandTime = string.Empty;
+								arrPlandTime = string.Empty;
+								depPlaceNm = string.Empty;
+								arrplaceNm = string.Empty;
+								charge = string.Empty;
+							}
+							break;
+					}
+					sw = 0;
+					str = string.Empty;
+					text = string.Empty;
+				}
+				if (sw == 0 && results[i] == '<' && results[i + 1] != '/')
+				{
+					sw = 1;
+				}
+			}
+		}
+
+        private void lv_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+			if (e.Column == 0)
+			{
+				return;
+			}			
+			lvResult.Columns[e.Column].Text = lvResult.Columns[e.Column].Text.Replace(" ▼", "");
+			lvResult.Columns[e.Column].Text = lvResult.Columns[e.Column].Text.Replace(" ▲", "");
+			if (this.lvResult.Sorting == SortOrder.Ascending || lvResult.Sorting == SortOrder.None)
+			{
+				this.lvResult.ListViewItemSorter = new ListviewItemComparer(e.Column, "desc");
+				lvResult.Sorting = SortOrder.Descending;
+				lvResult.Columns[e.Column].Text = lvResult.Columns[e.Column].Text + " ▼";
+			}
+			else
+			{
+				this.lvResult.ListViewItemSorter = new ListviewItemComparer(e.Column, "asc");
+				lvResult.Sorting = SortOrder.Ascending;
+				lvResult.Columns[e.Column].Text = lvResult.Columns[e.Column].Text + " ▲";
+			}
+			lvResult.Sort();
+		}
+    }
+	class ListviewItemComparer : IComparer
+	{
+		private int col;
+		public string sort = "asc";
+		public ListviewItemComparer()
+		{
+			col = 0;
+		}
+
+		public ListviewItemComparer(int column, string sort)
+		{
+			col = column;
+			this.sort = sort;
+		}
+
+		public int Compare(object x, object y)
+		{
+			if (sort == "asc")
+			{
+				return String.Compare(((ListViewItem)x).SubItems[col].Text, ((ListViewItem)y).SubItems[col].Text);
+			}
+			else
+			{
+				return String.Compare(((ListViewItem)y).SubItems[col].Text, ((ListViewItem)x).SubItems[col].Text);
+			}
+		}
 	}
 
 
 
-
-
-
-
-	//국토교통부_열차정보 관련 클래스
-	class Train_Citycode // 기차의 도시코드를 얻는 클래스
+    //국토교통부_열차정보 관련 클래스
+    class Train_Citycode // 기차의 도시코드를 얻는 클래스
 	{
 		public string Code { get; set; }
 		public string Name { get; set; }
@@ -1605,5 +1915,66 @@ namespace Project.Forms
 			Console.WriteLine();
 		}
 	}
+	//국토교통부_시외버스
+	class IntercityBus_Terminalcode // 고속버스의 터미널 코드를 얻는 클래스
+	{
+		public string terminalId { get; set; }
+		public string terminalNm { get; set; }
 
+		public IntercityBus_Terminalcode(string terminalid, string terminalnm)
+		{
+			this.terminalId = terminalid;
+			this.terminalNm = terminalnm;
+		}
+		public void print()
+		{
+			Console.WriteLine("{0}: {1}", this.terminalId, this.terminalNm);
+		}
+	}
+	class IntercityBus_BusGrade // 고속버스 등급을 얻는 클래스
+	{
+		public string GradeId { get; set; }
+		public string GradeNm { get; set; }
+
+		public IntercityBus_BusGrade(string gradeid, string gradenm)
+		{
+			this.GradeId = gradeid;
+			this.GradeNm = gradenm;
+		}
+		public void print()
+		{
+			Console.WriteLine("{0}: {1}", this.GradeId, this.GradeNm);
+		}
+	}
+	class IntercityBusList // 고속버스 운행정보를 얻는 클래스
+	{
+		public string RouteId { get; set; }
+		public string GradeNm { get; set; }
+		public string DepPlandTime { get; set; }
+		public string ArrPlandTime { get; set; }
+		public string DepPlaceNm { get; set; }
+		public string ArrPlaceNm { get; set; }
+		public string Charge { get; set; }
+		public IntercityBusList(string routeid, string gradenm, string depplandtime, string arrplandtime, string depplacenm, string arrplacenm, string charge)
+		{
+			this.RouteId = routeid;
+			this.GradeNm = gradenm;
+			this.DepPlandTime = depplandtime;
+			this.ArrPlandTime = arrplandtime;
+			this.DepPlaceNm = depplacenm;
+			this.ArrPlaceNm = arrplacenm;
+			this.Charge = charge;
+		}
+		public void print()
+		{
+			Console.WriteLine("노선ID    : {0}", this.RouteId);
+			Console.WriteLine("버스등급명: {0}", this.GradeNm);
+			Console.WriteLine("출발시각  : {0}", this.DepPlandTime);
+			Console.WriteLine("도착시각  : {0}", this.ArrPlandTime);
+			Console.WriteLine("출발터미널: {0}", this.DepPlaceNm);
+			Console.WriteLine("도착터미널: {0}", this.ArrPlaceNm);
+			Console.WriteLine("운임      : {0}", this.Charge);
+			Console.WriteLine();
+		}
+	}
 }
