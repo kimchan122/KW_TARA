@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Project.Forms.Plane {
 	public class FlightInfo {
+		public enum TicketCharge {
+			economyCharge = 0,
+			prestigeCharge
+		}
+
 		public class Flight {
 			public string 출발공항 { get; set; }
 			public DateTime 출발시각 { get; set; }
 			public string 도착공항 { get; set; }
 			public DateTime 도착시각 { get; set; }
-			public int[] 요금 = new int[2]; //0 : 일반좌석요금, 1 : 비즈니스좌석요금
+			public string[] 요금 = new string[2]; //0 : 일반좌석요금, 1 : 비즈니스좌석요금
 			public string 항공사 { get; set; }
 			public string 노선코드 { get; set; }
 		}

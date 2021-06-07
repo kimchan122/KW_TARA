@@ -5,34 +5,60 @@ using System.Net;
 using System.Xml;
 
 namespace Project.Forms.Plane {
-	class PlaneAPI : FlightInfo {
+	public class PlaneAPI : FlightInfo {
+		
 		private const string URL = "http://openapi.tago.go.kr/openapi/service/DmstcFlightNvgInfoService/";
 		private const string numOfRows = "&numOfRows=50";//한 페이지 결과 수
 		private const string pageNo = "&pageNo=1";//페이지 번호
-		public string depAirportId { get { return depAirportId; } set { depAirportId += value; } }//출발공항 ID
-		public string arrAirportId { get { return arrAirportId; } set { arrAirportId += value; } }//도착공항 ID
-		public string depPlandTime { get { return depPlandTime; } set { depPlandTime += value; } }//출발일
-		public string airlineId { get { return airlineId; } set { airlineId += value; } }//항공사 ID
+		public string depAirportId { get; set; }//출발공항 ID
+		public string arrAirportId { get; set; }//도착공항 ID
+		public string depPlandTime { get; set; }//출발일
+		public string airlineId { get; set; }//항공사 ID
 
 		public Flight[] getFlightInfo() {
+			if(string.Equals(depAirportId, "&depAirportId="))	return null; 
+			if(string.Equals(arrAirportId, "&arrAirportId="))	return null; 
+			if(string.Equals(depPlandTime, "&depPlandTime="))	return null; 
+			if(string.Equals(airlineId, "&airlineId="))	return null;
 			//RESTful Server에 전송할 Request 제작
-			string request = URL + "getFlightOpratInfoList" + "?ServiceKey=" + this.getServiceKey() + numOfRows + pageNo + this.depAirportId + this.arrAirportId + this.depPlandTime + this.airlineId;
-			string responseXml = getResponse(request);
-			XmlNode xn = getXmlNodes(responseXml);
+			string request = URL + "getFlightOpratInfoList" +
+				"?ServiceKey=" + this.getServiceKey() + numOfRows + pageNo +
+				"&depAirportId=" + this.depAirportId +
+				"&arrAirportId=" + this.arrAirportId +
+				"&depPlandTime=" + this.depPlandTime +
+				"&airlineId=" + this.airlineId;
+
+			XmlNode xn;
+
+				string responseXml = getResponse(request);
+				xn = getXmlNodes(responseXml);
+
 
 			Flight[] flightList = new Flight[xn.ChildNodes.Count];
 			for (int i = 0; i < xn.ChildNodes.Count; i++) {
 				Flight f = new Flight();
 
 				//Xml 내용 채우기
-				f.출발공항 = xn.ChildNodes[i]["depAirportNm"].InnerText;
-				f.출발시각 = stringToDate(xn.ChildNodes[i]["depPlandTime"].InnerText);
-				f.도착공항 = xn.ChildNodes[i]["arrAirportNm"].InnerText;
-				f.도착시각 = stringToDate(xn.ChildNodes[i]["arrPlandTime"].InnerText);
-				f.항공사 = xn.ChildNodes[i]["airlineNm"].InnerText;
-				f.요금[0] = int.Parse(xn.ChildNodes[i]["economyCharge"].InnerText);
-				f.요금[1] = int.Parse(xn.ChildNodes[i]["prestigeCharge"].InnerText);
-				f.노선코드 = xn.ChildNodes[i]["vihicleId"].InnerText;
+				if (xn.ChildNodes[i]["depAirportNm"] != null)
+					f.출발공항 = xn.ChildNodes[i]["depAirportNm"].InnerText;
+				if (xn.ChildNodes[i]["depPlandTime"] != null)
+					f.출발시각 = stringToDate(xn.ChildNodes[i]["depPlandTime"].InnerText);
+				if (xn.ChildNodes[i]["arrAirportNm"] != null)
+					f.도착공항 = xn.ChildNodes[i]["arrAirportNm"].InnerText;
+				if (xn.ChildNodes[i]["arrPlandTime"] != null)
+					f.도착시각 = stringToDate(xn.ChildNodes[i]["arrPlandTime"].InnerText);
+				if(xn.ChildNodes[i]["airlineNm"] != null)
+					f.항공사 = xn.ChildNodes[i]["airlineNm"].InnerText;
+				if (xn.ChildNodes[i]["economyCharge"] != null)
+					f.요금[0] = xn.ChildNodes[i]["economyCharge"].InnerText;
+				else
+					f.요금[0] = "    -    ";
+				if (xn.ChildNodes[i]["prestigeCharge"] != null)
+					f.요금[1] = xn.ChildNodes[i]["prestigeCharge"].InnerText;
+				else
+					f.요금[1] = "    -    ";
+				if (xn.ChildNodes[i]["vihicleId"] != null)
+					f.노선코드 = xn.ChildNodes[i]["vihicleId"].InnerText;
 
 				flightList[i] = f;
 			}

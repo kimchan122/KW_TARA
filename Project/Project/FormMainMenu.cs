@@ -126,8 +126,7 @@ namespace Project {
 			btnGoHome.Visible = false;
 		}
 
-		//없어진 ControlBox를 대체할 버튼과 MouseDown 드래깅 추가
-
+		/*없어진 ControlBox를 대체할 버튼과 MouseDown 드래깅 추가*/
 		//DllImport Attribute 추가
 		[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
 		private extern static void ReleaseCapture();

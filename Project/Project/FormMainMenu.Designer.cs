@@ -75,7 +75,7 @@
 			this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnSettings.Size = new System.Drawing.Size(270, 90);
 			this.btnSettings.TabIndex = 5;
-			this.btnSettings.Text = "설정             ";
+			this.btnSettings.Text = "설정         ";
 			this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnSettings.UseVisualStyleBackColor = true;
 			this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);

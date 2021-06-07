@@ -26,6 +26,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlane));
 			this.pnlOptions = new System.Windows.Forms.Panel();
+			this.btnOptions_Airline = new System.Windows.Forms.Button();
 			this.btnOptions_SeatClass = new System.Windows.Forms.Button();
 			this.btnOptions_Date = new System.Windows.Forms.Button();
 			this.btnOptions_Arrival = new System.Windows.Forms.Button();
@@ -35,14 +36,16 @@
 			this.btnCourse_RoundTrip = new System.Windows.Forms.Button();
 			this.tmrDetailsPanel_Move = new System.Windows.Forms.Timer(this.components);
 			this.tmrAirportsPanel_Move = new System.Windows.Forms.Timer(this.components);
-			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+			this.imgArrow = new System.Windows.Forms.ImageList(this.components);
 			this.pnlDetails = new System.Windows.Forms.Panel();
+			this.pnlDetail_Airlines = new System.Windows.Forms.Panel();
+			this.tpnlAirlines = new System.Windows.Forms.TableLayoutPanel();
 			this.pnlDetail_SeatClass = new System.Windows.Forms.Panel();
 			this.btnDetail_SeatClass_Business = new System.Windows.Forms.Button();
 			this.btnDetail_SeatClass_Economy = new System.Windows.Forms.Button();
 			this.pnlDetail_Date = new System.Windows.Forms.Panel();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
+			this.dtpLeaveDate = new System.Windows.Forms.DateTimePicker();
 			this.lblDetail_Date_Return = new System.Windows.Forms.Label();
 			this.lblDetail_Date_Leave = new System.Windows.Forms.Label();
 			this.pnlDetail_Arrival = new System.Windows.Forms.Panel();
@@ -61,25 +64,27 @@
 			this.txtDepAirport_Name = new System.Windows.Forms.TextBox();
 			this.pnlBody = new System.Windows.Forms.Panel();
 			this.tpnlResults = new System.Windows.Forms.TableLayoutPanel();
-			this.listView1 = new System.Windows.Forms.ListView();
+			this.lvwLeaveFlights = new System.Windows.Forms.ListView();
 			this.l_depTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.l_arrTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.l_airline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.l_price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.listView2 = new System.Windows.Forms.ListView();
+			this.lvwReturnFlights = new System.Windows.Forms.ListView();
 			this.r_depTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.r_arrTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.r_airline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.r_price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.pnlLeaveStatus = new System.Windows.Forms.Panel();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
+			this.btnLeaveInfo = new System.Windows.Forms.Button();
 			this.pnlReturnStatus = new System.Windows.Forms.Panel();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.btnReturnInfo = new System.Windows.Forms.Button();
+			this.btnLeaveTotal = new System.Windows.Forms.Button();
+			this.btnReturnTotal = new System.Windows.Forms.Button();
+			this.imgAirlineLogo = new System.Windows.Forms.ImageList(this.components);
 			this.pnlOptions.SuspendLayout();
 			this.pnlCourse.SuspendLayout();
 			this.pnlDetails.SuspendLayout();
+			this.pnlDetail_Airlines.SuspendLayout();
 			this.pnlDetail_SeatClass.SuspendLayout();
 			this.pnlDetail_Date.SuspendLayout();
 			this.pnlDetail_Arrival.SuspendLayout();
@@ -97,6 +102,7 @@
 			// pnlOptions
 			// 
 			this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
+			this.pnlOptions.Controls.Add(this.btnOptions_Airline);
 			this.pnlOptions.Controls.Add(this.btnOptions_SeatClass);
 			this.pnlOptions.Controls.Add(this.btnOptions_Date);
 			this.pnlOptions.Controls.Add(this.btnOptions_Arrival);
@@ -106,8 +112,26 @@
 			this.pnlOptions.Font = new System.Drawing.Font("서울남산체 B", 13F);
 			this.pnlOptions.Location = new System.Drawing.Point(0, 0);
 			this.pnlOptions.Name = "pnlOptions";
-			this.pnlOptions.Size = new System.Drawing.Size(200, 448);
+			this.pnlOptions.Size = new System.Drawing.Size(200, 700);
 			this.pnlOptions.TabIndex = 2;
+			// 
+			// btnOptions_Airline
+			// 
+			this.btnOptions_Airline.BackColor = System.Drawing.Color.Transparent;
+			this.btnOptions_Airline.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnOptions_Airline.FlatAppearance.BorderSize = 0;
+			this.btnOptions_Airline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnOptions_Airline.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnOptions_Airline.ForeColor = System.Drawing.Color.White;
+			this.btnOptions_Airline.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnOptions_Airline.Location = new System.Drawing.Point(0, 350);
+			this.btnOptions_Airline.Name = "btnOptions_Airline";
+			this.btnOptions_Airline.Size = new System.Drawing.Size(200, 70);
+			this.btnOptions_Airline.TabIndex = 5;
+			this.btnOptions_Airline.Text = "  항공사";
+			this.btnOptions_Airline.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnOptions_Airline.UseVisualStyleBackColor = false;
+			this.btnOptions_Airline.Click += new System.EventHandler(this.btnOptions_Airline_Click);
 			// 
 			// btnOptions_SeatClass
 			// 
@@ -207,7 +231,7 @@
 			this.btnCourse_Single.TabIndex = 1;
 			this.btnCourse_Single.Text = "편도";
 			this.btnCourse_Single.UseVisualStyleBackColor = false;
-			this.btnCourse_Single.Click += new System.EventHandler(this.btnCourse_Single_Click);
+			this.btnCourse_Single.Click += new System.EventHandler(this.btnCourseName_Click);
 			// 
 			// btnCourse_RoundTrip
 			// 
@@ -224,7 +248,7 @@
 			this.btnCourse_RoundTrip.TabIndex = 0;
 			this.btnCourse_RoundTrip.Text = "왕복";
 			this.btnCourse_RoundTrip.UseVisualStyleBackColor = false;
-			this.btnCourse_RoundTrip.Click += new System.EventHandler(this.btnCourse_RoundTrip_Click);
+			this.btnCourse_RoundTrip.Click += new System.EventHandler(this.btnCourseName_Click);
 			// 
 			// tmrDetailsPanel_Move
 			// 
@@ -236,16 +260,17 @@
 			this.tmrAirportsPanel_Move.Interval = 10;
 			this.tmrAirportsPanel_Move.Tick += new System.EventHandler(this.tmrAirportsPanel_Move_Tick);
 			// 
-			// imageList1
+			// imgArrow
 			// 
-			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageList1.Images.SetKeyName(0, "downarrow.png");
-			this.imageList1.Images.SetKeyName(1, "uparrow.png");
+			this.imgArrow.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgArrow.ImageStream")));
+			this.imgArrow.TransparentColor = System.Drawing.Color.Transparent;
+			this.imgArrow.Images.SetKeyName(0, "downarrow.png");
+			this.imgArrow.Images.SetKeyName(1, "uparrow.png");
 			// 
 			// pnlDetails
 			// 
 			this.pnlDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
+			this.pnlDetails.Controls.Add(this.pnlDetail_Airlines);
 			this.pnlDetails.Controls.Add(this.pnlDetail_SeatClass);
 			this.pnlDetails.Controls.Add(this.pnlDetail_Date);
 			this.pnlDetails.Controls.Add(this.pnlDetail_Arrival);
@@ -257,9 +282,38 @@
 			this.pnlDetails.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlDetails.MaximumSize = new System.Drawing.Size(400, 3000);
 			this.pnlDetails.Name = "pnlDetails";
-			this.pnlDetails.Size = new System.Drawing.Size(0, 448);
+			this.pnlDetails.Size = new System.Drawing.Size(0, 700);
 			this.pnlDetails.TabIndex = 4;
-			this.pnlDetails.Visible = false;
+			// 
+			// pnlDetail_Airlines
+			// 
+			this.pnlDetail_Airlines.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.pnlDetail_Airlines.Controls.Add(this.tpnlAirlines);
+			this.pnlDetail_Airlines.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pnlDetail_Airlines.Location = new System.Drawing.Point(0, 536);
+			this.pnlDetail_Airlines.Margin = new System.Windows.Forms.Padding(0);
+			this.pnlDetail_Airlines.MaximumSize = new System.Drawing.Size(400, 2000);
+			this.pnlDetail_Airlines.MinimumSize = new System.Drawing.Size(400, 0);
+			this.pnlDetail_Airlines.Name = "pnlDetail_Airlines";
+			this.pnlDetail_Airlines.Size = new System.Drawing.Size(400, 50);
+			this.pnlDetail_Airlines.TabIndex = 5;
+			// 
+			// tpnlAirlines
+			// 
+			this.tpnlAirlines.AutoSize = true;
+			this.tpnlAirlines.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tpnlAirlines.BackColor = System.Drawing.Color.Transparent;
+			this.tpnlAirlines.ColumnCount = 1;
+			this.tpnlAirlines.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tpnlAirlines.Font = new System.Drawing.Font("서울남산체 B", 15F);
+			this.tpnlAirlines.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+			this.tpnlAirlines.Location = new System.Drawing.Point(0, 0);
+			this.tpnlAirlines.Margin = new System.Windows.Forms.Padding(0);
+			this.tpnlAirlines.Name = "tpnlAirlines";
+			this.tpnlAirlines.RowCount = 1;
+			this.tpnlAirlines.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tpnlAirlines.Size = new System.Drawing.Size(0, 0);
+			this.tpnlAirlines.TabIndex = 0;
 			// 
 			// pnlDetail_SeatClass
 			// 
@@ -290,7 +344,7 @@
 			this.btnDetail_SeatClass_Business.TabIndex = 1;
 			this.btnDetail_SeatClass_Business.Text = "비즈니스";
 			this.btnDetail_SeatClass_Business.UseVisualStyleBackColor = false;
-			this.btnDetail_SeatClass_Business.Click += new System.EventHandler(this.btnDetail_SeatClass_Business_Click);
+			this.btnDetail_SeatClass_Business.Click += new System.EventHandler(this.btnSeatClassName_Click);
 			// 
 			// btnDetail_SeatClass_Economy
 			// 
@@ -306,13 +360,13 @@
 			this.btnDetail_SeatClass_Economy.TabIndex = 0;
 			this.btnDetail_SeatClass_Economy.Text = "이코노미";
 			this.btnDetail_SeatClass_Economy.UseVisualStyleBackColor = false;
-			this.btnDetail_SeatClass_Economy.Click += new System.EventHandler(this.btnDetail_SeatClass_Economy_Click);
+			this.btnDetail_SeatClass_Economy.Click += new System.EventHandler(this.btnSeatClassName_Click);
 			// 
 			// pnlDetail_Date
 			// 
 			this.pnlDetail_Date.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.pnlDetail_Date.Controls.Add(this.dateTimePicker2);
-			this.pnlDetail_Date.Controls.Add(this.dateTimePicker1);
+			this.pnlDetail_Date.Controls.Add(this.dtpReturnDate);
+			this.pnlDetail_Date.Controls.Add(this.dtpLeaveDate);
 			this.pnlDetail_Date.Controls.Add(this.lblDetail_Date_Return);
 			this.pnlDetail_Date.Controls.Add(this.lblDetail_Date_Leave);
 			this.pnlDetail_Date.Dock = System.Windows.Forms.DockStyle.Top;
@@ -324,23 +378,23 @@
 			this.pnlDetail_Date.Size = new System.Drawing.Size(400, 140);
 			this.pnlDetail_Date.TabIndex = 3;
 			// 
-			// dateTimePicker2
+			// dtpReturnDate
 			// 
-			this.dateTimePicker2.Font = new System.Drawing.Font("서울남산체 B", 17F);
-			this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker2.Location = new System.Drawing.Point(138, 85);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(240, 36);
-			this.dateTimePicker2.TabIndex = 11;
+			this.dtpReturnDate.Font = new System.Drawing.Font("서울남산체 B", 17F);
+			this.dtpReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpReturnDate.Location = new System.Drawing.Point(138, 85);
+			this.dtpReturnDate.Name = "dtpReturnDate";
+			this.dtpReturnDate.Size = new System.Drawing.Size(240, 36);
+			this.dtpReturnDate.TabIndex = 11;
 			// 
-			// dateTimePicker1
+			// dtpLeaveDate
 			// 
-			this.dateTimePicker1.Font = new System.Drawing.Font("서울남산체 B", 17F);
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dateTimePicker1.Location = new System.Drawing.Point(138, 20);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(240, 36);
-			this.dateTimePicker1.TabIndex = 10;
+			this.dtpLeaveDate.Font = new System.Drawing.Font("서울남산체 B", 17F);
+			this.dtpLeaveDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpLeaveDate.Location = new System.Drawing.Point(138, 20);
+			this.dtpLeaveDate.Name = "dtpLeaveDate";
+			this.dtpLeaveDate.Size = new System.Drawing.Size(240, 36);
+			this.dtpLeaveDate.TabIndex = 10;
 			// 
 			// lblDetail_Date_Return
 			// 
@@ -384,15 +438,16 @@
 			this.pnlArrAirports.Font = new System.Drawing.Font("서울남산체 B", 12F);
 			this.pnlArrAirports.Location = new System.Drawing.Point(0, 113);
 			this.pnlArrAirports.Margin = new System.Windows.Forms.Padding(0);
-			this.pnlArrAirports.MaximumSize = new System.Drawing.Size(400, 250);
+			this.pnlArrAirports.MaximumSize = new System.Drawing.Size(400, 300);
 			this.pnlArrAirports.MinimumSize = new System.Drawing.Size(400, 0);
 			this.pnlArrAirports.Name = "pnlArrAirports";
-			this.pnlArrAirports.Size = new System.Drawing.Size(400, 50);
+			this.pnlArrAirports.Size = new System.Drawing.Size(400, 0);
 			this.pnlArrAirports.TabIndex = 8;
 			// 
 			// tpnlArrAirports
 			// 
 			this.tpnlArrAirports.AutoSize = true;
+			this.tpnlArrAirports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.tpnlArrAirports.BackColor = System.Drawing.Color.Transparent;
 			this.tpnlArrAirports.ColumnCount = 1;
 			this.tpnlArrAirports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -402,7 +457,7 @@
 			this.tpnlArrAirports.Name = "tpnlArrAirports";
 			this.tpnlArrAirports.RowCount = 1;
 			this.tpnlArrAirports.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tpnlArrAirports.Size = new System.Drawing.Size(100, 50);
+			this.tpnlArrAirports.Size = new System.Drawing.Size(0, 0);
 			this.tpnlArrAirports.TabIndex = 0;
 			// 
 			// pnlArr_Input
@@ -423,14 +478,13 @@
 			this.btnShowArrAirports.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(110)))));
 			this.btnShowArrAirports.FlatAppearance.BorderSize = 0;
 			this.btnShowArrAirports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnShowArrAirports.Image = global::Project.Properties.Resources.downarrow;
 			this.btnShowArrAirports.Location = new System.Drawing.Point(0, 70);
 			this.btnShowArrAirports.Margin = new System.Windows.Forms.Padding(0);
 			this.btnShowArrAirports.Name = "btnShowArrAirports";
 			this.btnShowArrAirports.Size = new System.Drawing.Size(400, 40);
 			this.btnShowArrAirports.TabIndex = 9;
 			this.btnShowArrAirports.UseVisualStyleBackColor = false;
-			this.btnShowArrAirports.Click += new System.EventHandler(this.btnShowArrAirports_Click);
+			this.btnShowArrAirports.Click += new System.EventHandler(this.btnShowAirports_Click);
 			// 
 			// lblDetail_Arrival_Name
 			// 
@@ -452,7 +506,7 @@
 			this.txtArrAirport_Name.Name = "txtArrAirport_Name";
 			this.txtArrAirport_Name.Size = new System.Drawing.Size(218, 36);
 			this.txtArrAirport_Name.TabIndex = 7;
-			this.txtArrAirport_Name.Text = "인천  ( ICN )";
+			this.txtArrAirport_Name.Text = "제주";
 			this.txtArrAirport_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// pnlDetail_Departure
@@ -463,11 +517,11 @@
 			this.pnlDetail_Departure.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlDetail_Departure.Font = new System.Drawing.Font("서울남산체 B", 13F);
 			this.pnlDetail_Departure.Location = new System.Drawing.Point(0, 0);
-			this.pnlDetail_Departure.Margin = new System.Windows.Forms.Padding(2);
-			this.pnlDetail_Departure.MaximumSize = new System.Drawing.Size(396, 420);
-			this.pnlDetail_Departure.MinimumSize = new System.Drawing.Size(396, 0);
+			this.pnlDetail_Departure.Margin = new System.Windows.Forms.Padding(0);
+			this.pnlDetail_Departure.MaximumSize = new System.Drawing.Size(400, 350);
+			this.pnlDetail_Departure.MinimumSize = new System.Drawing.Size(400, 0);
 			this.pnlDetail_Departure.Name = "pnlDetail_Departure";
-			this.pnlDetail_Departure.Size = new System.Drawing.Size(396, 163);
+			this.pnlDetail_Departure.Size = new System.Drawing.Size(400, 163);
 			this.pnlDetail_Departure.TabIndex = 1;
 			// 
 			// pnlDepAirports
@@ -478,15 +532,16 @@
 			this.pnlDepAirports.Font = new System.Drawing.Font("서울남산체 B", 12F);
 			this.pnlDepAirports.Location = new System.Drawing.Point(0, 113);
 			this.pnlDepAirports.Margin = new System.Windows.Forms.Padding(0);
-			this.pnlDepAirports.MaximumSize = new System.Drawing.Size(400, 250);
+			this.pnlDepAirports.MaximumSize = new System.Drawing.Size(400, 300);
 			this.pnlDepAirports.MinimumSize = new System.Drawing.Size(400, 0);
 			this.pnlDepAirports.Name = "pnlDepAirports";
-			this.pnlDepAirports.Size = new System.Drawing.Size(400, 50);
+			this.pnlDepAirports.Size = new System.Drawing.Size(400, 0);
 			this.pnlDepAirports.TabIndex = 4;
 			// 
 			// tpnlDepAirports
 			// 
 			this.tpnlDepAirports.AutoSize = true;
+			this.tpnlDepAirports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.tpnlDepAirports.BackColor = System.Drawing.Color.Transparent;
 			this.tpnlDepAirports.ColumnCount = 1;
 			this.tpnlDepAirports.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -496,7 +551,7 @@
 			this.tpnlDepAirports.Name = "tpnlDepAirports";
 			this.tpnlDepAirports.RowCount = 1;
 			this.tpnlDepAirports.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tpnlDepAirports.Size = new System.Drawing.Size(100, 50);
+			this.tpnlDepAirports.Size = new System.Drawing.Size(0, 0);
 			this.tpnlDepAirports.TabIndex = 0;
 			// 
 			// pnlDep_Input
@@ -508,7 +563,7 @@
 			this.pnlDep_Input.Location = new System.Drawing.Point(0, 0);
 			this.pnlDep_Input.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlDep_Input.Name = "pnlDep_Input";
-			this.pnlDep_Input.Size = new System.Drawing.Size(396, 113);
+			this.pnlDep_Input.Size = new System.Drawing.Size(400, 113);
 			this.pnlDep_Input.TabIndex = 3;
 			// 
 			// btnShowDepAirports
@@ -518,14 +573,13 @@
 			this.btnShowDepAirports.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(110)))));
 			this.btnShowDepAirports.FlatAppearance.BorderSize = 0;
 			this.btnShowDepAirports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnShowDepAirports.Image = global::Project.Properties.Resources.downarrow;
 			this.btnShowDepAirports.Location = new System.Drawing.Point(0, 73);
 			this.btnShowDepAirports.Margin = new System.Windows.Forms.Padding(0);
 			this.btnShowDepAirports.Name = "btnShowDepAirports";
-			this.btnShowDepAirports.Size = new System.Drawing.Size(396, 40);
+			this.btnShowDepAirports.Size = new System.Drawing.Size(400, 40);
 			this.btnShowDepAirports.TabIndex = 5;
 			this.btnShowDepAirports.UseVisualStyleBackColor = false;
-			this.btnShowDepAirports.Click += new System.EventHandler(this.btnShowDepAirports_Click);
+			this.btnShowDepAirports.Click += new System.EventHandler(this.btnShowAirports_Click);
 			// 
 			// lblDetail_Departure_Name
 			// 
@@ -548,170 +602,224 @@
 			this.txtDepAirport_Name.Name = "txtDepAirport_Name";
 			this.txtDepAirport_Name.Size = new System.Drawing.Size(218, 37);
 			this.txtDepAirport_Name.TabIndex = 2;
-			this.txtDepAirport_Name.Text = "인천  ( ICN )";
+			this.txtDepAirport_Name.Text = "김포";
 			this.txtDepAirport_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// pnlBody
 			// 
 			this.pnlBody.AutoScroll = true;
+			this.pnlBody.AutoSize = true;
 			this.pnlBody.Controls.Add(this.tpnlResults);
+			this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlBody.Location = new System.Drawing.Point(200, 0);
 			this.pnlBody.Name = "pnlBody";
-			this.pnlBody.Size = new System.Drawing.Size(738, 448);
+			this.pnlBody.Size = new System.Drawing.Size(738, 700);
 			this.pnlBody.TabIndex = 5;
 			// 
 			// tpnlResults
 			// 
+			this.tpnlResults.AutoSize = true;
 			this.tpnlResults.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.tpnlResults.ColumnCount = 2;
 			this.tpnlResults.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tpnlResults.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tpnlResults.Controls.Add(this.listView1, 0, 1);
-			this.tpnlResults.Controls.Add(this.listView2, 1, 1);
+			this.tpnlResults.Controls.Add(this.lvwLeaveFlights, 0, 1);
+			this.tpnlResults.Controls.Add(this.lvwReturnFlights, 1, 1);
 			this.tpnlResults.Controls.Add(this.pnlLeaveStatus, 0, 0);
 			this.tpnlResults.Controls.Add(this.pnlReturnStatus, 1, 0);
+			this.tpnlResults.Controls.Add(this.btnLeaveTotal, 0, 2);
+			this.tpnlResults.Controls.Add(this.btnReturnTotal, 1, 2);
 			this.tpnlResults.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tpnlResults.Location = new System.Drawing.Point(0, 0);
 			this.tpnlResults.Name = "tpnlResults";
-			this.tpnlResults.RowCount = 2;
-			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-			this.tpnlResults.Size = new System.Drawing.Size(738, 448);
+			this.tpnlResults.RowCount = 3;
+			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tpnlResults.Size = new System.Drawing.Size(738, 700);
 			this.tpnlResults.TabIndex = 0;
+			this.tpnlResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
 			// 
-			// listView1
+			// lvwLeaveFlights
 			// 
-			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.lvwLeaveFlights.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
+			this.lvwLeaveFlights.BackColor = System.Drawing.SystemColors.Window;
+			this.lvwLeaveFlights.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lvwLeaveFlights.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.l_depTime,
             this.l_arrTime,
             this.l_airline,
             this.l_price});
-			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1.HideSelection = false;
-			this.listView1.Location = new System.Drawing.Point(4, 155);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(361, 494);
-			this.listView1.TabIndex = 0;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
+			this.lvwLeaveFlights.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvwLeaveFlights.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.lvwLeaveFlights.FullRowSelect = true;
+			this.lvwLeaveFlights.HideSelection = false;
+			this.lvwLeaveFlights.Location = new System.Drawing.Point(4, 144);
+			this.lvwLeaveFlights.Name = "lvwLeaveFlights";
+			this.lvwLeaveFlights.Size = new System.Drawing.Size(361, 481);
+			this.lvwLeaveFlights.TabIndex = 0;
+			this.lvwLeaveFlights.UseCompatibleStateImageBehavior = false;
+			this.lvwLeaveFlights.View = System.Windows.Forms.View.Details;
+			this.lvwLeaveFlights.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
 			// 
 			// l_depTime
 			// 
 			this.l_depTime.Text = "출발시간";
-			this.l_depTime.Width = 95;
+			this.l_depTime.Width = 100;
 			// 
 			// l_arrTime
 			// 
 			this.l_arrTime.Text = "도착시간";
-			this.l_arrTime.Width = 88;
+			this.l_arrTime.Width = 100;
 			// 
 			// l_airline
 			// 
 			this.l_airline.Text = "항공사";
-			this.l_airline.Width = 82;
+			this.l_airline.Width = 100;
 			// 
 			// l_price
 			// 
-			this.l_price.Text = "요금";
-			this.l_price.Width = 93;
+			this.l_price.Text = "요금(이코노미석)";
+			this.l_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.l_price.Width = 120;
 			// 
-			// listView2
+			// lvwReturnFlights
 			// 
-			this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.lvwReturnFlights.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.lvwReturnFlights.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.r_depTime,
             this.r_arrTime,
             this.r_airline,
             this.r_price});
-			this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView2.HideSelection = false;
-			this.listView2.Location = new System.Drawing.Point(372, 155);
-			this.listView2.Name = "listView2";
-			this.listView2.Size = new System.Drawing.Size(362, 494);
-			this.listView2.TabIndex = 1;
-			this.listView2.UseCompatibleStateImageBehavior = false;
-			this.listView2.View = System.Windows.Forms.View.Details;
+			this.lvwReturnFlights.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvwReturnFlights.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lvwReturnFlights.FullRowSelect = true;
+			this.lvwReturnFlights.HideSelection = false;
+			this.lvwReturnFlights.Location = new System.Drawing.Point(372, 144);
+			this.lvwReturnFlights.Name = "lvwReturnFlights";
+			this.lvwReturnFlights.Size = new System.Drawing.Size(362, 481);
+			this.lvwReturnFlights.TabIndex = 1;
+			this.lvwReturnFlights.UseCompatibleStateImageBehavior = false;
+			this.lvwReturnFlights.View = System.Windows.Forms.View.Details;
+			this.lvwReturnFlights.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
 			// 
 			// r_depTime
 			// 
 			this.r_depTime.Text = "출발시간";
-			this.r_depTime.Width = 93;
+			this.r_depTime.Width = 100;
 			// 
 			// r_arrTime
 			// 
 			this.r_arrTime.Text = "도착시간";
-			this.r_arrTime.Width = 90;
+			this.r_arrTime.Width = 100;
 			// 
 			// r_airline
 			// 
 			this.r_airline.Text = "항공사";
-			this.r_airline.Width = 82;
+			this.r_airline.Width = 100;
 			// 
 			// r_price
 			// 
-			this.r_price.Text = "요금";
-			this.r_price.Width = 90;
+			this.r_price.Text = "요금(이코노미석)";
+			this.r_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.r_price.Width = 120;
 			// 
 			// pnlLeaveStatus
 			// 
-			this.pnlLeaveStatus.Controls.Add(this.label2);
-			this.pnlLeaveStatus.Controls.Add(this.label1);
+			this.pnlLeaveStatus.Controls.Add(this.btnLeaveInfo);
 			this.pnlLeaveStatus.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlLeaveStatus.Location = new System.Drawing.Point(4, 4);
 			this.pnlLeaveStatus.Name = "pnlLeaveStatus";
-			this.pnlLeaveStatus.Size = new System.Drawing.Size(361, 144);
+			this.pnlLeaveStatus.Size = new System.Drawing.Size(361, 133);
 			this.pnlLeaveStatus.TabIndex = 2;
 			// 
-			// label2
+			// btnLeaveInfo
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("서울남산체 B", 15F);
-			this.label2.Location = new System.Drawing.Point(70, 22);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(220, 25);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "2021 년  07 월  23일";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("서울남산체 B", 18F);
-			this.label1.Location = new System.Drawing.Point(65, 90);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(227, 30);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "김포    →    부산";
+			this.btnLeaveInfo.AutoSize = true;
+			this.btnLeaveInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnLeaveInfo.FlatAppearance.BorderSize = 0;
+			this.btnLeaveInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnLeaveInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+			this.btnLeaveInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnLeaveInfo.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnLeaveInfo.Location = new System.Drawing.Point(0, 0);
+			this.btnLeaveInfo.Name = "btnLeaveInfo";
+			this.btnLeaveInfo.Size = new System.Drawing.Size(361, 133);
+			this.btnLeaveInfo.TabIndex = 0;
+			this.btnLeaveInfo.UseVisualStyleBackColor = true;
+			this.btnLeaveInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
 			// 
 			// pnlReturnStatus
 			// 
-			this.pnlReturnStatus.Controls.Add(this.label4);
-			this.pnlReturnStatus.Controls.Add(this.label3);
+			this.pnlReturnStatus.Controls.Add(this.btnReturnInfo);
 			this.pnlReturnStatus.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlReturnStatus.Location = new System.Drawing.Point(372, 4);
 			this.pnlReturnStatus.Name = "pnlReturnStatus";
-			this.pnlReturnStatus.Size = new System.Drawing.Size(362, 144);
+			this.pnlReturnStatus.Size = new System.Drawing.Size(362, 133);
 			this.pnlReturnStatus.TabIndex = 3;
 			// 
-			// label4
+			// btnReturnInfo
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("서울남산체 B", 15F);
-			this.label4.Location = new System.Drawing.Point(73, 22);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(220, 25);
-			this.label4.TabIndex = 2;
-			this.label4.Text = "2021 년  07 월  23일";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.btnReturnInfo.AutoSize = true;
+			this.btnReturnInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnReturnInfo.FlatAppearance.BorderSize = 0;
+			this.btnReturnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnReturnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+			this.btnReturnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnReturnInfo.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnReturnInfo.Location = new System.Drawing.Point(0, 0);
+			this.btnReturnInfo.Name = "btnReturnInfo";
+			this.btnReturnInfo.Size = new System.Drawing.Size(362, 133);
+			this.btnReturnInfo.TabIndex = 0;
+			this.btnReturnInfo.UseVisualStyleBackColor = true;
+			this.btnReturnInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
 			// 
-			// label3
+			// btnLeaveTotal
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("서울남산체 B", 18F);
-			this.label3.Location = new System.Drawing.Point(68, 90);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(227, 30);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "김포    →    부산";
+			this.btnLeaveTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnLeaveTotal.FlatAppearance.BorderSize = 0;
+			this.btnLeaveTotal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnLeaveTotal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+			this.btnLeaveTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnLeaveTotal.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnLeaveTotal.Location = new System.Drawing.Point(4, 632);
+			this.btnLeaveTotal.Name = "btnLeaveTotal";
+			this.btnLeaveTotal.Size = new System.Drawing.Size(361, 64);
+			this.btnLeaveTotal.TabIndex = 4;
+			this.btnLeaveTotal.Text = "총  0  개의  결과";
+			this.btnLeaveTotal.UseVisualStyleBackColor = true;
+			this.btnLeaveTotal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
+			// 
+			// btnReturnTotal
+			// 
+			this.btnReturnTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnReturnTotal.FlatAppearance.BorderSize = 0;
+			this.btnReturnTotal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.btnReturnTotal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+			this.btnReturnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnReturnTotal.Font = new System.Drawing.Font("서울남산체 B", 13F);
+			this.btnReturnTotal.Location = new System.Drawing.Point(372, 632);
+			this.btnReturnTotal.Name = "btnReturnTotal";
+			this.btnReturnTotal.Size = new System.Drawing.Size(362, 64);
+			this.btnReturnTotal.TabIndex = 5;
+			this.btnReturnTotal.Text = "총  0  개의  결과";
+			this.btnReturnTotal.UseVisualStyleBackColor = true;
+			// 
+			// imgAirlineLogo
+			// 
+			this.imgAirlineLogo.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgAirlineLogo.ImageStream")));
+			this.imgAirlineLogo.TransparentColor = System.Drawing.Color.Transparent;
+			this.imgAirlineLogo.Images.SetKeyName(0, "대한항공.png");
+			this.imgAirlineLogo.Images.SetKeyName(1, "아시아나항공.png");
+			this.imgAirlineLogo.Images.SetKeyName(2, "에어부산.png");
+			this.imgAirlineLogo.Images.SetKeyName(3, "에어서울.png");
+			this.imgAirlineLogo.Images.SetKeyName(4, "이스타항공.png");
+			this.imgAirlineLogo.Images.SetKeyName(5, "제주항공.png");
+			this.imgAirlineLogo.Images.SetKeyName(6, "진에어.png");
+			this.imgAirlineLogo.Images.SetKeyName(7, "티웨이항공.png");
+			this.imgAirlineLogo.Images.SetKeyName(8, "플라이강원로고.png");
+			this.imgAirlineLogo.Images.SetKeyName(9, "하이에어로고.png");
 			// 
 			// FormPlane
 			// 
@@ -719,16 +827,17 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(938, 448);
+			this.ClientSize = new System.Drawing.Size(938, 700);
 			this.Controls.Add(this.pnlBody);
 			this.Controls.Add(this.pnlDetails);
 			this.Controls.Add(this.pnlOptions);
 			this.Name = "FormPlane";
 			this.Text = "항공편(국내선)";
-			this.Load += new System.EventHandler(this.FormPlane_Load);
 			this.pnlOptions.ResumeLayout(false);
 			this.pnlCourse.ResumeLayout(false);
 			this.pnlDetails.ResumeLayout(false);
+			this.pnlDetail_Airlines.ResumeLayout(false);
+			this.pnlDetail_Airlines.PerformLayout();
 			this.pnlDetail_SeatClass.ResumeLayout(false);
 			this.pnlDetail_Date.ResumeLayout(false);
 			this.pnlDetail_Date.PerformLayout();
@@ -743,12 +852,14 @@
 			this.pnlDep_Input.ResumeLayout(false);
 			this.pnlDep_Input.PerformLayout();
 			this.pnlBody.ResumeLayout(false);
+			this.pnlBody.PerformLayout();
 			this.tpnlResults.ResumeLayout(false);
 			this.pnlLeaveStatus.ResumeLayout(false);
 			this.pnlLeaveStatus.PerformLayout();
 			this.pnlReturnStatus.ResumeLayout(false);
 			this.pnlReturnStatus.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -764,14 +875,14 @@
 		private System.Windows.Forms.Button btnCourse_RoundTrip;
 		private System.Windows.Forms.Timer tmrDetailsPanel_Move;
 		private System.Windows.Forms.Timer tmrAirportsPanel_Move;
-		private System.Windows.Forms.ImageList imageList1;
+		private System.Windows.Forms.ImageList imgArrow;
 		private System.Windows.Forms.Panel pnlDetails;
 		private System.Windows.Forms.Panel pnlDetail_SeatClass;
 		private System.Windows.Forms.Button btnDetail_SeatClass_Business;
 		private System.Windows.Forms.Button btnDetail_SeatClass_Economy;
 		private System.Windows.Forms.Panel pnlDetail_Date;
-		private System.Windows.Forms.DateTimePicker dateTimePicker2;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dtpReturnDate;
+		private System.Windows.Forms.DateTimePicker dtpLeaveDate;
 		private System.Windows.Forms.Label lblDetail_Date_Return;
 		private System.Windows.Forms.Label lblDetail_Date_Leave;
 		private System.Windows.Forms.Panel pnlDetail_Arrival;
@@ -790,12 +901,10 @@
 		private System.Windows.Forms.TextBox txtDepAirport_Name;
 		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.TableLayoutPanel tpnlResults;
-		private System.Windows.Forms.ListView listView1;
-		private System.Windows.Forms.ListView listView2;
+		private System.Windows.Forms.ListView lvwLeaveFlights;
+		private System.Windows.Forms.ListView lvwReturnFlights;
 		private System.Windows.Forms.Panel pnlLeaveStatus;
 		private System.Windows.Forms.Panel pnlReturnStatus;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ColumnHeader l_depTime;
 		private System.Windows.Forms.ColumnHeader l_arrTime;
 		private System.Windows.Forms.ColumnHeader l_airline;
@@ -804,7 +913,13 @@
 		private System.Windows.Forms.ColumnHeader r_arrTime;
 		private System.Windows.Forms.ColumnHeader r_airline;
 		private System.Windows.Forms.ColumnHeader r_price;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button btnLeaveInfo;
+		private System.Windows.Forms.Button btnReturnInfo;
+		private System.Windows.Forms.Button btnOptions_Airline;
+		private System.Windows.Forms.Panel pnlDetail_Airlines;
+		private System.Windows.Forms.TableLayoutPanel tpnlAirlines;
+		private System.Windows.Forms.Button btnLeaveTotal;
+		private System.Windows.Forms.Button btnReturnTotal;
+		private System.Windows.Forms.ImageList imgAirlineLogo;
 	}
 }
