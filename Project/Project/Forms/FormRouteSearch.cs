@@ -16,16 +16,16 @@ namespace Project.Forms
 		private string btnstart;
 		private string btnend;
 		private string btndeptime;
-		private int swit10;
-		private int swit2;
 		private static string privatekey;
 		public void getServiceKey()
 		{
 			FileStream fs = new FileStream(Environment.CurrentDirectory + "\\ServiceKey.bin", FileMode.Open, FileAccess.Read);
+			StreamReader sr = new StreamReader(fs);
 			BinaryReader br = new BinaryReader(fs);
-			string key = br.ReadString();
+			string key = sr.ReadLine();
 			br.Close();
 			fs.Close();
+			Console.WriteLine("KKK: {0}", key);
 			privatekey = key;
 		}
 		private static List<Train_Stationcode> startstation = new List<Train_Stationcode>();
@@ -49,6 +49,7 @@ namespace Project.Forms
 
 		public FormRouteSearch()
 		{
+			getServiceKey();
 			InitializeComponent();
 			string url = "https://kimchan122.github.io/nvmaptest1/test.html";
 			flpnlDetail.Size = flpnlDetail.MinimumSize;
@@ -251,16 +252,16 @@ namespace Project.Forms
 			Console.WriteLine("TRAIN go");
 			if (switt1 != 1)
 			{
-				//Train_GetStationCode(1, starttrain);
+				Train_GetStationCode(1, starttrain);
 			}
 			if (switt2 != 1)
 			{
-				//Train_GetStationCode(2, endtrain);
+				Train_GetStationCode(2, endtrain);
 			}
 			switt1 = 0;
 			switt2 = 0;
-			Console.WriteLine("SSTATioncount: {0}", sstation.Count);
-			Console.WriteLine("ESTATioncount: {0}", estation.Count);
+			//Console.WriteLine("SSTATioncount: {0}", sstation.Count);
+			//Console.WriteLine("ESTATioncount: {0}", estation.Count);
 
 			for (int i = 0; i < sstation.Count; i++)
 			{
@@ -268,8 +269,8 @@ namespace Project.Forms
 				{
 					if (sstation[i] != "null" && estation[j] != "null")
 					{
-						Console.WriteLine(">>>{0}, {1}", sstation[i], estation[j]);
-						//Train_GetStartToEnd(sstation[i], estation[j], btndeptime, "00");
+						//Console.WriteLine(">>>{0}, {1}", sstation[i], estation[j]);
+						Train_GetStartToEnd(sstation[i], estation[j], btndeptime, "00");
 					}
 				}
 			}
@@ -283,6 +284,7 @@ namespace Project.Forms
 			{
 				foreach (var j in endbusstation)
 				{
+					//Console.WriteLine("{0}, {1}", i.terminalId, j.terminalId);
 					ExpressBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "1"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 				}
 			}
@@ -290,13 +292,13 @@ namespace Project.Forms
 
 
 			Console.WriteLine("INBUS go");
-			//IntercityBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
-			//IntercityBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			IntercityBus_GetTerminalID(1, btnstart); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+			IntercityBus_GetTerminalID(2, btnend); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 			foreach (var i in instartbusstation)
 			{
 				foreach (var j in inendbusstation)
 				{
-					//IntercityBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "IDG"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+					IntercityBus_GetStartToEnd(i.terminalId, j.terminalId, btndeptime, "IDG"); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 				}
 			}
 			Console.WriteLine("INBUS END");
@@ -311,7 +313,7 @@ namespace Project.Forms
 					{
 						foreach (var c in airlines)
 						{
-							//Airport_GetStartToEnd(i, j, btndeptime, c.AirlineId); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
+							Airport_GetStartToEnd(i, j, btndeptime, c.AirlineId); // 절대 지우지 말 것! 트래픽 초과 가능성 있음
 						}
 					}
 				}
@@ -457,10 +459,10 @@ namespace Project.Forms
 			string res = null;
 			if (sw == 1)
 			{
-				Console.WriteLine("!!!");
+				//Console.WriteLine("!!!");
 				foreach (var i in startstation)
 				{
-					Console.WriteLine("SSSSSTATION: {0}, {1}", i.Name, i.Code);
+					//Console.WriteLine("SSSSSTATION: {0}, {1}", i.Name, i.Code);
 					if (i.Name == pan)
 					{
 						res = i.Code;
@@ -469,15 +471,15 @@ namespace Project.Forms
 				}
 				sstation = new List<string> { res, "null", "null" };
 				Console.WriteLine("!");
-				foreach (var i in sstation)
-				{
-					Console.WriteLine("STATION: {0}", i);
-				}
+				//foreach (var i in sstation)
+				//{
+					//Console.WriteLine("STATION: {0}", i);
+				//}
 				switt1 = 1;
 			}
 			else if (sw == 2)
 			{
-				Console.WriteLine("@@@");
+				//Console.WriteLine("@@@");
 				foreach (var i in endstation)
 				{
 					if (i.Name == pan)
@@ -487,7 +489,7 @@ namespace Project.Forms
 					}
 				}
 				estation = new List<string> { res, "null", "null" };
-				Console.WriteLine("@");
+				//Console.WriteLine("@");
 				switt2 = 1;
 			}
 		}
@@ -574,9 +576,9 @@ namespace Project.Forms
 					case "대전": starttrain = "25"; sstation = new List<string> { "NAT011668", "NAT030057", "null" }; startairport = new List<string> { "NAARKTU", "null" }; break;//서대전대전 // x // 대전
 					case "울산": starttrain = "26"; sstation = new List<string> { "NATH13717", "null", "null" }; startairport = new List<string> { "NAARKPU", "null" }; break;//울산 // 울산공항 // 울산
 					case "세종": starttrain = "12"; sstation = new List<string> { "null", "null", "null" }; startairport = new List<string> { "null", "null" }; break;//x // x // 세종
-					default: /*Train_GetStationCode(1, starttrain); SelectStation(1, btnstart);*/ break;
+					default: Train_GetStationCode(1, starttrain); SelectStation(1, btnstart); break;
 				}
-				Console.WriteLine("starttrain: {0}, startairport: {1}, {2}", starttrain, startairport[0], startairport[1]);
+				//Console.WriteLine("starttrain: {0}, startairport: {1}, {2}", starttrain, startairport[0], startairport[1]);
 
 			}
 			else if (currentButton.Name == "btnRSMenu_Destination") // 도착지 탭에서
@@ -593,9 +595,9 @@ namespace Project.Forms
 					case "대전": endtrain = "25"; estation = new List<string> { "NAT011668", "NAT030057", "null" }; endairport = new List<string> { "NAARKTU", "null" }; break;//서대전대전 // x // 대전
 					case "울산": endtrain = "26"; estation = new List<string> { "NATH13717", "null", "null" }; endairport = new List<string> { "NAARKPU", "null" }; break;//울산 // 울산공항 // 울산
 					case "세종": endtrain = "12"; estation = new List<string> { "null", "null", "null" }; endairport = new List<string> { "null", "null" }; break;//x // x // 세종
-					default: /*Train_GetStationCode(2, endtrain); SelectStation(2, btnend);*/ break;
+					default: Train_GetStationCode(2, endtrain); SelectStation(2, btnend); break;
 				}
-				Console.WriteLine("endtrain: {0}, endairport: {1}, {2}", endtrain, endairport[0], endairport[1]);
+				//Console.WriteLine("endtrain: {0}, endairport: {1}, {2}", endtrain, endairport[0], endairport[1]);
 			}
 			//Console.WriteLine("start: {0}     ", btnstart);
 			//Console.WriteLine("  end: {0}     ", btnend);
@@ -956,7 +958,8 @@ namespace Project.Forms
 				StreamReader reader = new StreamReader(response.GetResponseStream());
 				results = reader.ReadToEnd();
 			}
-			string Real_results = string.Empty;
+			//Console.WriteLine(privatekey);
+			//Console.WriteLine(results);
 
 			int sw = 0;
 			string str = string.Empty;
@@ -1014,12 +1017,12 @@ namespace Project.Forms
 								if (sore == 1)
 								{
 									startbusstation.Add(new ExpressBus_Terminalcode(terminalId, terminalNm));
-									Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
+									//Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								else if (sore == 2)
 								{
 									endbusstation.Add(new ExpressBus_Terminalcode(terminalId, terminalNm));
-									Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
+									//Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								terminalId = string.Empty;
 								terminalNm = string.Empty;
@@ -1062,6 +1065,7 @@ namespace Project.Forms
 				StreamReader reader = new StreamReader(response.GetResponseStream());
 				results = reader.ReadToEnd();
 			}
+			//Console.WriteLine(results);
 
 			int sw = 0;
 			string str = string.Empty;
@@ -1430,10 +1434,10 @@ namespace Project.Forms
 				StreamReader reader = new StreamReader(response.GetResponseStream());
 				results = reader.ReadToEnd();
 			}
-			Console.WriteLine("");
-			Console.WriteLine("RESULT: ");
-			Console.WriteLine(results);
-			Console.WriteLine("");
+			//Console.WriteLine("");
+			//Console.WriteLine("RESULT: ");
+			//Console.WriteLine(results);
+			//Console.WriteLine("");
 
 			int sw = 0;
 			string str = string.Empty;
@@ -1491,12 +1495,12 @@ namespace Project.Forms
 								if (sore == 1)
 								{
 									instartbusstation.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
-									Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
+									//Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								else if (sore == 2)
 								{
 									inendbusstation.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
-									Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
+									//Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								terminalId = string.Empty;
 								terminalNm = string.Empty;
@@ -1516,7 +1520,7 @@ namespace Project.Forms
 
 		public static void IntercityBus_GetStartToEnd(string start, string end, string deptime, string inbus) // 인자를 통해 버스의 노선을 검색하는 함수
 		{
-			Console.WriteLine("Start: {0}. End: {1}, DEPT: {2}, INBUS: {3}", start, end, deptime, inbus);
+			//Console.WriteLine("Start: {0}. End: {1}, DEPT: {2}, INBUS: {3}", start, end, deptime, inbus);
 			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getStrtpntAlocFndSuberbsBusInfo"; // URL
 			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
 			url += "&numOfRows=100";
@@ -1540,7 +1544,7 @@ namespace Project.Forms
 				StreamReader reader = new StreamReader(response.GetResponseStream());
 				results = reader.ReadToEnd();
 			}
-			Console.WriteLine(results);
+			//Console.WriteLine(results);
 
 			int sw = 0;
 			string str = string.Empty;
@@ -1632,7 +1636,7 @@ namespace Project.Forms
 						case 9:
 							if (str.Length > 0 && charge.Length > 0)
 							{
-								Console.WriteLine("ADDED");
+								//Console.WriteLine("ADDED");
 								inbuslist.Add(new IntercityBusList(routeid, gradeNm, depPlandTime, arrPlandTime, depPlaceNm, arrplaceNm, charge));
 								routeid = string.Empty;
 								gradeNm = string.Empty;
