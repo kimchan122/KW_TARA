@@ -33,7 +33,7 @@ namespace Project.Forms
         int sortBtnCount = 0;
 
         int numOfRow = 10;          // 한 페이지 결과 수.
-        int pageNo = 6;             // 페이지 번호.
+        int pageNo = 1;             // 페이지 번호.
         String depPlaceId = "";     //출발지ID
         String arrPlaceId = "";     //도착지ID
         String depPlandTime = "";   //출발일
@@ -104,7 +104,6 @@ namespace Project.Forms
             lblDateToGo.Hide();
             goCalendar.Hide();
             comeCalendar.Hide();
-            flpnlResult.Hide();
             flpnlResult.Hide();
         }
 
@@ -336,6 +335,7 @@ namespace Project.Forms
             lblDateToGo.Hide();
             goCalendar.Hide();
             comeCalendar.Hide();
+            flpnlResult.Hide();
         }
 
         //도시코드 정보를 받아오는 함수.
@@ -509,12 +509,12 @@ namespace Project.Forms
             string depTime = "";
             string arrTime = "";
 
-            for (pageNo = 1; pageNo <= 6; pageNo++)
+            for (int num = 1; num <= 6; num++)
             {
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
                 url += "?ServiceKey=" + KEY;
                 url += "&numOfRows=" + numOfRow;
-                url += "&pageNo=" + pageNo;
+                url += "&pageNo=" + num;
                 url += "&depPlaceId=" + depPlaceId;
                 url += "&arrPlaceId=" + arrPlaceId;
                 url += "&depPlandTime=" + depPlandTime;
@@ -529,7 +529,7 @@ namespace Project.Forms
                     url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo";
                     url += "?ServiceKey=" + KEY;
                     url += "&numOfRows=" + numOfRow;
-                    url += "&pageNo=" + pageNo;
+                    url += "&pageNo=" + num;
                     url += "&depPlaceId=" + arrPlaceId;
                     url += "&arrPlaceId=" + depPlaceId;
                     url += "&depPlandTime=" + depPlandTime_Round;
