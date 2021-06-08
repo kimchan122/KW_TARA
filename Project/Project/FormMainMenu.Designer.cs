@@ -25,7 +25,6 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
 			this.pnlMenu = new System.Windows.Forms.Panel();
-			this.btnSettings = new System.Windows.Forms.Button();
 			this.btnRouteSearch = new System.Windows.Forms.Button();
 			this.btnPlane = new System.Windows.Forms.Button();
 			this.btnBus = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
 			// pnlMenu
 			// 
 			this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-			this.pnlMenu.Controls.Add(this.btnSettings);
 			this.pnlMenu.Controls.Add(this.btnRouteSearch);
 			this.pnlMenu.Controls.Add(this.btnPlane);
 			this.pnlMenu.Controls.Add(this.btnBus);
@@ -60,33 +58,13 @@
 			this.pnlMenu.Size = new System.Drawing.Size(270, 582);
 			this.pnlMenu.TabIndex = 0;
 			// 
-			// btnSettings
-			// 
-			this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnSettings.FlatAppearance.BorderSize = 0;
-			this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSettings.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnSettings.ForeColor = System.Drawing.Color.White;
-			this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-			this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnSettings.Location = new System.Drawing.Point(0, 460);
-			this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.btnSettings.Name = "btnSettings";
-			this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-			this.btnSettings.Size = new System.Drawing.Size(270, 90);
-			this.btnSettings.TabIndex = 5;
-			this.btnSettings.Text = "설정         ";
-			this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnSettings.UseVisualStyleBackColor = true;
-			this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-			// 
 			// btnRouteSearch
 			// 
 			this.btnRouteSearch.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnRouteSearch.FlatAppearance.BorderSize = 0;
 			this.btnRouteSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnRouteSearch.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnRouteSearch.ForeColor = System.Drawing.Color.White;
+			this.btnRouteSearch.ForeColor = System.Drawing.Color.Gainsboro;
 			this.btnRouteSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnRouteSearch.Image")));
 			this.btnRouteSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnRouteSearch.Location = new System.Drawing.Point(0, 370);
@@ -106,7 +84,7 @@
 			this.btnPlane.FlatAppearance.BorderSize = 0;
 			this.btnPlane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnPlane.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnPlane.ForeColor = System.Drawing.Color.White;
+			this.btnPlane.ForeColor = System.Drawing.Color.Gainsboro;
 			this.btnPlane.Image = ((System.Drawing.Image)(resources.GetObject("btnPlane.Image")));
 			this.btnPlane.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnPlane.Location = new System.Drawing.Point(0, 280);
@@ -126,7 +104,7 @@
 			this.btnBus.FlatAppearance.BorderSize = 0;
 			this.btnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnBus.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnBus.ForeColor = System.Drawing.Color.White;
+			this.btnBus.ForeColor = System.Drawing.Color.Gainsboro;
 			this.btnBus.Image = ((System.Drawing.Image)(resources.GetObject("btnBus.Image")));
 			this.btnBus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnBus.Location = new System.Drawing.Point(0, 190);
@@ -146,7 +124,7 @@
 			this.btnTrain.FlatAppearance.BorderSize = 0;
 			this.btnTrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnTrain.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnTrain.ForeColor = System.Drawing.Color.White;
+			this.btnTrain.ForeColor = System.Drawing.Color.Gainsboro;
 			this.btnTrain.Image = ((System.Drawing.Image)(resources.GetObject("btnTrain.Image")));
 			this.btnTrain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnTrain.Location = new System.Drawing.Point(0, 100);
@@ -309,7 +287,6 @@
 		#endregion
 
 		private System.Windows.Forms.Panel pnlMenu;
-		private System.Windows.Forms.Button btnSettings;
 		private System.Windows.Forms.Button btnRouteSearch;
 		private System.Windows.Forms.Button btnPlane;
 		private System.Windows.Forms.Button btnBus;
