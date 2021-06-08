@@ -15,12 +15,11 @@ namespace Project {
 		private Button currentButton;
 		private Random random;
 		private int tempIndex;
-		private Form activeForm;
+		private Form activeForm; 
 
 		public FormMainMenu() {
 			InitializeComponent();
 			btnGoHome.Visible = false;  //홈메뉴에서는 btnGoHome버튼 안보이게 
-
 			//타이틀바 지우기
 			//타이틀바를 지우면 드래그로 창을 이동시킬 수 없고, 닫기랑 최대화, 최소화도 안된다. 
 			//이에 대한 해결은 line:128에서 
@@ -45,7 +44,7 @@ namespace Project {
 		private void ActivateButton(object btnSender) {
 			if (btnSender != null) {
 				if (currentButton != (Button)btnSender) {	//선택한 버튼과 다른 버튼이 인자로 들어왔으면
-					DisableButton();	//버튼 비활성화
+					DisableButton();  //버튼 비활성화
 
 					//색상 저장
 					Color color = SelectThemeColor();
@@ -68,7 +67,7 @@ namespace Project {
 			foreach (Control previousBtn in pnlMenu.Controls) {	//pnlMenu(좌측 메뉴)내의 콘트롤객체 탐색
 				if (previousBtn.GetType() == typeof(Button)) {		//버튼이면 스타일 초기화
 					previousBtn.BackColor = Color.FromArgb(51, 51, 76);
-					previousBtn.ForeColor = Color.Gainsboro;
+					previousBtn.ForeColor = Color.White;
 					previousBtn.Font = new System.Drawing.Font("서울남산체 B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 				}
 			}
@@ -101,7 +100,7 @@ namespace Project {
 		}
 
 		private void btnPlane_Click(object sender, EventArgs e) {
-			OpenChildForm(new Forms.FormPlane(), sender);
+			OpenChildForm(new Forms.Plane.FormPlane(), sender);
 		}
 
 		private void btnRouteSearch_Click(object sender, EventArgs e) {
@@ -127,8 +126,7 @@ namespace Project {
 			btnGoHome.Visible = false;
 		}
 
-		//없어진 ControlBox를 대체할 버튼과 MouseDown 드래깅 추가
-
+		/*없어진 ControlBox를 대체할 버튼과 MouseDown 드래깅 추가*/
 		//DllImport Attribute 추가
 		[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
 		private extern static void ReleaseCapture();
@@ -158,9 +156,5 @@ namespace Project {
 			this.WindowState = FormWindowState.Minimized;
 		}
 
-        private void pnlDesktopPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 	}
 }
