@@ -216,17 +216,17 @@
             this.lvResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lvTransport,
             this.lvStartLoc,
-            this.lvStartTime,
             this.lvEndLoc,
+            this.lvStartTime,
             this.lvEndTime,
-            this.lvCost,
-            this.lvSpendTime});
+            this.lvSpendTime,
+            this.lvCost});
             this.lvResult.Font = new System.Drawing.Font("서울남산체 B", 10F);
             this.lvResult.ForeColor = System.Drawing.Color.White;
             this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(174, -1);
             this.lvResult.Name = "lvResult";
-            this.lvResult.Size = new System.Drawing.Size(534, 390);
+            this.lvResult.Size = new System.Drawing.Size(517, 351);
             this.lvResult.TabIndex = 5;
             this.lvResult.UseCompatibleStateImageBehavior = false;
             this.lvResult.View = System.Windows.Forms.View.Details;
@@ -824,7 +824,7 @@
             this.flpnlDetail.Controls.Add(this.button36);
             this.flpnlDetail.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
             this.flpnlDetail.ForeColor = System.Drawing.Color.White;
-            this.flpnlDetail.Location = new System.Drawing.Point(176, 0);
+            this.flpnlDetail.Location = new System.Drawing.Point(174, 0);
             this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
             this.flpnlDetail.MaximumSize = new System.Drawing.Size(350, 2400);
             this.flpnlDetail.MinimumSize = new System.Drawing.Size(0, 2400);
@@ -864,7 +864,6 @@
         private System.Windows.Forms.Panel pnlRSMenu;
         private System.Windows.Forms.Button btnRSMenu_HeadCount;
         private System.Windows.Forms.Button btnRSMenu_Departure;
-        private System.Windows.Forms.Panel pnlWayToggle;
         private System.Windows.Forms.Timer tmrPanelMove;
         private System.Windows.Forms.Button btnRSMenu_RSSearch;
         private System.Windows.Forms.ListView lvResult;
@@ -914,5 +913,6 @@
         private System.Windows.Forms.MonthCalendar cldDatePicker;
         private System.Windows.Forms.ColumnHeader lvEndTime;
         private System.Windows.Forms.ColumnHeader lvStartTime;
+        private System.Windows.Forms.Panel pnlWayToggle;
     }
 }

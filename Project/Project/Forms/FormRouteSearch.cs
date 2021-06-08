@@ -324,7 +324,6 @@ namespace Project.Forms
 
 
 			int cnt = 0;
-			// 리스트뷰에 정보 기입
 			foreach (var i in trainlist) // 기차 목록을 리스트뷰에 추가
 			{
 				cnt++;
@@ -911,6 +910,7 @@ namespace Project.Forms
 						case 9:
 							if (str.Length > 0 && c_number.Length > 0)
 							{
+								if (c_charge == "0") c_charge = ""; 
 								//MessageBox.Show("RES");
 								trainlist.Add(new TrainList(c_charge, c_arrname, c_arrtime, c_depname, c_deptime, c_grade, c_number));
 								c_charge = string.Empty;
@@ -1495,12 +1495,10 @@ namespace Project.Forms
 								if (sore == 1)
 								{
 									instartbusstation.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
-									//Console.WriteLine("출발지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								else if (sore == 2)
 								{
 									inendbusstation.Add(new IntercityBus_Terminalcode(terminalId, terminalNm));
-									//Console.WriteLine("종점지 터미널 추가: {0} {1}", terminalId, terminalNm);
 								}
 								terminalId = string.Empty;
 								terminalNm = string.Empty;
@@ -1520,7 +1518,7 @@ namespace Project.Forms
 
 		public static void IntercityBus_GetStartToEnd(string start, string end, string deptime, string inbus) // 인자를 통해 버스의 노선을 검색하는 함수
 		{
-			//Console.WriteLine("Start: {0}. End: {1}, DEPT: {2}, INBUS: {3}", start, end, deptime, inbus);
+			Console.WriteLine("Start: {0}. End: {1}, DEPT: {2}, INBUS: {3}", start, end, deptime, inbus);
 			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getStrtpntAlocFndSuberbsBusInfo"; // URL
 			url += "?ServiceKey=" + "MYFMxLc4kHFtLGMFgXDn3EnezpmlYYDTjebarh6bvwc4x1B2ePwhjl52FeUi9FAYNOzVmnQn%2BhmZTGTleodsfQ%3D%3D"; // Service Key
 			url += "&numOfRows=100";
@@ -1544,7 +1542,7 @@ namespace Project.Forms
 				StreamReader reader = new StreamReader(response.GetResponseStream());
 				results = reader.ReadToEnd();
 			}
-			//Console.WriteLine(results);
+			Console.WriteLine(results);
 
 			int sw = 0;
 			string str = string.Empty;
@@ -1682,7 +1680,7 @@ namespace Project.Forms
 			lvResult.Sort();
 		}
     }
-	class ListviewItemComparer : IComparer
+    class ListviewItemComparer : IComparer
 	{
 		private int col;
 		public string sort = "asc";
