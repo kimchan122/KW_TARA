@@ -58,12 +58,14 @@
     <Compile Include="Forms\FormBus.Designer.cs">
       <DependentUpon>FormBus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPlane.cs">
+    <Compile Include="Forms\Plane\FlightInfo.cs" />
+    <Compile Include="Forms\Plane\FormPlane.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPlane.Designer.cs">
+    <Compile Include="Forms\Plane\FormPlane.Designer.cs">
       <DependentUpon>FormPlane.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Plane\PlaneAPI.cs" />
     <Compile Include="Forms\FormRouteSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,7 +94,7 @@
     <EmbeddedResource Include="Forms\FormBus.resx">
       <DependentUpon>FormBus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPlane.resx">
+    <EmbeddedResource Include="Forms\Plane\FormPlane.resx">
       <DependentUpon>FormPlane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRouteSearch.resx">
@@ -112,7 +114,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -126,6 +130,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\downarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\uparrow.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
