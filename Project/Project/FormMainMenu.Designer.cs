@@ -25,7 +25,6 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
 			this.pnlMenu = new System.Windows.Forms.Panel();
-			this.btnSettings = new System.Windows.Forms.Button();
 			this.btnRouteSearch = new System.Windows.Forms.Button();
 			this.btnPlane = new System.Windows.Forms.Button();
 			this.btnBus = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
 			// pnlMenu
 			// 
 			this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-			this.pnlMenu.Controls.Add(this.btnSettings);
 			this.pnlMenu.Controls.Add(this.btnRouteSearch);
 			this.pnlMenu.Controls.Add(this.btnPlane);
 			this.pnlMenu.Controls.Add(this.btnBus);
@@ -59,26 +57,6 @@
 			this.pnlMenu.Name = "pnlMenu";
 			this.pnlMenu.Size = new System.Drawing.Size(270, 582);
 			this.pnlMenu.TabIndex = 0;
-			// 
-			// btnSettings
-			// 
-			this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnSettings.FlatAppearance.BorderSize = 0;
-			this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSettings.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnSettings.ForeColor = System.Drawing.Color.White;
-			this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-			this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnSettings.Location = new System.Drawing.Point(0, 460);
-			this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.btnSettings.Name = "btnSettings";
-			this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-			this.btnSettings.Size = new System.Drawing.Size(270, 90);
-			this.btnSettings.TabIndex = 5;
-			this.btnSettings.Text = "설정         ";
-			this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnSettings.UseVisualStyleBackColor = true;
-			this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
 			// 
 			// btnRouteSearch
 			// 
@@ -95,7 +73,7 @@
 			this.btnRouteSearch.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnRouteSearch.Size = new System.Drawing.Size(270, 90);
 			this.btnRouteSearch.TabIndex = 4;
-			this.btnRouteSearch.Text = "통합경로검색   ";
+			this.btnRouteSearch.Text = "통합경로검색  ";
 			this.btnRouteSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnRouteSearch.UseVisualStyleBackColor = true;
 			this.btnRouteSearch.Click += new System.EventHandler(this.btnRouteSearch_Click);
@@ -115,7 +93,7 @@
 			this.btnPlane.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnPlane.Size = new System.Drawing.Size(270, 90);
 			this.btnPlane.TabIndex = 3;
-			this.btnPlane.Text = "항공편(국내선) ";
+			this.btnPlane.Text = "항공편(국내선)  ";
 			this.btnPlane.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnPlane.UseVisualStyleBackColor = true;
 			this.btnPlane.Click += new System.EventHandler(this.btnPlane_Click);
@@ -135,7 +113,7 @@
 			this.btnBus.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnBus.Size = new System.Drawing.Size(270, 90);
 			this.btnBus.TabIndex = 2;
-			this.btnBus.Text = "고속/일반버스  ";
+			this.btnBus.Text = "고속/시외버스  ";
 			this.btnBus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnBus.UseVisualStyleBackColor = true;
 			this.btnBus.Click += new System.EventHandler(this.btnBus_Click);
@@ -155,7 +133,7 @@
 			this.btnTrain.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
 			this.btnTrain.Size = new System.Drawing.Size(270, 90);
 			this.btnTrain.TabIndex = 1;
-			this.btnTrain.Text = "열차/지하철    ";
+			this.btnTrain.Text = "KTX/일반열차  ";
 			this.btnTrain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnTrain.UseVisualStyleBackColor = true;
 			this.btnTrain.Click += new System.EventHandler(this.btnTrain_Click);
@@ -309,7 +287,6 @@
 		#endregion
 
 		private System.Windows.Forms.Panel pnlMenu;
-		private System.Windows.Forms.Button btnSettings;
 		private System.Windows.Forms.Button btnRouteSearch;
 		private System.Windows.Forms.Button btnPlane;
 		private System.Windows.Forms.Button btnBus;
