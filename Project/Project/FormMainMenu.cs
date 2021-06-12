@@ -215,7 +215,7 @@ namespace Project {
 
 
                 PictureBox weatherState = new PictureBox();
-                weatherState.Size = new Size(100, 100);
+                weatherState.Size = new Size(80, 80);
                 weatherState.SizeMode = PictureBoxSizeMode.Zoom;
 
                 Label lblCityName = new Label();
@@ -229,8 +229,11 @@ namespace Project {
                 tblPnl.Controls.Add(lblRain);
                 tblPnl.Controls.Add(lblWind);
 
+				//added
+				lblCityName.Font = new Font("서울남산체 B", 11);
+				//added
 
-                lblCityName.Text = cityCode[key].ToString();
+                lblCityName.Text = ' '+cityCode[key].ToString();
                 this.tlPnlWeather.Controls.Add(tblPnl);
 
 
