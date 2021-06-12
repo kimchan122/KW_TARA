@@ -107,10 +107,6 @@ namespace Project {
 			OpenChildForm(new Forms.FormRouteSearch(), sender);
 		}
 
-		private void btnSettings_Click(object sender, EventArgs e) {
-			OpenChildForm(new Forms.FormSettings(), sender);
-		}
-
 		private void btnGoHome_Click(object sender, EventArgs e) {
 			if (activeForm != null)
 				activeForm.Close();
