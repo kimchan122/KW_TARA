@@ -33,13 +33,13 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
+            this.lblDate = new System.Windows.Forms.Label();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnGoHome = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlDesktopPanel = new System.Windows.Forms.Panel();
-            this.lblDate = new System.Windows.Forms.Label();
             this.tlPnlWeather = new System.Windows.Forms.TableLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pnlMenu.SuspendLayout();
@@ -183,6 +183,19 @@
             this.pnlTitleBar.TabIndex = 1;
             this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitleBar_MouseDown);
             // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(830, 56);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 61);
+            this.lblDate.TabIndex = 5;
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnMaximize
             // 
             this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -257,7 +270,7 @@
             this.lblTitle.Location = new System.Drawing.Point(171, 56);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(611, 61);
+            this.lblTitle.Size = new System.Drawing.Size(644, 61);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "한눈에 보는 교통수단, TARA!";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -271,19 +284,6 @@
             this.pnlDesktopPanel.Name = "pnlDesktopPanel";
             this.pnlDesktopPanel.Size = new System.Drawing.Size(1308, 771);
             this.pnlDesktopPanel.TabIndex = 2;
-            // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(830, 56);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(0, 61);
-            this.lblDate.TabIndex = 5;
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tlPnlWeather
             // 
