@@ -96,7 +96,7 @@ namespace Project {
 		}
 
 		private void btnBus_Click(object sender, EventArgs e) {
-			OpenChildForm(new Forms.FormBus(), sender);
+			OpenChildForm(new Forms.FormBus(), sender);	
 		}
 
 		private void btnPlane_Click(object sender, EventArgs e) {
@@ -126,7 +126,8 @@ namespace Project {
 			btnGoHome.Visible = false;
 		}
 
-		/*없어진 ControlBox를 대체할 버튼과 MouseDown 드래깅 추가*/
+		//없어진 ControlBox를 대체할 버튼과 MouseDown 드래깅 추가
+
 		//DllImport Attribute 추가
 		[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
 		private extern static void ReleaseCapture();
@@ -155,6 +156,9 @@ namespace Project {
 		private void btnMinimize_Click(object sender, EventArgs e) {
 			this.WindowState = FormWindowState.Minimized;
 		}
+        private void pnlDesktopPanel_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 	}
 }
