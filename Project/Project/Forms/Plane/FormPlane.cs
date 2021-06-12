@@ -202,7 +202,6 @@ namespace Project.Forms.Plane {
 				pnlDetails를 보임 상태로 변경
 				pnlDetails가 서서히 나타나도록 타이머 시작
 			**/
-			pnlDetail_Date.Size = pnlDetail_Date.MaximumSize;
 			pnlDetails.Visible = true;
 			tmrDetailsPanel_Move.Start();
 		}

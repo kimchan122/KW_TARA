@@ -137,7 +137,7 @@ namespace Project.Forms.Plane {
 		//로컬 파일에서 공공API 서비스키를 받아오는 함수(bin 파일은 업로드하지 않음)
 		private string getServiceKey() {
 			//로컬파일 열기
-			FileStream fs = new FileStream(Environment.CurrentDirectory + "\\ServiceKey.bin", FileMode.Open, FileAccess.Read);
+			FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Plane_ServiceKey.bin", FileMode.Open, FileAccess.Read);
 			BinaryReader br = new BinaryReader(fs);
 
 			//key값을 읽고 저장
