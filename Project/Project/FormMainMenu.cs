@@ -97,7 +97,7 @@ namespace Project {
 		}
 
 		private void btnBus_Click(object sender, EventArgs e) {
-			OpenChildForm(new Forms.FormBus(), sender);
+			OpenChildForm(new Forms.FormBus(), sender);	
 		}
 
 		private void btnPlane_Click(object sender, EventArgs e) {
