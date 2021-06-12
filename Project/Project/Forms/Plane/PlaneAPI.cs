@@ -103,16 +103,21 @@ namespace Project.Forms.Plane {
 
 		//request에 대한 Server의 response data를 반환하는 함수
 		private string getResponse(string request) {
-			WebRequest wrq = WebRequest.Create(request);  //WebRequest 객체 생성
-			wrq.Method = "GET";
+			try {
+				WebRequest wrq = WebRequest.Create(request);  //WebRequest 객체 생성
+				wrq.Method = "GET";
 
-			WebResponse wrs = wrq.GetResponse(); //WebResponse 객체 생성
-			Stream s = wrs.GetResponseStream();
-			StreamReader sr = new StreamReader(s);
-			string response = sr.ReadToEnd();
-			return response;
+				WebResponse wrs = wrq.GetResponse(); //WebResponse 객체 생성
+				Stream s = wrs.GetResponseStream();
+				StreamReader sr = new StreamReader(s);
+				string response = sr.ReadToEnd();
+				return response;
+			} 
+			catch (Exception e) {
+				System.Windows.Forms.MessageBox.Show(e.Message);
+				return null;
+			}
 		}
-
 		//response(Xml문서)를 XML Parser를 사용해 필요한 정보만 XmlNode에 담아 반환하는 함수
 		private XmlNode getXmlNodes(string response) {
 			XmlDocument xd = new XmlDocument(); //API로부터 날아온 XML 형식 데이터

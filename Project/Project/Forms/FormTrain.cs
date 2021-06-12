@@ -129,7 +129,7 @@ namespace Project.Forms
                     currentButton = (Button)btnSender;  //현재 버튼을 currentButton에 저장
                     currentButton.BackColor = ThemeColor.PrimaryColor;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("서울남산체 B", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    currentButton.Font = new System.Drawing.Font("서울남산체 B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                 }
             }
         }
@@ -142,7 +142,7 @@ namespace Project.Forms
                 {   //버튼이면 스타일 초기화
                     previousBtn.BackColor = Color.FromArgb(78, 78, 110);
                     previousBtn.ForeColor = Color.White;
-                    previousBtn.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    previousBtn.Font = new System.Drawing.Font("서울남산체 B", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                 }
             }
         }
