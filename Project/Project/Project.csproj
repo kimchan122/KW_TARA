@@ -149,27 +149,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\img\img1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\img\img2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\img\img3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\img\img4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\img\img5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\img\img6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\img\img7.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="bin\Debug\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
