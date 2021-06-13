@@ -42,6 +42,7 @@
             this.pnlDesktopPanel = new System.Windows.Forms.Panel();
             this.tlPnlWeather = new System.Windows.Forms.TableLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imglist_weather = new System.Windows.Forms.ImageList(this.components);
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             this.pnlTitleBar.SuspendLayout();
@@ -58,9 +59,9 @@
             this.pnlMenu.Controls.Add(this.pnlLogo);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(438, 932);
+            this.pnlMenu.Size = new System.Drawing.Size(236, 466);
             this.pnlMenu.TabIndex = 0;
             // 
             // btnRouteSearch
@@ -72,11 +73,11 @@
             this.btnRouteSearch.ForeColor = System.Drawing.Color.White;
             this.btnRouteSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnRouteSearch.Image")));
             this.btnRouteSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRouteSearch.Location = new System.Drawing.Point(0, 592);
-            this.btnRouteSearch.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnRouteSearch.Location = new System.Drawing.Point(0, 296);
+            this.btnRouteSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRouteSearch.Name = "btnRouteSearch";
-            this.btnRouteSearch.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnRouteSearch.Size = new System.Drawing.Size(438, 144);
+            this.btnRouteSearch.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnRouteSearch.Size = new System.Drawing.Size(236, 72);
             this.btnRouteSearch.TabIndex = 4;
             this.btnRouteSearch.Text = "통합경로검색  ";
             this.btnRouteSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -92,11 +93,11 @@
             this.btnPlane.ForeColor = System.Drawing.Color.White;
             this.btnPlane.Image = ((System.Drawing.Image)(resources.GetObject("btnPlane.Image")));
             this.btnPlane.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlane.Location = new System.Drawing.Point(0, 448);
-            this.btnPlane.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnPlane.Location = new System.Drawing.Point(0, 224);
+            this.btnPlane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlane.Name = "btnPlane";
-            this.btnPlane.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnPlane.Size = new System.Drawing.Size(438, 144);
+            this.btnPlane.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnPlane.Size = new System.Drawing.Size(236, 72);
             this.btnPlane.TabIndex = 3;
             this.btnPlane.Text = "항공편(국내선)  ";
             this.btnPlane.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -112,11 +113,11 @@
             this.btnBus.ForeColor = System.Drawing.Color.White;
             this.btnBus.Image = ((System.Drawing.Image)(resources.GetObject("btnBus.Image")));
             this.btnBus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBus.Location = new System.Drawing.Point(0, 304);
-            this.btnBus.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnBus.Location = new System.Drawing.Point(0, 152);
+            this.btnBus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBus.Name = "btnBus";
-            this.btnBus.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnBus.Size = new System.Drawing.Size(438, 144);
+            this.btnBus.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnBus.Size = new System.Drawing.Size(236, 72);
             this.btnBus.TabIndex = 2;
             this.btnBus.Text = "고속/시외버스  ";
             this.btnBus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,11 +133,11 @@
             this.btnTrain.ForeColor = System.Drawing.Color.White;
             this.btnTrain.Image = ((System.Drawing.Image)(resources.GetObject("btnTrain.Image")));
             this.btnTrain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrain.Location = new System.Drawing.Point(0, 160);
-            this.btnTrain.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnTrain.Location = new System.Drawing.Point(0, 80);
+            this.btnTrain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTrain.Name = "btnTrain";
-            this.btnTrain.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnTrain.Size = new System.Drawing.Size(438, 144);
+            this.btnTrain.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnTrain.Size = new System.Drawing.Size(236, 72);
             this.btnTrain.TabIndex = 1;
             this.btnTrain.Text = "KTX/일반열차  ";
             this.btnTrain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -149,9 +150,9 @@
             this.pnlLogo.Controls.Add(this.lblLogo);
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.pnlLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(438, 160);
+            this.pnlLogo.Size = new System.Drawing.Size(236, 80);
             this.pnlLogo.TabIndex = 0;
             // 
             // lblLogo
@@ -159,10 +160,9 @@
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblLogo.ForeColor = System.Drawing.Color.White;
-            this.lblLogo.Location = new System.Drawing.Point(41, 56);
-            this.lblLogo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblLogo.Location = new System.Drawing.Point(22, 28);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(357, 61);
+            this.lblLogo.Size = new System.Drawing.Size(191, 31);
             this.lblLogo.TabIndex = 0;
             this.lblLogo.Text = "TARA Project";
             // 
@@ -176,10 +176,10 @@
             this.pnlTitleBar.Controls.Add(this.btnGoHome);
             this.pnlTitleBar.Controls.Add(this.lblTitle);
             this.pnlTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitleBar.Location = new System.Drawing.Point(438, 0);
-            this.pnlTitleBar.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.pnlTitleBar.Location = new System.Drawing.Point(236, 0);
+            this.pnlTitleBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(1310, 160);
+            this.pnlTitleBar.Size = new System.Drawing.Size(705, 80);
             this.pnlTitleBar.TabIndex = 1;
             this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitleBar_MouseDown);
             // 
@@ -189,10 +189,9 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(831, 70);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblDate.Location = new System.Drawing.Point(447, 35);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(0, 48);
+            this.lblDate.Size = new System.Drawing.Size(0, 25);
             this.lblDate.TabIndex = 5;
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -203,10 +202,10 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMaximize.Location = new System.Drawing.Point(1195, -8);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnMaximize.Location = new System.Drawing.Point(643, -4);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(58, 64);
+            this.btnMaximize.Size = new System.Drawing.Size(31, 32);
             this.btnMaximize.TabIndex = 4;
             this.btnMaximize.Text = "ㅇ";
             this.btnMaximize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -220,10 +219,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnClose.Location = new System.Drawing.Point(1256, -8);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnClose.Location = new System.Drawing.Point(676, -4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 64);
+            this.btnClose.Size = new System.Drawing.Size(31, 32);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "ㅇ";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -237,10 +236,10 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMinimize.Location = new System.Drawing.Point(1134, -8);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnMinimize.Location = new System.Drawing.Point(611, -4);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(58, 64);
+            this.btnMinimize.Size = new System.Drawing.Size(31, 32);
             this.btnMinimize.TabIndex = 2;
             this.btnMinimize.Text = "ㅇ";
             this.btnMinimize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -254,9 +253,9 @@
             this.btnGoHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoHome.Image = ((System.Drawing.Image)(resources.GetObject("btnGoHome.Image")));
             this.btnGoHome.Location = new System.Drawing.Point(0, 0);
-            this.btnGoHome.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnGoHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGoHome.Name = "btnGoHome";
-            this.btnGoHome.Size = new System.Drawing.Size(163, 160);
+            this.btnGoHome.Size = new System.Drawing.Size(88, 80);
             this.btnGoHome.TabIndex = 1;
             this.btnGoHome.UseVisualStyleBackColor = true;
             this.btnGoHome.Click += new System.EventHandler(this.btnGoHome_Click);
@@ -267,10 +266,9 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(172, 56);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTitle.Location = new System.Drawing.Point(93, 28);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(644, 61);
+            this.lblTitle.Size = new System.Drawing.Size(322, 31);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "한눈에 보는 교통수단, TARA!";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -279,10 +277,10 @@
             // 
             this.pnlDesktopPanel.Controls.Add(this.tlPnlWeather);
             this.pnlDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDesktopPanel.Location = new System.Drawing.Point(438, 160);
-            this.pnlDesktopPanel.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.pnlDesktopPanel.Location = new System.Drawing.Point(236, 80);
+            this.pnlDesktopPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlDesktopPanel.Name = "pnlDesktopPanel";
-            this.pnlDesktopPanel.Size = new System.Drawing.Size(1310, 772);
+            this.pnlDesktopPanel.Size = new System.Drawing.Size(705, 386);
             this.pnlDesktopPanel.TabIndex = 2;
             // 
             // tlPnlWeather
@@ -297,13 +295,13 @@
             this.tlPnlWeather.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPnlWeather.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tlPnlWeather.Location = new System.Drawing.Point(0, 0);
-            this.tlPnlWeather.Margin = new System.Windows.Forms.Padding(4, 0, 0, 4);
+            this.tlPnlWeather.Margin = new System.Windows.Forms.Padding(2, 0, 0, 2);
             this.tlPnlWeather.Name = "tlPnlWeather";
             this.tlPnlWeather.RowCount = 2;
             this.tlPnlWeather.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlPnlWeather.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlPnlWeather.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlPnlWeather.Size = new System.Drawing.Size(1310, 772);
+            this.tlPnlWeather.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tlPnlWeather.Size = new System.Drawing.Size(705, 386);
             this.tlPnlWeather.TabIndex = 2;
             // 
             // imageList1
@@ -312,16 +310,28 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // imglist_weather
+            // 
+            this.imglist_weather.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglist_weather.ImageStream")));
+            this.imglist_weather.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglist_weather.Images.SetKeyName(0, "img1.png");
+            this.imglist_weather.Images.SetKeyName(1, "img2.png");
+            this.imglist_weather.Images.SetKeyName(2, "img3.png");
+            this.imglist_weather.Images.SetKeyName(3, "img4.png");
+            this.imglist_weather.Images.SetKeyName(4, "img5.png");
+            this.imglist_weather.Images.SetKeyName(5, "img6.png");
+            this.imglist_weather.Images.SetKeyName(6, "img7.png");
+            // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1748, 932);
+            this.ClientSize = new System.Drawing.Size(941, 466);
             this.Controls.Add(this.pnlDesktopPanel);
             this.Controls.Add(this.pnlTitleBar);
             this.Controls.Add(this.pnlMenu);
-            this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMainMenu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormMainMenu_Load);
@@ -354,6 +364,7 @@
         private System.Windows.Forms.TableLayoutPanel tlPnlWeather;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imglist_weather;
     }
 }
 

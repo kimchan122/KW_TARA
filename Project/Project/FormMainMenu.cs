@@ -204,18 +204,27 @@ namespace Project {
                 tblPnl.AutoSize = true;
                 Panel pnl = new Panel();
 
-                Bitmap img1 = new Bitmap(Properties.Resources.img1);   //맑음
-                Bitmap img2 = new Bitmap(Properties.Resources.img2);   //구름많음
-                Bitmap img3 = new Bitmap(Properties.Resources.img3);   //흐림
-                Bitmap img4 = new Bitmap(Properties.Resources.img4);   //비
-                Bitmap img5 = new Bitmap(Properties.Resources.img5);   //비/눈
-                Bitmap img6 = new Bitmap(Properties.Resources.img6);   //눈
-                Bitmap img7 = new Bitmap(Properties.Resources.img7);   //소나기
+				//Bitmap img1 = new Bitmap(Properties.Resources.img1);   //맑음
+				//Bitmap img2 = new Bitmap(Properties.Resources.img2);   //구름많음
+				//Bitmap img3 = new Bitmap(Properties.Resources.img3);   //흐림
+				//Bitmap img4 = new Bitmap(Properties.Resources.img4);   //비
+				//Bitmap img5 = new Bitmap(Properties.Resources.img5);   //비/눈
+				//Bitmap img6 = new Bitmap(Properties.Resources.img6);   //눈
+				//Bitmap img7 = new Bitmap(Properties.Resources.img7);   //소나기
+
+				//fixed
+				Bitmap img1 = (Bitmap)imglist_weather.Images[0]; // 맑음
+				Bitmap img2 = (Bitmap)imglist_weather.Images[1]; // 구름 많음
+				Bitmap img3 = (Bitmap)imglist_weather.Images[2]; // 흐림
+				Bitmap img4 = (Bitmap)imglist_weather.Images[3]; // 비
+				Bitmap img5 = (Bitmap)imglist_weather.Images[4]; // 비/눈
+				Bitmap img6 = (Bitmap)imglist_weather.Images[5]; // 눈
+				Bitmap img7 = (Bitmap)imglist_weather.Images[6]; // 소나기
+				//fixed
 
 
 
-
-                PictureBox weatherState = new PictureBox();
+				PictureBox weatherState = new PictureBox();
                 weatherState.Size = new Size(80, 80);
                 weatherState.SizeMode = PictureBoxSizeMode.Zoom;
 
