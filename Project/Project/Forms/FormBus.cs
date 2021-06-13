@@ -227,6 +227,11 @@ namespace Project.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+			string depTime = "";
+			string arrTime = "";
+			string depTime2 = "";
+			string arrTime2 = "";
+
 			// 고속버스 조회버튼
 			// url - listview1
 
@@ -284,8 +289,17 @@ namespace Project.Forms
 			{
 				ListViewItem lvi = new ListViewItem();
 				lvi.Text = xn.ChildNodes[i]["gradeNm"].InnerText;
-				lvi.SubItems.Add(xn.ChildNodes[i]["depPlandTime"].InnerText);
-				lvi.SubItems.Add(xn.ChildNodes[i]["arrPlandTime"].InnerText);
+
+				depTime = xn.ChildNodes[i]["depPlandTime"].InnerText;
+				arrTime = xn.ChildNodes[i]["arrPlandTime"].InnerText;
+
+				depTime = timeSubstring(depTime);
+				arrTime = timeSubstring(arrTime);
+
+				lvi.SubItems.Add(depTime);
+				lvi.SubItems.Add(arrTime);
+
+				
 				lvi.SubItems.Add(xn.ChildNodes[i]["depPlaceNm"].InnerText);
 				lvi.SubItems.Add(xn.ChildNodes[i]["arrPlaceNm"].InnerText);
 				lvi.SubItems.Add(xn.ChildNodes[i]["charge"].InnerText);
@@ -293,6 +307,9 @@ namespace Project.Forms
 				listView1.Items.Add(lvi);
 
 			}
+			for (int i = 0; i < listView1.Columns.Count; i++)
+				listView1.Columns[i].Width = -2;
+
 			if (xn.ChildNodes.Count == 0) {
 				ListViewItem lvi = new ListViewItem();
 				lvi.Text = "None";
@@ -311,8 +328,17 @@ namespace Project.Forms
 			{
 				ListViewItem lvi2 = new ListViewItem();
 				lvi2.Text = xn2.ChildNodes[i]["gradeNm"].InnerText;
-				lvi2.SubItems.Add(xn2.ChildNodes[i]["depPlandTime"].InnerText);
-				lvi2.SubItems.Add(xn2.ChildNodes[i]["arrPlandTime"].InnerText);
+
+				depTime2 = xn2.ChildNodes[i]["depPlandTime"].InnerText;
+				arrTime2 = xn2.ChildNodes[i]["arrPlandTime"].InnerText;
+
+				depTime2 = timeSubstring(depTime2);
+				arrTime2 = timeSubstring(arrTime2);
+
+				lvi2.SubItems.Add(depTime2);
+				lvi2.SubItems.Add(arrTime2);
+
+				
 				lvi2.SubItems.Add(xn2.ChildNodes[i]["depPlaceNm"].InnerText);
 				lvi2.SubItems.Add(xn2.ChildNodes[i]["arrPlaceNm"].InnerText);
 				lvi2.SubItems.Add(xn2.ChildNodes[i]["charge"].InnerText);
@@ -320,6 +346,11 @@ namespace Project.Forms
 				listView2.Items.Add(lvi2);
 
 			}
+
+			for (int i = 0; i < listView2.Columns.Count; i++)
+				listView2.Columns[i].Width = -2;
+
+
 			if (xn2.ChildNodes.Count == 0)
 			{
 				ListViewItem lvi2 = new ListViewItem();
@@ -352,7 +383,14 @@ namespace Project.Forms
 			}
 		}
 
-        private void dep1_SelectedIndexChanged(object sender, EventArgs e)
+		private String timeSubstring(String time)
+		{
+			time = time.Substring(8, 4).Insert(2, " : ");
+
+			return time;
+		}
+
+		private void dep1_SelectedIndexChanged(object sender, EventArgs e)
         {
 			
 			Departure.Text = dep1.SelectedItem.ToString();
@@ -436,7 +474,11 @@ namespace Project.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-			
+			string depTime_2 = "";
+			string arrTime_2 = "";
+			string depTime2_2 = "";
+			string arrTime2_2 = ""; 
+
 			//시외버스 조회버튼
 
 			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getStrtpntAlocFndSuberbsBusInfo"; // URL
@@ -491,8 +533,17 @@ namespace Project.Forms
 			{
 				ListViewItem lvi = new ListViewItem();
 				lvi.Text = xn.ChildNodes[i]["gradeNm"].InnerText;
-				lvi.SubItems.Add(xn.ChildNodes[i]["depPlandTime"].InnerText);
-				lvi.SubItems.Add(xn.ChildNodes[i]["arrPlandTime"].InnerText);
+
+				depTime_2 = xn.ChildNodes[i]["depPlandTime"].InnerText;
+				arrTime_2 = xn.ChildNodes[i]["arrPlandTime"].InnerText;
+
+				depTime_2 = timeSubstring(depTime_2);
+				arrTime_2 = timeSubstring(arrTime_2);
+
+				lvi.SubItems.Add(depTime_2);
+				lvi.SubItems.Add(arrTime_2);
+
+				
 				lvi.SubItems.Add(xn.ChildNodes[i]["depPlaceNm"].InnerText);
 				lvi.SubItems.Add(xn.ChildNodes[i]["arrPlaceNm"].InnerText);
 				lvi.SubItems.Add(xn.ChildNodes[i]["charge"].InnerText);
@@ -500,6 +551,10 @@ namespace Project.Forms
 				listView1.Items.Add(lvi);
 
 			}
+
+			for (int i = 0; i < listView1.Columns.Count; i++)
+				listView1.Columns[i].Width = -2;
+
 			if (xn.ChildNodes.Count == 0)
 			{
 				ListViewItem lvi = new ListViewItem();
@@ -519,8 +574,17 @@ namespace Project.Forms
 			{
 				ListViewItem lvi2 = new ListViewItem();
 				lvi2.Text = xn2.ChildNodes[i]["gradeNm"].InnerText;
-				lvi2.SubItems.Add(xn2.ChildNodes[i]["depPlandTime"].InnerText);
-				lvi2.SubItems.Add(xn2.ChildNodes[i]["arrPlandTime"].InnerText);
+
+				depTime2_2 = xn2.ChildNodes[i]["depPlandTime"].InnerText;
+				arrTime2_2 = xn2.ChildNodes[i]["arrPlandTime"].InnerText;
+
+				depTime2_2 = timeSubstring(depTime2_2);
+				arrTime2_2 = timeSubstring(arrTime2_2);
+
+				lvi2.SubItems.Add(depTime2_2);
+				lvi2.SubItems.Add(arrTime2_2);
+
+				
 				lvi2.SubItems.Add(xn2.ChildNodes[i]["depPlaceNm"].InnerText);
 				lvi2.SubItems.Add(xn2.ChildNodes[i]["arrPlaceNm"].InnerText);
 				lvi2.SubItems.Add(xn2.ChildNodes[i]["charge"].InnerText);
@@ -528,6 +592,10 @@ namespace Project.Forms
 				listView2.Items.Add(lvi2);
 
 			}
+
+			for (int i = 0; i < listView2.Columns.Count; i++)
+				listView2.Columns[i].Width = -2;
+
 			if (xn2.ChildNodes.Count == 0)
 			{
 				ListViewItem lvi2 = new ListViewItem();

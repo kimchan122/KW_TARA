@@ -266,11 +266,13 @@ namespace Project {
 
 
                 //메인화면 상단에 날짜를 표시하기 위한 코드(날짜 텍스트가 비어있을 경우만 실행.)
-                if (lblDate.Text.Equals(""))
+              
+				if (lblDate.Text.Equals(""))
                 {
                     XmlNode date = xd["rss"]["channel"]["pubDate"];
                     lblDate.Text = date.InnerText.Substring(0, date.InnerText.Length - 5);
                 }
+			  
 
 
                 XmlNode node = xd["rss"]["channel"]["item"]["description"]["body"];
