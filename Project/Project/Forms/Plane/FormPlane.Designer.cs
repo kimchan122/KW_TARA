@@ -109,7 +109,7 @@
             this.pnlOptions.Controls.Add(this.btnOptions_Departure);
             this.pnlOptions.Controls.Add(this.pnlCourse);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.pnlOptions.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.pnlOptions.Location = new System.Drawing.Point(0, 0);
             this.pnlOptions.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pnlOptions.Name = "pnlOptions";
@@ -122,7 +122,7 @@
             this.btnOptions_Airline.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOptions_Airline.FlatAppearance.BorderSize = 0;
             this.btnOptions_Airline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptions_Airline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnOptions_Airline.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnOptions_Airline.ForeColor = System.Drawing.Color.White;
             this.btnOptions_Airline.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOptions_Airline.Location = new System.Drawing.Point(0, 560);
@@ -141,7 +141,7 @@
             this.btnOptions_SeatClass.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOptions_SeatClass.FlatAppearance.BorderSize = 0;
             this.btnOptions_SeatClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptions_SeatClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnOptions_SeatClass.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnOptions_SeatClass.ForeColor = System.Drawing.Color.White;
             this.btnOptions_SeatClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOptions_SeatClass.Location = new System.Drawing.Point(0, 448);
@@ -160,7 +160,7 @@
             this.btnOptions_Date.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOptions_Date.FlatAppearance.BorderSize = 0;
             this.btnOptions_Date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptions_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnOptions_Date.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnOptions_Date.ForeColor = System.Drawing.Color.White;
             this.btnOptions_Date.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOptions_Date.Location = new System.Drawing.Point(0, 336);
@@ -179,7 +179,7 @@
             this.btnOptions_Arrival.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOptions_Arrival.FlatAppearance.BorderSize = 0;
             this.btnOptions_Arrival.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptions_Arrival.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnOptions_Arrival.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnOptions_Arrival.ForeColor = System.Drawing.Color.White;
             this.btnOptions_Arrival.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOptions_Arrival.Location = new System.Drawing.Point(0, 224);
@@ -198,7 +198,7 @@
             this.btnOptions_Departure.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOptions_Departure.FlatAppearance.BorderSize = 0;
             this.btnOptions_Departure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptions_Departure.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnOptions_Departure.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnOptions_Departure.ForeColor = System.Drawing.Color.White;
             this.btnOptions_Departure.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOptions_Departure.Location = new System.Drawing.Point(0, 112);
@@ -229,7 +229,7 @@
             this.btnCourse_Single.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCourse_Single.FlatAppearance.BorderSize = 0;
             this.btnCourse_Single.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCourse_Single.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnCourse_Single.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnCourse_Single.ForeColor = System.Drawing.Color.White;
             this.btnCourse_Single.Location = new System.Drawing.Point(163, 0);
             this.btnCourse_Single.Margin = new System.Windows.Forms.Padding(0);
@@ -246,7 +246,7 @@
             this.btnCourse_RoundTrip.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCourse_RoundTrip.FlatAppearance.BorderSize = 0;
             this.btnCourse_RoundTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCourse_RoundTrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnCourse_RoundTrip.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnCourse_RoundTrip.ForeColor = System.Drawing.Color.White;
             this.btnCourse_RoundTrip.Location = new System.Drawing.Point(0, 0);
             this.btnCourse_RoundTrip.Margin = new System.Windows.Forms.Padding(0);
@@ -283,7 +283,7 @@
             this.pnlDetails.Controls.Add(this.pnlDetail_Arrival);
             this.pnlDetails.Controls.Add(this.pnlDetail_Departure);
             this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.pnlDetails.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.pnlDetails.ForeColor = System.Drawing.Color.White;
             this.pnlDetails.Location = new System.Drawing.Point(325, 0);
             this.pnlDetails.Margin = new System.Windows.Forms.Padding(0);
@@ -312,7 +312,7 @@
             this.tpnlAirlines.BackColor = System.Drawing.Color.Transparent;
             this.tpnlAirlines.ColumnCount = 1;
             this.tpnlAirlines.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tpnlAirlines.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.tpnlAirlines.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F);
             this.tpnlAirlines.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tpnlAirlines.Location = new System.Drawing.Point(0, 0);
             this.tpnlAirlines.Margin = new System.Windows.Forms.Padding(0);
@@ -343,7 +343,7 @@
             this.btnDetail_SeatClass_Business.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDetail_SeatClass_Business.FlatAppearance.BorderSize = 0;
             this.btnDetail_SeatClass_Business.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDetail_SeatClass_Business.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnDetail_SeatClass_Business.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnDetail_SeatClass_Business.Location = new System.Drawing.Point(325, 0);
             this.btnDetail_SeatClass_Business.Margin = new System.Windows.Forms.Padding(0);
             this.btnDetail_SeatClass_Business.Name = "btnDetail_SeatClass_Business";
@@ -359,7 +359,7 @@
             this.btnDetail_SeatClass_Economy.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDetail_SeatClass_Economy.FlatAppearance.BorderSize = 0;
             this.btnDetail_SeatClass_Economy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDetail_SeatClass_Economy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnDetail_SeatClass_Economy.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnDetail_SeatClass_Economy.Location = new System.Drawing.Point(0, 0);
             this.btnDetail_SeatClass_Economy.Margin = new System.Windows.Forms.Padding(0);
             this.btnDetail_SeatClass_Economy.Name = "btnDetail_SeatClass_Economy";
@@ -387,7 +387,7 @@
             // 
             // dtpReturnDate
             // 
-            this.dtpReturnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.dtpReturnDate.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 17F);
             this.dtpReturnDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpReturnDate.Location = new System.Drawing.Point(224, 136);
             this.dtpReturnDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -397,7 +397,7 @@
             // 
             // dtpLeaveDate
             // 
-            this.dtpLeaveDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.dtpLeaveDate.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 17F);
             this.dtpLeaveDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpLeaveDate.Location = new System.Drawing.Point(224, 32);
             this.dtpLeaveDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -408,7 +408,7 @@
             // lblDetail_Date_Return
             // 
             this.lblDetail_Date_Return.AutoSize = true;
-            this.lblDetail_Date_Return.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.lblDetail_Date_Return.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.lblDetail_Date_Return.Location = new System.Drawing.Point(34, 144);
             this.lblDetail_Date_Return.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDetail_Date_Return.Name = "lblDetail_Date_Return";
@@ -419,7 +419,7 @@
             // lblDetail_Date_Leave
             // 
             this.lblDetail_Date_Leave.AutoSize = true;
-            this.lblDetail_Date_Leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.lblDetail_Date_Leave.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.lblDetail_Date_Leave.Location = new System.Drawing.Point(34, 40);
             this.lblDetail_Date_Leave.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDetail_Date_Leave.Name = "lblDetail_Date_Leave";
@@ -446,7 +446,7 @@
             this.pnlArrAirports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlArrAirports.Controls.Add(this.tpnlArrAirports);
             this.pnlArrAirports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlArrAirports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.pnlArrAirports.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.pnlArrAirports.Location = new System.Drawing.Point(0, 181);
             this.pnlArrAirports.Margin = new System.Windows.Forms.Padding(0);
             this.pnlArrAirports.MaximumSize = new System.Drawing.Size(650, 480);
@@ -500,7 +500,7 @@
             // lblDetail_Arrival_Name
             // 
             this.lblDetail_Arrival_Name.AutoSize = true;
-            this.lblDetail_Arrival_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.lblDetail_Arrival_Name.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.lblDetail_Arrival_Name.Location = new System.Drawing.Point(34, 38);
             this.lblDetail_Arrival_Name.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDetail_Arrival_Name.Name = "lblDetail_Arrival_Name";
@@ -512,7 +512,7 @@
             // 
             this.txtArrAirport_Name.BackColor = System.Drawing.Color.White;
             this.txtArrAirport_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtArrAirport_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.txtArrAirport_Name.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 17F);
             this.txtArrAirport_Name.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtArrAirport_Name.Location = new System.Drawing.Point(260, 27);
             this.txtArrAirport_Name.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -528,7 +528,7 @@
             this.pnlDetail_Departure.Controls.Add(this.pnlDepAirports);
             this.pnlDetail_Departure.Controls.Add(this.pnlDep_Input);
             this.pnlDetail_Departure.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDetail_Departure.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.pnlDetail_Departure.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.pnlDetail_Departure.Location = new System.Drawing.Point(0, 0);
             this.pnlDetail_Departure.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDetail_Departure.MaximumSize = new System.Drawing.Size(650, 560);
@@ -542,7 +542,7 @@
             this.pnlDepAirports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlDepAirports.Controls.Add(this.tpnlDepAirports);
             this.pnlDepAirports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDepAirports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.pnlDepAirports.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.pnlDepAirports.Location = new System.Drawing.Point(0, 181);
             this.pnlDepAirports.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDepAirports.MaximumSize = new System.Drawing.Size(650, 480);
@@ -597,7 +597,7 @@
             // lblDetail_Departure_Name
             // 
             this.lblDetail_Departure_Name.AutoSize = true;
-            this.lblDetail_Departure_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.lblDetail_Departure_Name.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.lblDetail_Departure_Name.Location = new System.Drawing.Point(32, 32);
             this.lblDetail_Departure_Name.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDetail_Departure_Name.Name = "lblDetail_Departure_Name";
@@ -609,7 +609,7 @@
             // 
             this.txtDepAirport_Name.BackColor = System.Drawing.Color.White;
             this.txtDepAirport_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDepAirport_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.txtDepAirport_Name.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 17F);
             this.txtDepAirport_Name.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtDepAirport_Name.Location = new System.Drawing.Point(258, 22);
             this.txtDepAirport_Name.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -762,7 +762,7 @@
             this.btnLeaveInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLeaveInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLeaveInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaveInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnLeaveInfo.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnLeaveInfo.Location = new System.Drawing.Point(0, 0);
             this.btnLeaveInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnLeaveInfo.Name = "btnLeaveInfo";
@@ -789,7 +789,7 @@
             this.btnReturnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnReturnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnReturnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnReturnInfo.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnReturnInfo.Location = new System.Drawing.Point(0, 0);
             this.btnReturnInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnReturnInfo.Name = "btnReturnInfo";
@@ -805,7 +805,7 @@
             this.btnLeaveTotal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLeaveTotal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLeaveTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaveTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnLeaveTotal.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnLeaveTotal.Location = new System.Drawing.Point(6, 1012);
             this.btnLeaveTotal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnLeaveTotal.Name = "btnLeaveTotal";
@@ -822,7 +822,7 @@
             this.btnReturnTotal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnReturnTotal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnReturnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturnTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnReturnTotal.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnReturnTotal.Location = new System.Drawing.Point(605, 1012);
             this.btnReturnTotal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnReturnTotal.Name = "btnReturnTotal";

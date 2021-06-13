@@ -69,7 +69,7 @@
             this.btnRouteSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRouteSearch.FlatAppearance.BorderSize = 0;
             this.btnRouteSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRouteSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnRouteSearch.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnRouteSearch.ForeColor = System.Drawing.Color.White;
             this.btnRouteSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnRouteSearch.Image")));
             this.btnRouteSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -89,7 +89,7 @@
             this.btnPlane.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPlane.FlatAppearance.BorderSize = 0;
             this.btnPlane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlane.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnPlane.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnPlane.ForeColor = System.Drawing.Color.White;
             this.btnPlane.Image = ((System.Drawing.Image)(resources.GetObject("btnPlane.Image")));
             this.btnPlane.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -109,7 +109,7 @@
             this.btnBus.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBus.FlatAppearance.BorderSize = 0;
             this.btnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnBus.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnBus.ForeColor = System.Drawing.Color.White;
             this.btnBus.Image = ((System.Drawing.Image)(resources.GetObject("btnBus.Image")));
             this.btnBus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -129,7 +129,7 @@
             this.btnTrain.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTrain.FlatAppearance.BorderSize = 0;
             this.btnTrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrain.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnTrain.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnTrain.ForeColor = System.Drawing.Color.White;
             this.btnTrain.Image = ((System.Drawing.Image)(resources.GetObject("btnTrain.Image")));
             this.btnTrain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,7 +158,7 @@
             // lblLogo
             // 
             this.lblLogo.AutoSize = true;
-            this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblLogo.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblLogo.ForeColor = System.Drawing.Color.White;
             this.lblLogo.Location = new System.Drawing.Point(22, 28);
             this.lblLogo.Name = "lblLogo";
@@ -187,7 +187,7 @@
             // 
             this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(447, 35);
             this.lblDate.Name = "lblDate";
@@ -200,7 +200,7 @@
             this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaximize.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMaximize.Location = new System.Drawing.Point(643, -4);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -217,7 +217,7 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnClose.Location = new System.Drawing.Point(676, -4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -234,7 +234,7 @@
             this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.btnMinimize.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMinimize.Location = new System.Drawing.Point(611, -4);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -264,7 +264,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(93, 28);
             this.lblTitle.Name = "lblTitle";
@@ -293,7 +293,7 @@
             this.tlPnlWeather.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlPnlWeather.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlPnlWeather.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlPnlWeather.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tlPnlWeather.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tlPnlWeather.Location = new System.Drawing.Point(0, 0);
             this.tlPnlWeather.Margin = new System.Windows.Forms.Padding(2, 0, 0, 2);
             this.tlPnlWeather.Name = "tlPnlWeather";

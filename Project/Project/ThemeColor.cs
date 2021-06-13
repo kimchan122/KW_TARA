@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Project {
+	public static class ThemeFont {
+		public static PrivateFontCollection PrimaryFont = new PrivateFontCollection();
+		public static PrivateFontCollection SecondaryFont = new PrivateFontCollection();
+	}
 	public static class ThemeColor {
 		
 		public static Color PrimaryColor { get; set; }		//1차 색상

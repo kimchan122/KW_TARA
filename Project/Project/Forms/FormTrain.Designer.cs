@@ -233,7 +233,7 @@
 			this.flpnlDetail.Controls.Add(this.lblDateToCome);
 			this.flpnlDetail.Controls.Add(this.comeCalendar);
 			this.flpnlDetail.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flpnlDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+			this.flpnlDetail.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
 			this.flpnlDetail.ForeColor = System.Drawing.Color.White;
 			this.flpnlDetail.Location = new System.Drawing.Point(200, 0);
 			this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
@@ -395,7 +395,7 @@
 			this.flpnlResult.Controls.Add(this.listResultToCome);
 			this.flpnlResult.Dock = System.Windows.Forms.DockStyle.Left;
 			this.flpnlResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flpnlResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+			this.flpnlResult.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
 			this.flpnlResult.ForeColor = System.Drawing.Color.White;
 			this.flpnlResult.Location = new System.Drawing.Point(200, 0);
 			this.flpnlResult.Margin = new System.Windows.Forms.Padding(0);
