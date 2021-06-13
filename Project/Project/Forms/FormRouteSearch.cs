@@ -330,11 +330,11 @@ namespace Project.Forms
 				string[] str = new string[7];
 				str[0] = "KTX";
 				str[1] = i.DepName + "역";
-				str[2] = i.DepTime.Substring(8, 4).Insert(2, ":");
-				str[3] = i.ArrName + "역";
+				str[2] = i.ArrName + "역";
+				str[3] = i.DepTime.Substring(8, 4).Insert(2, ":");
 				str[4] = i.ArrTime.Substring(8, 4).Insert(2, ":");
-				str[5] = i.Charge;
-				str[6] = Timecount(i.DepTime.Substring(8, 4), i.ArrTime.Substring(8, 4));
+				str[5] = Timecount(i.DepTime.Substring(8, 4), i.ArrTime.Substring(8, 4));
+				str[6] = i.Charge;
 				ListViewItem lvi = new ListViewItem(str);
 				lvResult.Items.Add(lvi);
 				if (cnt > 30) break;
@@ -353,11 +353,11 @@ namespace Project.Forms
 				string[] str = new string[7];
 				str[0] = "고속버스";
 				str[1] = i.DepPlaceNm + "터미널";
-				str[2] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
-				str[3] = i.ArrPlaceNm + "터미널";
+				str[2] = i.ArrPlaceNm + "터미널";
+				str[3] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
 				str[4] = i.ArrPlandTime.Substring(8, 4).Insert(2, ":");
-				str[5] = i.Charge;
-				str[6] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				str[5] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				str[6] = i.Charge;
 				ListViewItem lvi = new ListViewItem(str);
 				lvResult.Items.Add(lvi);
 				if (cnt > 30) break;
@@ -373,11 +373,11 @@ namespace Project.Forms
 				string[] str = new string[7];
 				str[0] = "시외버스";
 				str[1] = i.DepPlaceNm + "터미널";
-				str[2] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
-				str[3] = i.ArrPlaceNm + "터미널";
+				str[2] = i.ArrPlaceNm + "터미널";
+				str[3] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
 				str[4] = i.ArrPlandTime.Substring(8, 4).Insert(2, ":");
-				str[5] = i.Charge;
-				str[6] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				str[5] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				str[6] = i.Charge;
 				ListViewItem lvi = new ListViewItem(str);
 				lvResult.Items.Add(lvi);
 				if (cnt > 30) break;
@@ -395,12 +395,13 @@ namespace Project.Forms
 				string[] str = new string[7];
 				str[0] = "항공기";
 				str[1] = i.DepAirportNm + "공항";
-				str[2] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
-				str[3] = i.ArrAirportNm + "공항";
+				str[2] = i.ArrAirportNm + "공항";
+				str[3] = i.DepPlandTime.Substring(8, 4).Insert(2, ":");
 				str[4] = i.ArrPlandTime.Substring(8, 4).Insert(2, ":");
-				str[5] = i.EconomyCharge;
-				str[6] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				str[5] = Timecount(i.DepPlandTime.Substring(8, 4), i.ArrPlandTime.Substring(8, 4));
+				str[6] = i.EconomyCharge;
 				ListViewItem lvi = new ListViewItem(str);
+
 				lvResult.Items.Add(lvi);
 				if (cnt > 30) break;
 			}
