@@ -23,8 +23,7 @@ namespace Project {
 		private Form activeForm; 
 
 		public FormMainMenu() {
-			ThemeFont.PrimaryFont.AddFontFile("SeoulNamsanB.ttf");
-			ThemeFont.SecondaryFont.AddFontFile("Montserrat-Regular.ttf");
+			
 
 			InitializeComponent();
 			btnGoHome.Visible = false;  //홈메뉴에서는 btnGoHome버튼 안보이게 

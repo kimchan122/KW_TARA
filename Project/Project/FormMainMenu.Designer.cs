@@ -48,6 +48,8 @@
             this.pnlTitleBar.SuspendLayout();
             this.pnlDesktopPanel.SuspendLayout();
             this.SuspendLayout();
+            ThemeFont.PrimaryFont.AddFontFile("SeoulNamsanB.ttf");
+            ThemeFont.SecondaryFont.AddFontFile("Montserrat-Regular.ttf");
             // 
             // pnlMenu
             // 
@@ -200,7 +202,7 @@
             this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaximize.Font = new System.Drawing.Font(ThemeFont.SecondaryFont.Families[0], 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMaximize.Location = new System.Drawing.Point(643, -4);
             this.btnMaximize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -217,7 +219,7 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font(ThemeFont.SecondaryFont.Families[0], 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnClose.Location = new System.Drawing.Point(676, -4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -234,7 +236,7 @@
             this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 15F, System.Drawing.FontStyle.Bold);
+            this.btnMinimize.Font = new System.Drawing.Font(ThemeFont.SecondaryFont.Families[0], 12F, System.Drawing.FontStyle.Bold);
             this.btnMinimize.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnMinimize.Location = new System.Drawing.Point(611, -4);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
