@@ -204,14 +204,15 @@ namespace Project {
                 tblPnl.AutoSize = true;
                 Panel pnl = new Panel();
 
+                Bitmap img1 = new Bitmap(Properties.Resources.img1);   //맑음
+                Bitmap img2 = new Bitmap(Properties.Resources.img2);   //구름많음
+                Bitmap img3 = new Bitmap(Properties.Resources.img3);   //흐림
+                Bitmap img4 = new Bitmap(Properties.Resources.img4);   //비
+                Bitmap img5 = new Bitmap(Properties.Resources.img5);   //비/눈
+                Bitmap img6 = new Bitmap(Properties.Resources.img6);   //눈
+                Bitmap img7 = new Bitmap(Properties.Resources.img7);   //소나기
 
-                Bitmap img1 = new Bitmap("img/img1.png");   //맑음
-                Bitmap img2 = new Bitmap("img/img2.png");   //구름많음
-                Bitmap img3 = new Bitmap("img/img3.png");   //흐림
-                Bitmap img4 = new Bitmap("img/img4.png");   //비
-                Bitmap img5 = new Bitmap("img/img5.png");   //비/눈
-                Bitmap img6 = new Bitmap("img/img6.png");   //눈
-                Bitmap img7 = new Bitmap("img/img7.png");   //소나기
+
 
 
                 PictureBox weatherState = new PictureBox();
