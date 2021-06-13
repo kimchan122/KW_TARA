@@ -1,13 +1,7 @@
-﻿using Project.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Project.Forms.Plane.FlightInfo;
 
@@ -498,7 +492,7 @@ namespace Project.Forms.Plane {
 				currentButton = (Button)btnSender;  //현재 버튼을 currentButton에 저장
 				currentButton.BackColor = ThemeColor.PrimaryColor;
 				currentButton.ForeColor = Color.White;
-				currentButton.Font = new System.Drawing.Font("서울남산체 B", Area.Font.Size, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+				currentButton.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], Area.Font.Size, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 				}
 			}
 		}
@@ -508,7 +502,7 @@ namespace Project.Forms.Plane {
 				if (previousBtn.GetType() == typeof(Button)) {   //버튼이면 스타일 초기화
 					previousBtn.BackColor = Color.Transparent;
 					previousBtn.ForeColor = Color.White;
-					previousBtn.Font = new System.Drawing.Font("서울남산체 B", Area.Font.Size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+					previousBtn.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], Area.Font.Size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 				}
 			}
 		}

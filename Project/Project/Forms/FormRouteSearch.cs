@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
-using System.Net.Http;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -171,7 +170,7 @@ namespace Project.Forms
 					currentButton = (Button)btnSender;
 					currentButton.BackColor = ThemeColor.PrimaryColor;
 					currentButton.ForeColor = Color.White;
-					currentButton.Font = new System.Drawing.Font("서울남산체 B", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+					currentButton.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 					if (sel != null && (currentButton.Text == "  출발지" || currentButton.Text == "  도착지"))
 					{
 						sel = null;
@@ -191,7 +190,7 @@ namespace Project.Forms
 				{
 					previousBtn.BackColor = Color.FromArgb(78, 78, 110);
 					previousBtn.ForeColor = Color.White;
-					previousBtn.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+					previousBtn.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 
 					char sp = ':';
 					string[] s = previousBtn.Text.Split(sp);

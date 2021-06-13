@@ -87,7 +87,7 @@
 			this.btnSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.btnSearch.FlatAppearance.BorderSize = 0;
 			this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSearch.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnSearch.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnSearch.ForeColor = System.Drawing.Color.White;
 			this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
 			this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -106,7 +106,7 @@
 			this.btnDate.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnDate.FlatAppearance.BorderSize = 0;
 			this.btnDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnDate.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnDate.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnDate.ForeColor = System.Drawing.Color.White;
 			this.btnDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnDate.Location = new System.Drawing.Point(0, 280);
@@ -124,7 +124,7 @@
 			this.btnTrainMenu_TrainSort.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnTrainMenu_TrainSort.FlatAppearance.BorderSize = 0;
 			this.btnTrainMenu_TrainSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnTrainMenu_TrainSort.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnTrainMenu_TrainSort.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnTrainMenu_TrainSort.ForeColor = System.Drawing.Color.White;
 			this.btnTrainMenu_TrainSort.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnTrainMenu_TrainSort.Location = new System.Drawing.Point(0, 210);
@@ -142,7 +142,7 @@
 			this.btnTrainMenu_Destination.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnTrainMenu_Destination.FlatAppearance.BorderSize = 0;
 			this.btnTrainMenu_Destination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnTrainMenu_Destination.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnTrainMenu_Destination.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnTrainMenu_Destination.ForeColor = System.Drawing.Color.White;
 			this.btnTrainMenu_Destination.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnTrainMenu_Destination.Location = new System.Drawing.Point(0, 140);
@@ -160,7 +160,7 @@
 			this.btnTrainMenu_Departure.Dock = System.Windows.Forms.DockStyle.Top;
 			this.btnTrainMenu_Departure.FlatAppearance.BorderSize = 0;
 			this.btnTrainMenu_Departure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnTrainMenu_Departure.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnTrainMenu_Departure.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnTrainMenu_Departure.ForeColor = System.Drawing.Color.White;
 			this.btnTrainMenu_Departure.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnTrainMenu_Departure.Location = new System.Drawing.Point(0, 70);
@@ -189,7 +189,7 @@
 			this.btnWayToggle_Single.Dock = System.Windows.Forms.DockStyle.Right;
 			this.btnWayToggle_Single.FlatAppearance.BorderSize = 0;
 			this.btnWayToggle_Single.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnWayToggle_Single.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnWayToggle_Single.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnWayToggle_Single.ForeColor = System.Drawing.Color.White;
 			this.btnWayToggle_Single.Location = new System.Drawing.Point(102, 0);
 			this.btnWayToggle_Single.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
@@ -205,7 +205,7 @@
 			this.btnWayToggle_RoundTrip.Dock = System.Windows.Forms.DockStyle.Left;
 			this.btnWayToggle_RoundTrip.FlatAppearance.BorderSize = 0;
 			this.btnWayToggle_RoundTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.btnWayToggle_RoundTrip.ForeColor = System.Drawing.Color.White;
 			this.btnWayToggle_RoundTrip.Location = new System.Drawing.Point(0, 0);
 			this.btnWayToggle_RoundTrip.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -408,7 +408,7 @@
 			// lblResultToGo
 			// 
 			this.lblResultToGo.AutoSize = true;
-			this.lblResultToGo.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.lblResultToGo.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.lblResultToGo.Location = new System.Drawing.Point(2, 0);
 			this.lblResultToGo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblResultToGo.Name = "lblResultToGo";
@@ -419,7 +419,7 @@
 			// lblResultToCome
 			// 
 			this.lblResultToCome.AutoSize = true;
-			this.lblResultToCome.Font = new System.Drawing.Font("서울남산체 B", 12F);
+			this.lblResultToCome.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
 			this.lblResultToCome.Location = new System.Drawing.Point(2, 374);
 			this.lblResultToCome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblResultToCome.Name = "lblResultToCome";

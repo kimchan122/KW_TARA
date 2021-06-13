@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Http;
 using System.IO;
 using System.Xml;
 using System.Collections;
@@ -122,7 +117,7 @@ namespace Project.Forms
 					currentButton = (Button)btnSender;  //현재 버튼을 currentButton에 저장
 					currentButton.BackColor = ThemeColor.PrimaryColor;
 					currentButton.ForeColor = Color.White;
-					currentButton.Font = new System.Drawing.Font("서울남산체 B", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+					currentButton.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 				}
 			}
 		}
@@ -135,7 +130,7 @@ namespace Project.Forms
 				{   //버튼이면 스타일 초기화
 					previousBtn.BackColor = Color.FromArgb(78, 78, 110);
 					previousBtn.ForeColor = Color.White;
-					previousBtn.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+					previousBtn.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 				}
 			}
 		}
@@ -234,9 +229,8 @@ namespace Project.Forms
 
 			// 고속버스 조회버튼
 			// url - listview1
-
 			string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getStrtpntAlocFndExpbusInfo";
-			url += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url += "&numOfRows=10";
 			url += "&pageNo=1";
 			url += "&depTerminalId=" + temp; // temp -> 선택된터미널_콤보박스
@@ -261,7 +255,7 @@ namespace Project.Forms
 			// url2 - listview2
 
 			string url2 = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getStrtpntAlocFndExpbusInfo";
-			url2 += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url2 += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url2 += "&numOfRows=10";
 			url2 += "&pageNo=1";
 			url2 += "&depTerminalId=" + temp2; // temp -> 선택된터미널_콤보박스
@@ -399,7 +393,7 @@ namespace Project.Forms
 			Dest2.Text = dep1.SelectedItem.ToString();
 
 			string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getExpBusTrminlList"; // URL
-			url += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url += "&numOfRows=10";
 			url += "&pageNo=1";
 			url += "&terminalNm=" + dep1.SelectedItem.ToString();
@@ -429,7 +423,7 @@ namespace Project.Forms
 			Depa2.Text = arr1.SelectedItem.ToString();
 
 			string url = "http://openapi.tago.go.kr/openapi/service/ExpBusInfoService/getExpBusTrminlList"; // URL
-			url += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url += "&numOfRows=10";
 			url += "&pageNo=1";
 			url += "&terminalNm=" + arr1.SelectedItem.ToString();
@@ -482,7 +476,7 @@ namespace Project.Forms
 			//시외버스 조회버튼
 
 			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getStrtpntAlocFndSuberbsBusInfo"; // URL
-			url += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url += "&numOfRows=10";
 			url += "&pageNo=1";
 			url += "&depTerminalId=" + temp_2;
@@ -506,7 +500,7 @@ namespace Project.Forms
 			// url2 - listview2
 
 			string url2 = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getStrtpntAlocFndSuberbsBusInfo"; // URL
-			url2 += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url2 += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url2 += "&numOfRows=10";
 			url2 += "&pageNo=1";
 			url2 += "&depTerminalId=" + temp2_2;
@@ -638,7 +632,7 @@ namespace Project.Forms
 			Dest2.Text = dep1_2.SelectedItem.ToString();
 
 			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getSuberbsBusTrminlList"; // URL
-			url += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url += "&numOfRows=10";
 			url += "&pageNo=1";
 			url += "&terminalNm=" + dep1_2.SelectedItem.ToString();
@@ -661,7 +655,7 @@ namespace Project.Forms
 			
 			///////////
 			string url2 = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getTrminlAcctoSuberbsBusInfo"; // URL
-			url2 += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url2 += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url2 += "&numOfRows=10";
 			url2 += "&pageNo=1";
 			url2 += "&terminalId=" + temp_2;
@@ -703,7 +697,7 @@ namespace Project.Forms
 			Depa2.Text = arr1_2.SelectedItem.ToString();
 
 			string url = "http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getSuberbsBusTrminlList"; // URL
-			url += "?ServiceKey=" + "1VXfcTtiBFcGQqmRkAKkthAFG1yqLnMbGFVyVCUmvggx1r%2BAd9fJ%2BrLmMvw9kVk2D0wzqvNtHICgNCwOETfmkQ%3D%3D"; // Service Key
+			url += "?ServiceKey=" + new Plane.PlaneAPI().getServiceKey(); // Service Key
 			url += "&terminalNm="+ arr1_2.SelectedItem.ToString(); 
 			
 

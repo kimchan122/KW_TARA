@@ -118,7 +118,7 @@
             this.btnBusMenu_SeatClass.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBusMenu_SeatClass.FlatAppearance.BorderSize = 0;
             this.btnBusMenu_SeatClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusMenu_SeatClass.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnBusMenu_SeatClass.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnBusMenu_SeatClass.ForeColor = System.Drawing.Color.White;
             this.btnBusMenu_SeatClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBusMenu_SeatClass.Location = new System.Drawing.Point(0, 280);
@@ -135,7 +135,7 @@
             this.btnBusMenu_Date.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBusMenu_Date.FlatAppearance.BorderSize = 0;
             this.btnBusMenu_Date.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusMenu_Date.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnBusMenu_Date.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnBusMenu_Date.ForeColor = System.Drawing.Color.White;
             this.btnBusMenu_Date.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBusMenu_Date.Location = new System.Drawing.Point(0, 224);
@@ -152,7 +152,7 @@
             this.btnBusMenu_Destination.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBusMenu_Destination.FlatAppearance.BorderSize = 0;
             this.btnBusMenu_Destination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusMenu_Destination.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnBusMenu_Destination.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnBusMenu_Destination.ForeColor = System.Drawing.Color.White;
             this.btnBusMenu_Destination.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBusMenu_Destination.Location = new System.Drawing.Point(0, 168);
@@ -169,7 +169,7 @@
             this.btnBusMenu_Departure.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBusMenu_Departure.FlatAppearance.BorderSize = 0;
             this.btnBusMenu_Departure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusMenu_Departure.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnBusMenu_Departure.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnBusMenu_Departure.ForeColor = System.Drawing.Color.White;
             this.btnBusMenu_Departure.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBusMenu_Departure.Location = new System.Drawing.Point(0, 112);
@@ -197,7 +197,7 @@
             this.btnWayToggle_Single.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnWayToggle_Single.FlatAppearance.BorderSize = 0;
             this.btnWayToggle_Single.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWayToggle_Single.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnWayToggle_Single.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnWayToggle_Single.ForeColor = System.Drawing.Color.White;
             this.btnWayToggle_Single.Location = new System.Drawing.Point(89, 0);
             this.btnWayToggle_Single.Margin = new System.Windows.Forms.Padding(1);
@@ -213,7 +213,7 @@
             this.btnWayToggle_RoundTrip.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnWayToggle_RoundTrip.FlatAppearance.BorderSize = 0;
             this.btnWayToggle_RoundTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnWayToggle_RoundTrip.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnWayToggle_RoundTrip.ForeColor = System.Drawing.Color.White;
             this.btnWayToggle_RoundTrip.Location = new System.Drawing.Point(0, 0);
             this.btnWayToggle_RoundTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -240,7 +240,7 @@
             this.btnWayToggle_CountrySide.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnWayToggle_CountrySide.FlatAppearance.BorderSize = 0;
             this.btnWayToggle_CountrySide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWayToggle_CountrySide.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnWayToggle_CountrySide.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnWayToggle_CountrySide.ForeColor = System.Drawing.Color.White;
             this.btnWayToggle_CountrySide.Location = new System.Drawing.Point(89, 0);
             this.btnWayToggle_CountrySide.Margin = new System.Windows.Forms.Padding(1);
@@ -256,7 +256,7 @@
             this.btnWayToggle_Express.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnWayToggle_Express.FlatAppearance.BorderSize = 0;
             this.btnWayToggle_Express.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWayToggle_Express.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnWayToggle_Express.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnWayToggle_Express.ForeColor = System.Drawing.Color.White;
             this.btnWayToggle_Express.Location = new System.Drawing.Point(0, 0);
             this.btnWayToggle_Express.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -728,7 +728,7 @@
             // Exp
             // 
             this.Exp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
-            this.Exp.Font = new System.Drawing.Font("서울남산체 B", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Exp.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Exp.Location = new System.Drawing.Point(137, 374);
             this.Exp.Name = "Exp";
             this.Exp.Size = new System.Drawing.Size(71, 29);
@@ -759,7 +759,7 @@
             this.flpnlDetail.Controls.Add(this.arr1);
             this.flpnlDetail.Controls.Add(this.dep1);
             this.flpnlDetail.Controls.Add(this.Exp);
-            this.flpnlDetail.Font = new System.Drawing.Font("서울남산체 B", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.flpnlDetail.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.flpnlDetail.ForeColor = System.Drawing.Color.White;
             this.flpnlDetail.Location = new System.Drawing.Point(176, 0);
             this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
@@ -836,7 +836,7 @@
             // Sub
             // 
             this.Sub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
-            this.Sub.Font = new System.Drawing.Font("서울남산체 B", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Sub.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Sub.Location = new System.Drawing.Point(137, 374);
             this.Sub.Name = "Sub";
             this.Sub.Size = new System.Drawing.Size(71, 29);
@@ -1229,7 +1229,7 @@
             // Destination
             // 
             this.Destination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
-            this.Destination.Font = new System.Drawing.Font("서울남산체 B", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Destination.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Destination.ForeColor = System.Drawing.SystemColors.Window;
             this.Destination.Location = new System.Drawing.Point(207, 41);
             this.Destination.Name = "Destination";
@@ -1240,7 +1240,7 @@
             // Departure
             // 
             this.Departure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(110)))));
-            this.Departure.Font = new System.Drawing.Font("서울남산체 B", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Departure.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Departure.ForeColor = System.Drawing.SystemColors.Window;
             this.Departure.Location = new System.Drawing.Point(13, 41);
             this.Departure.Name = "Departure";
@@ -1269,7 +1269,7 @@
             this.columnHeader12,
             this.columnHeader13,
             this.columnHeader14});
-            this.listView1.Font = new System.Drawing.Font("서울남산체 B", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listView1.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView1.ForeColor = System.Drawing.Color.White;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(392, 0);
@@ -1319,7 +1319,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.listView2.Font = new System.Drawing.Font("서울남산체 B", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listView2.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.listView2.ForeColor = System.Drawing.Color.White;
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(862, 0);
@@ -1363,7 +1363,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
-            this.label10.Font = new System.Drawing.Font("서울남산체 B", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(204, 199);
             this.label10.Name = "label10";
@@ -1375,7 +1375,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(150)))));
-            this.label9.Font = new System.Drawing.Font("서울남산체 B", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(199, 30);
             this.label9.Name = "label9";
@@ -1411,7 +1411,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(19, 115);
             this.label3.Name = "label3";
@@ -1422,7 +1422,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(19, 22);
             this.label5.Name = "label5";
@@ -1453,7 +1453,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label7.Location = new System.Drawing.Point(19, 85);
             this.label7.Name = "label7";
@@ -1464,7 +1464,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label8.Location = new System.Drawing.Point(19, 54);
             this.label8.Name = "label8";
@@ -1511,7 +1511,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(16, 112);
             this.label6.Name = "label6";
@@ -1552,7 +1552,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(16, 19);
             this.label4.Name = "label4";
@@ -1563,7 +1563,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(16, 81);
             this.label2.Name = "label2";
@@ -1574,7 +1574,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("서울남산체 B", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(16, 50);
             this.label1.Name = "label1";

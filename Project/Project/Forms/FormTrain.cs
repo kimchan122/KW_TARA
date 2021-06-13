@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using System.Xml;
 using System.Collections;
-using System.Linq;
 
 namespace Project.Forms
 {
@@ -19,9 +14,6 @@ namespace Project.Forms
     {
         private Button currentButton;
         private bool isCollapsed;
-
-
-        string KEY = "2SJfYnZjJ62Nhoe9Vl%2BFAqkdF4T4LbWeUo2TiamCZinFnKJA7LLGJ4PSwtVRwiGwWLIsUUh9xWwsK3oUQIB2Bg%3D%3D";
 
         Dictionary<String, Hashtable> stationOfCity = new Dictionary<string, Hashtable>();
         Dictionary<String, String> cityCode;
@@ -129,7 +121,7 @@ namespace Project.Forms
                     currentButton = (Button)btnSender;  //현재 버튼을 currentButton에 저장
                     currentButton.BackColor = ThemeColor.PrimaryColor;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("서울남산체 B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    currentButton.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                 }
             }
         }
@@ -142,7 +134,7 @@ namespace Project.Forms
                 {   //버튼이면 스타일 초기화
                     previousBtn.BackColor = Color.FromArgb(78, 78, 110);
                     previousBtn.ForeColor = Color.White;
-                    previousBtn.Font = new System.Drawing.Font("서울남산체 B", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+                    previousBtn.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                 }
             }
         }
@@ -275,7 +267,7 @@ namespace Project.Forms
                 createCityBtn();
 
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getCtyAcctoTrainSttnList"; // URL
-                url += "?ServiceKey=" + KEY; // Service Key
+                url += "?ServiceKey=" + new Project.Forms.Plane.PlaneAPI().getServiceKey(); // Service Key
                 url += "&numOfRows=" + numOfRow;
                 url += "&pageNo=" + pageNo;
 
@@ -343,7 +335,7 @@ namespace Project.Forms
         {
             var cityCode = new Dictionary<String, String>();
             string url = " http://openapi.tago.go.kr/openapi/service/SuburbsBusInfoService/getCtyCodeList"; // URL
-            url += "?ServiceKey=" + KEY; // Service Key
+            url += "?ServiceKey=" + new Project.Forms.Plane.PlaneAPI().getServiceKey(); // Service Key
             string response = getXmlString(url);
 
             XmlDocument doc = new XmlDocument();
@@ -424,7 +416,7 @@ namespace Project.Forms
             if (sortBtnCount == 0)
             {
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getVhcleKndList";
-                url += "?ServiceKey=" + KEY; // Service Key
+                url += "?ServiceKey=" + new Project.Forms.Plane.PlaneAPI().getServiceKey(); // Service Key
 
                 string response = getXmlString(url);
 
@@ -512,7 +504,7 @@ namespace Project.Forms
             for (int num = 1; num <= 6; num++)
             {
                 string url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo"; // URL
-                url += "?ServiceKey=" + KEY;
+                url += "?ServiceKey=" + new Project.Forms.Plane.PlaneAPI().getServiceKey();
                 url += "&numOfRows=" + numOfRow;
                 url += "&pageNo=" + num;
                 url += "&depPlaceId=" + depPlaceId;
@@ -527,7 +519,7 @@ namespace Project.Forms
                 if (btnWayToggle_RoundTrip.BackColor == ThemeColor.PrimaryColor)
                 {
                     url = "http://openapi.tago.go.kr/openapi/service/TrainInfoService/getStrtpntAlocFndTrainInfo";
-                    url += "?ServiceKey=" + KEY;
+                    url += "?ServiceKey=" + new Project.Forms.Plane.PlaneAPI().getServiceKey();
                     url += "&numOfRows=" + numOfRow;
                     url += "&pageNo=" + num;
                     url += "&depPlaceId=" + arrPlaceId;

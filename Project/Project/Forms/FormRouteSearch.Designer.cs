@@ -100,7 +100,7 @@
             this.btnRSMenu_RSSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRSMenu_RSSearch.FlatAppearance.BorderSize = 0;
             this.btnRSMenu_RSSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRSMenu_RSSearch.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnRSMenu_RSSearch.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnRSMenu_RSSearch.ForeColor = System.Drawing.Color.White;
             this.btnRSMenu_RSSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRSMenu_RSSearch.Location = new System.Drawing.Point(0, 224);
@@ -118,7 +118,7 @@
             this.btnRSMenu_HeadCount.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRSMenu_HeadCount.FlatAppearance.BorderSize = 0;
             this.btnRSMenu_HeadCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRSMenu_HeadCount.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnRSMenu_HeadCount.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnRSMenu_HeadCount.ForeColor = System.Drawing.Color.White;
             this.btnRSMenu_HeadCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRSMenu_HeadCount.Location = new System.Drawing.Point(0, 168);
@@ -136,7 +136,7 @@
             this.btnRSMenu_Destination.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRSMenu_Destination.FlatAppearance.BorderSize = 0;
             this.btnRSMenu_Destination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRSMenu_Destination.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnRSMenu_Destination.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnRSMenu_Destination.ForeColor = System.Drawing.Color.White;
             this.btnRSMenu_Destination.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRSMenu_Destination.Location = new System.Drawing.Point(0, 112);
@@ -154,7 +154,7 @@
             this.btnRSMenu_Departure.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRSMenu_Departure.FlatAppearance.BorderSize = 0;
             this.btnRSMenu_Departure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRSMenu_Departure.Font = new System.Drawing.Font("서울남산체 B", 13F);
+            this.btnRSMenu_Departure.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F);
             this.btnRSMenu_Departure.ForeColor = System.Drawing.Color.White;
             this.btnRSMenu_Departure.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRSMenu_Departure.Location = new System.Drawing.Point(0, 56);
@@ -221,7 +221,7 @@
             this.lvEndTime,
             this.lvSpendTime,
             this.lvCost});
-            this.lvResult.Font = new System.Drawing.Font("서울남산체 B", 10F);
+            this.lvResult.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 10F);
             this.lvResult.ForeColor = System.Drawing.Color.White;
             this.lvResult.HideSelection = false;
             this.lvResult.Location = new System.Drawing.Point(174, -1);
@@ -246,7 +246,7 @@
             // 
             this.button36.FlatAppearance.BorderSize = 0;
             this.button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button36.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button36.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button36.ForeColor = System.Drawing.Color.White;
             this.button36.Location = new System.Drawing.Point(3, 380);
             this.button36.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -261,7 +261,7 @@
             // 
             this.button35.FlatAppearance.BorderSize = 0;
             this.button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button35.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button35.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button35.ForeColor = System.Drawing.Color.White;
             this.button35.Location = new System.Drawing.Point(279, 326);
             this.button35.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -276,7 +276,7 @@
             // 
             this.button34.FlatAppearance.BorderSize = 0;
             this.button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button34.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button34.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button34.ForeColor = System.Drawing.Color.White;
             this.button34.Location = new System.Drawing.Point(210, 326);
             this.button34.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -291,7 +291,7 @@
             // 
             this.button33.FlatAppearance.BorderSize = 0;
             this.button33.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button33.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button33.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button33.ForeColor = System.Drawing.Color.White;
             this.button33.Location = new System.Drawing.Point(141, 326);
             this.button33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -306,7 +306,7 @@
             // 
             this.button32.FlatAppearance.BorderSize = 0;
             this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button32.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button32.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button32.ForeColor = System.Drawing.Color.White;
             this.button32.Location = new System.Drawing.Point(72, 326);
             this.button32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -321,7 +321,7 @@
             // 
             this.button31.FlatAppearance.BorderSize = 0;
             this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button31.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button31.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button31.ForeColor = System.Drawing.Color.White;
             this.button31.Location = new System.Drawing.Point(3, 326);
             this.button31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -336,7 +336,7 @@
             // 
             this.button30.FlatAppearance.BorderSize = 0;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button30.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button30.ForeColor = System.Drawing.Color.White;
             this.button30.Location = new System.Drawing.Point(279, 272);
             this.button30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -351,7 +351,7 @@
             // 
             this.button29.FlatAppearance.BorderSize = 0;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button29.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button29.ForeColor = System.Drawing.Color.White;
             this.button29.Location = new System.Drawing.Point(210, 272);
             this.button29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -366,7 +366,7 @@
             // 
             this.button28.FlatAppearance.BorderSize = 0;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button28.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button28.ForeColor = System.Drawing.Color.White;
             this.button28.Location = new System.Drawing.Point(141, 272);
             this.button28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -381,7 +381,7 @@
             // 
             this.button27.FlatAppearance.BorderSize = 0;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button27.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button27.ForeColor = System.Drawing.Color.White;
             this.button27.Location = new System.Drawing.Point(72, 272);
             this.button27.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -396,7 +396,7 @@
             // 
             this.button26.FlatAppearance.BorderSize = 0;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button26.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button26.ForeColor = System.Drawing.Color.White;
             this.button26.Location = new System.Drawing.Point(3, 272);
             this.button26.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -411,7 +411,7 @@
             // 
             this.button25.FlatAppearance.BorderSize = 0;
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button25.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button25.ForeColor = System.Drawing.Color.White;
             this.button25.Location = new System.Drawing.Point(279, 218);
             this.button25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -426,7 +426,7 @@
             // 
             this.button24.FlatAppearance.BorderSize = 0;
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button24.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button24.ForeColor = System.Drawing.Color.White;
             this.button24.Location = new System.Drawing.Point(210, 218);
             this.button24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -441,7 +441,7 @@
             // 
             this.button23.FlatAppearance.BorderSize = 0;
             this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button23.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button23.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button23.ForeColor = System.Drawing.Color.White;
             this.button23.Location = new System.Drawing.Point(141, 218);
             this.button23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -456,7 +456,7 @@
             // 
             this.button22.FlatAppearance.BorderSize = 0;
             this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button22.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button22.ForeColor = System.Drawing.Color.White;
             this.button22.Location = new System.Drawing.Point(72, 218);
             this.button22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -471,7 +471,7 @@
             // 
             this.button21.FlatAppearance.BorderSize = 0;
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button21.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button21.ForeColor = System.Drawing.Color.White;
             this.button21.Location = new System.Drawing.Point(3, 218);
             this.button21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -486,7 +486,7 @@
             // 
             this.button20.FlatAppearance.BorderSize = 0;
             this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button20.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button20.ForeColor = System.Drawing.Color.White;
             this.button20.Location = new System.Drawing.Point(279, 164);
             this.button20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -501,7 +501,7 @@
             // 
             this.button19.FlatAppearance.BorderSize = 0;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button19.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button19.ForeColor = System.Drawing.Color.White;
             this.button19.Location = new System.Drawing.Point(210, 164);
             this.button19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -516,7 +516,7 @@
             // 
             this.button18.FlatAppearance.BorderSize = 0;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button18.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button18.ForeColor = System.Drawing.Color.White;
             this.button18.Location = new System.Drawing.Point(141, 164);
             this.button18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -531,7 +531,7 @@
             // 
             this.button17.FlatAppearance.BorderSize = 0;
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button17.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button17.ForeColor = System.Drawing.Color.White;
             this.button17.Location = new System.Drawing.Point(72, 164);
             this.button17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -546,7 +546,7 @@
             // 
             this.button16.FlatAppearance.BorderSize = 0;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button16.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button16.ForeColor = System.Drawing.Color.White;
             this.button16.Location = new System.Drawing.Point(3, 164);
             this.button16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -561,7 +561,7 @@
             // 
             this.button15.FlatAppearance.BorderSize = 0;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button15.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button15.ForeColor = System.Drawing.Color.White;
             this.button15.Location = new System.Drawing.Point(279, 110);
             this.button15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -576,7 +576,7 @@
             // 
             this.button14.FlatAppearance.BorderSize = 0;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button14.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button14.ForeColor = System.Drawing.Color.White;
             this.button14.Location = new System.Drawing.Point(210, 110);
             this.button14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -591,7 +591,7 @@
             // 
             this.button13.FlatAppearance.BorderSize = 0;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button13.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button13.ForeColor = System.Drawing.Color.White;
             this.button13.Location = new System.Drawing.Point(141, 110);
             this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -606,7 +606,7 @@
             // 
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button12.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button12.ForeColor = System.Drawing.Color.White;
             this.button12.Location = new System.Drawing.Point(72, 110);
             this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -621,7 +621,7 @@
             // 
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button11.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button11.ForeColor = System.Drawing.Color.White;
             this.button11.Location = new System.Drawing.Point(3, 110);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -636,7 +636,7 @@
             // 
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button10.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button10.ForeColor = System.Drawing.Color.White;
             this.button10.Location = new System.Drawing.Point(279, 56);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -651,7 +651,7 @@
             // 
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button9.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button9.ForeColor = System.Drawing.Color.White;
             this.button9.Location = new System.Drawing.Point(210, 56);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -666,7 +666,7 @@
             // 
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button8.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Location = new System.Drawing.Point(141, 56);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -681,7 +681,7 @@
             // 
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button7.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.Location = new System.Drawing.Point(72, 56);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -696,7 +696,7 @@
             // 
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button6.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Location = new System.Drawing.Point(3, 56);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -711,7 +711,7 @@
             // 
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button5.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Location = new System.Drawing.Point(279, 2);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -726,7 +726,7 @@
             // 
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button4.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(210, 2);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -741,7 +741,7 @@
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button3.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(141, 2);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -756,7 +756,7 @@
             // 
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button2.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(72, 2);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -771,7 +771,7 @@
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.button1.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(3, 2);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -822,7 +822,7 @@
             this.flpnlDetail.Controls.Add(this.button34);
             this.flpnlDetail.Controls.Add(this.button35);
             this.flpnlDetail.Controls.Add(this.button36);
-            this.flpnlDetail.Font = new System.Drawing.Font("서울남산체 B", 13F, System.Drawing.FontStyle.Bold);
+            this.flpnlDetail.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 13F, System.Drawing.FontStyle.Bold);
             this.flpnlDetail.ForeColor = System.Drawing.Color.White;
             this.flpnlDetail.Location = new System.Drawing.Point(174, 0);
             this.flpnlDetail.Margin = new System.Windows.Forms.Padding(0);
@@ -834,7 +834,7 @@
             // 
             // cldDatePicker
             // 
-            this.cldDatePicker.Font = new System.Drawing.Font("서울남산체 B", 12F);
+            this.cldDatePicker.Font = new System.Drawing.Font(ThemeFont.PrimaryFont.Families[0], 12F);
             this.cldDatePicker.Location = new System.Drawing.Point(240, 83);
             this.cldDatePicker.Name = "cldDatePicker";
             this.cldDatePicker.TabIndex = 6;
