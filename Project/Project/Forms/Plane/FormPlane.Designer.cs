@@ -613,7 +613,7 @@
 			this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlBody.Location = new System.Drawing.Point(200, 0);
 			this.pnlBody.Name = "pnlBody";
-			this.pnlBody.Size = new System.Drawing.Size(738, 700);
+			this.pnlBody.Size = new System.Drawing.Size(840, 700);
 			this.pnlBody.TabIndex = 5;
 			// 
 			// tpnlResults
@@ -637,7 +637,7 @@
 			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
 			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
 			this.tpnlResults.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tpnlResults.Size = new System.Drawing.Size(738, 700);
+			this.tpnlResults.Size = new System.Drawing.Size(840, 700);
 			this.tpnlResults.TabIndex = 0;
 			this.tpnlResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
 			// 
@@ -657,7 +657,7 @@
 			this.lvwLeaveFlights.HideSelection = false;
 			this.lvwLeaveFlights.Location = new System.Drawing.Point(4, 144);
 			this.lvwLeaveFlights.Name = "lvwLeaveFlights";
-			this.lvwLeaveFlights.Size = new System.Drawing.Size(361, 481);
+			this.lvwLeaveFlights.Size = new System.Drawing.Size(412, 481);
 			this.lvwLeaveFlights.TabIndex = 0;
 			this.lvwLeaveFlights.UseCompatibleStateImageBehavior = false;
 			this.lvwLeaveFlights.View = System.Windows.Forms.View.Details;
@@ -696,9 +696,9 @@
 			this.lvwReturnFlights.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lvwReturnFlights.FullRowSelect = true;
 			this.lvwReturnFlights.HideSelection = false;
-			this.lvwReturnFlights.Location = new System.Drawing.Point(372, 144);
+			this.lvwReturnFlights.Location = new System.Drawing.Point(423, 144);
 			this.lvwReturnFlights.Name = "lvwReturnFlights";
-			this.lvwReturnFlights.Size = new System.Drawing.Size(362, 481);
+			this.lvwReturnFlights.Size = new System.Drawing.Size(413, 481);
 			this.lvwReturnFlights.TabIndex = 1;
 			this.lvwReturnFlights.UseCompatibleStateImageBehavior = false;
 			this.lvwReturnFlights.View = System.Windows.Forms.View.Details;
@@ -731,7 +731,7 @@
 			this.pnlLeaveStatus.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlLeaveStatus.Location = new System.Drawing.Point(4, 4);
 			this.pnlLeaveStatus.Name = "pnlLeaveStatus";
-			this.pnlLeaveStatus.Size = new System.Drawing.Size(361, 133);
+			this.pnlLeaveStatus.Size = new System.Drawing.Size(412, 133);
 			this.pnlLeaveStatus.TabIndex = 2;
 			// 
 			// btnLeaveInfo
@@ -745,7 +745,7 @@
 			this.btnLeaveInfo.Font = new System.Drawing.Font("서울남산체 B", 13F);
 			this.btnLeaveInfo.Location = new System.Drawing.Point(0, 0);
 			this.btnLeaveInfo.Name = "btnLeaveInfo";
-			this.btnLeaveInfo.Size = new System.Drawing.Size(361, 133);
+			this.btnLeaveInfo.Size = new System.Drawing.Size(412, 133);
 			this.btnLeaveInfo.TabIndex = 0;
 			this.btnLeaveInfo.UseVisualStyleBackColor = true;
 			this.btnLeaveInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
@@ -754,9 +754,9 @@
 			// 
 			this.pnlReturnStatus.Controls.Add(this.btnReturnInfo);
 			this.pnlReturnStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlReturnStatus.Location = new System.Drawing.Point(372, 4);
+			this.pnlReturnStatus.Location = new System.Drawing.Point(423, 4);
 			this.pnlReturnStatus.Name = "pnlReturnStatus";
-			this.pnlReturnStatus.Size = new System.Drawing.Size(362, 133);
+			this.pnlReturnStatus.Size = new System.Drawing.Size(413, 133);
 			this.pnlReturnStatus.TabIndex = 3;
 			// 
 			// btnReturnInfo
@@ -770,7 +770,7 @@
 			this.btnReturnInfo.Font = new System.Drawing.Font("서울남산체 B", 13F);
 			this.btnReturnInfo.Location = new System.Drawing.Point(0, 0);
 			this.btnReturnInfo.Name = "btnReturnInfo";
-			this.btnReturnInfo.Size = new System.Drawing.Size(362, 133);
+			this.btnReturnInfo.Size = new System.Drawing.Size(413, 133);
 			this.btnReturnInfo.TabIndex = 0;
 			this.btnReturnInfo.UseVisualStyleBackColor = true;
 			this.btnReturnInfo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResultArea_MouseDown);
@@ -785,7 +785,7 @@
 			this.btnLeaveTotal.Font = new System.Drawing.Font("서울남산체 B", 13F);
 			this.btnLeaveTotal.Location = new System.Drawing.Point(4, 632);
 			this.btnLeaveTotal.Name = "btnLeaveTotal";
-			this.btnLeaveTotal.Size = new System.Drawing.Size(361, 64);
+			this.btnLeaveTotal.Size = new System.Drawing.Size(412, 64);
 			this.btnLeaveTotal.TabIndex = 4;
 			this.btnLeaveTotal.Text = "총  0  개의  결과";
 			this.btnLeaveTotal.UseVisualStyleBackColor = true;
@@ -799,9 +799,9 @@
 			this.btnReturnTotal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
 			this.btnReturnTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnReturnTotal.Font = new System.Drawing.Font("서울남산체 B", 13F);
-			this.btnReturnTotal.Location = new System.Drawing.Point(372, 632);
+			this.btnReturnTotal.Location = new System.Drawing.Point(423, 632);
 			this.btnReturnTotal.Name = "btnReturnTotal";
-			this.btnReturnTotal.Size = new System.Drawing.Size(362, 64);
+			this.btnReturnTotal.Size = new System.Drawing.Size(413, 64);
 			this.btnReturnTotal.TabIndex = 5;
 			this.btnReturnTotal.Text = "총  0  개의  결과";
 			this.btnReturnTotal.UseVisualStyleBackColor = true;
@@ -827,7 +827,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(938, 700);
+			this.ClientSize = new System.Drawing.Size(1040, 700);
 			this.Controls.Add(this.pnlBody);
 			this.Controls.Add(this.pnlDetails);
 			this.Controls.Add(this.pnlOptions);
