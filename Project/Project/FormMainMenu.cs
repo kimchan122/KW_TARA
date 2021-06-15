@@ -168,9 +168,9 @@ namespace Project {
 
 
 
-		/* -----[ 외부 라이브러리를 사용하는 Method입니다. ]----- */
+		/* -----[ pnlTitleBar에 드래그 이동 기능을 적용하는 외부 함수입니다. ]----- */
 
-		/* pnlTitleBar에 드래그 이동 기능을 적용하는 외부 함수
+		/* 외부 라이브러리를 사용하는 Method
 			DllImportAttribute 선언 	(DllImportAttribute : 매니지드 코드에서 언매니지드 api를 static하게 사용할 수 있도록 하는 속성)
 				1. ReleaseCapture() : delegate mousedown events to underlying controls.
 					https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-releasecapture
